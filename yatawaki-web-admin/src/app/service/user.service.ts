@@ -7,9 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-
   constructor(private http: HttpClient) { }
-
 
   public getUsers(): Observable<any> {
     const url = '/api/v1/user';
