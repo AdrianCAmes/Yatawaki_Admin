@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AvatarService {
+export class AchievementService {
 
   constructor(private http: HttpClient) { }
 
-  public getAvatars(): Observable<any> {
-    const url = '/api/v1/avatar';
+  public getAchievements(): Observable<any> {
+    const url = '/api/v1/achievement';
     return this.http.get<any>(url);
   }
 }

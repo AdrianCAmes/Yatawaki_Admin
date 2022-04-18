@@ -15,18 +15,44 @@ import { AvatarComponent } from './pages/avatar/avatar.component';
 import { UserComponent } from './pages/user/user.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './service/token.interceptor';
+import { AchievementComponent } from './pages/achievement/achievement.component';
+import { ComposerComponent } from './pages/composer/composer.component';
+import { UnlockableComponent } from './pages/unlockable/unlockable.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AvatarComponent,
     UserComponent,
+    AchievementComponent,
+    ComposerComponent,
+    UnlockableComponent,
+    SidenavbarComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatTableModule
   ],
   providers: [
     {

@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AvatarService {
+export class ComposerService {
 
   constructor(private http: HttpClient) { }
 
-  public getAvatars(): Observable<any> {
-    const url = '/api/v1/avatar';
+  public getComposers(): Observable<any> {
+    const url = '/api/v1/composer';
     return this.http.get<any>(url);
   }
 }

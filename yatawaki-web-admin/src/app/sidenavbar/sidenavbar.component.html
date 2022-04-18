@@ -1,0 +1,52 @@
+<mat-toolbar>
+Yatawaki
+</mat-toolbar>
+    
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <div>  
+      <a routerLink="/user">
+        <button mat-raised-button>
+            User
+        </button>
+      </a>
+    </div>
+    <div class="top">
+      <a routerLink="/avatar">
+        <button mat-raised-button>
+            Avatar
+        </button>
+      </a>
+    </div>
+    <div class="top">
+      <a routerLink="/achievement">
+        <button mat-raised-button>
+            Achievement
+        </button>
+      </a>
+    </div>
+    <div class="top">
+      <a routerLink="/composer">
+        <button mat-raised-button>
+            Composer
+        </button>
+      </a>
+    </div>
+    <div class="top">
+      <a routerLink="/unlockable">
+        <button mat-raised-button>
+            Unlockable
+        </button>
+      </a>
+    </div>
+    </mat-drawer>
+    <div>
+        <button type="button" mat-button (click)="drawer.toggle()">
+            Toggle sidenav
+        </button>
+    </div>
+    <div class="example-sidenav-content">
+        <router-outlet></router-outlet>
+    </div>
+  
+</mat-drawer-container>

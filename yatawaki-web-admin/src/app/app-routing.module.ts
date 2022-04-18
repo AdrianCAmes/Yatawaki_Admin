@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AchievementComponent } from './pages/achievement/achievement.component';
+import { AvatarComponent } from './pages/avatar/avatar.component';
+import { ComposerComponent } from './pages/composer/composer.component';
+import { UnlockableComponent } from './pages/unlockable/unlockable.component';
 import { UserComponent } from './pages/user/user.component';
 /*import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -15,8 +19,10 @@ const routes: Routes = [
   //{ path: 'register', component: RegisterComponent },
   //{ path: 'profile', component: ProfileComponent },
   { path: 'user', component: UserComponent },
-  //{ path: 'mod', component: BoardModeratorComponent },
-  //{ path: 'admin', component: BoardAdminComponent },
+  { path: 'avatar', component: AvatarComponent },
+  { path: 'achievement', component: AchievementComponent },
+  { path: 'composer', component: ComposerComponent },
+  { path: 'unlockable', component: UnlockableComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
