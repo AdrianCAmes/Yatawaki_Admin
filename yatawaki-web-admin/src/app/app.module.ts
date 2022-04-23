@@ -28,6 +28,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { TableComponent } from './table/table.component';
+import { AvatarCardComponent } from './cards/avatar-card/avatar-card.component';
+import { MatCardModule } from '@angular/material/card';
+import { AvatarNewFormComponent } from './new-forms/avatar-new-form/avatar-new-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -39,6 +45,8 @@ import { TableComponent } from './table/table.component';
     UnlockableComponent,
     SidenavbarComponent,
     TableComponent,
+    AvatarCardComponent,
+    AvatarNewFormComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,11 @@ import { TableComponent } from './table/table.component';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [
     {

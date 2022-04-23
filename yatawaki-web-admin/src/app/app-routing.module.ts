@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AvatarCardComponent } from './cards/avatar-card/avatar-card.component';
+import { AvatarNewFormComponent } from './new-forms/avatar-new-form/avatar-new-form.component';
 import { AchievementComponent } from './pages/achievement/achievement.component';
 import { AvatarComponent } from './pages/avatar/avatar.component';
 import { ComposerComponent } from './pages/composer/composer.component';
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'achievement', component: AchievementComponent },
   { path: 'composer', component: ComposerComponent },
   { path: 'unlockable', component: UnlockableComponent },
+  { path: 'avatar-card', component: AvatarCardComponent },
+  { path: 'avatar-new-form', component: AvatarNewFormComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
