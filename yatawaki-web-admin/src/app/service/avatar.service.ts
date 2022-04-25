@@ -20,14 +20,18 @@ export class AvatarService implements ErrorHandler{
   };
 
 
-  public getAvatars(): Observable<any> {
+  getAvatars(): Observable<any> {
     //const url = 'http://localhost:8081/api/v1/avatar';
     return this.http.get<any>(this.apiURL);
   }
 
-  public getAvatarById(id: number): Observable<any>{
+  /*public getAvatarById(id: number): Observable<any>{
     //const url = `/api/v1/avatar/${id}`;
     return this.http.get<any>(this.apiURL + '/' + `${id}`);
+  }*/
+  
+  getAvatarById(id: number): Observable<any> {
+    return this.http.get(`${this.apiURL}/${id}`);
   }
 
   createAvatar(avatar: Object): Observable<Object> {
@@ -35,11 +39,15 @@ export class AvatarService implements ErrorHandler{
     return this.http.post(this.apiURL, avatar);
   }
 
-  updateAvatar(id: number, avatar: Object): Observable<Object> {
-    return this.http.put(`${this.apiURL}/${id}`, avatar);
+  updateAvatar(avatar: Object): Observable<Object> {
+    return this.http.patch(this.apiURL, avatar);
   }
 
-  deleteAvatar(id: number): Observable<any> {
+  changeAvatar(avatar: Object): Observable<Object> {
+    return this.http.put(this.apiURL, avatar);
+  }
+
+  deleteAvatar(id?: number): Observable<any> {
     return this.http.delete(`${this.apiURL}/${id}`);
   }
 
