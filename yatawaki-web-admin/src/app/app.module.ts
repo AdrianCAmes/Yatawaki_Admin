@@ -34,6 +34,11 @@ import { AvatarNewFormComponent } from './new-forms/avatar-new-form/avatar-new-f
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AvatarUpdateFormComponent } from './update-forms/avatar-update-form/avatar-update-form.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatSelectModule} from '@angular/material/select';
+import { AvatarChangeFormComponent } from './change-forms/avatar-change-form/avatar-change-form.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     SidenavbarComponent,
     TableComponent,
     AvatarCardComponent,
-    AvatarNewFormComponent
+    AvatarNewFormComponent,
+    AvatarUpdateFormComponent,
+    AvatarChangeFormComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +71,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule,
+    MatChipsModule,
+    MatSelectModule
   ],
   providers: [
     {

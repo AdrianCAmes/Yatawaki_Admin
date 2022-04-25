@@ -1,29 +1,61 @@
-<table mat-table [dataSource]="avatars" class="mat-elevation-z8">
- 
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let avatar"> {{avatar.idUnlockable}} </td>
-    </ng-container>
-  
+<br />
+<h2 class="text-center text-uppercase">List of Customer</h2>
+<br />
+<div class="table-responsive text-center">
+  <table class="table table-dark table-hover table-bordered border-green">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Rareness</th>
+        <th scope="col">Unlocker Type</th>
+        <th scope="col">Unlocker Value</th>
+        <th scope="col">Coins Cost</th>
+        <th scope="col">Icon</th>
+        <th scope="col">Status</th>
+        <th scope="col">Enhanced Features</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      <ng-container *ngFor="let avatar of avatars">
+        <tr>
+          <th scope="row">{{ avatar.idUnlockable }}</th>
+          <td>{{ avatar.name }}</td>
+          <td>{{ avatar.description }}</td>
+          <td>{{ avatar.rareness }}</td>
+          <td>{{ avatar.unlockerType }}</td>
+          <td>{{ avatar.unlockerValue }}</td>
+          <td>{{ avatar.coinsCost }}</td>
+          <td>
+            <img
+              src="{{ avatar.icon }}"
+              class="rounded mx-auto d-block img-thumbnail thumbnail"
+            />
+          </td>
+          <td>{{ avatar.status }}</td>
+          <td>{{ avatar.enhancedFeaturesJson }}</td>
+          <td>
+            <div class="d-grid gap-2 d-md-block">
+              <button
+                type="submit"
+                (click)="deleteAvatar(avatar)"
+                class="btn btn-outline-danger"
+              >
+                Delete
+              </button>
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let avatar"> {{avatar.name}} </td>
-    </ng-container>
-  
-
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef> Description </th>
-      <td mat-cell *matCellDef="let avatar"> {{avatar.description}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="rareness">
-      <th mat-header-cell *matHeaderCellDef> Rareness </th>
-      <td mat-cell *matCellDef="let avatar"> {{avatar.rareness}} </td>
-    </ng-container>
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
+              <button
+                type="submit"
+                (click)="updateAvatar(avatar)"
+                class="btn btn-outline-success"
+              >
+                Update
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

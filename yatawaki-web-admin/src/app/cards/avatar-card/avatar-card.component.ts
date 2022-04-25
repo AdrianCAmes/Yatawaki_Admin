@@ -3,6 +3,7 @@ import { AvatarService } from '../../service/avatar.service'
 import { Avatar } from '../../models/avatar'
 import {MatDialog} from '@angular/material/dialog';
 import { AvatarNewFormComponent } from 'src/app/new-forms/avatar-new-form/avatar-new-form.component';
+import { AvatarUpdateFormComponent } from 'src/app/update-forms/avatar-update-form/avatar-update-form.component';
 
 @Component({
   selector: 'app-avatar-card',
@@ -11,25 +12,52 @@ import { AvatarNewFormComponent } from 'src/app/new-forms/avatar-new-form/avatar
 })
 export class AvatarCardComponent implements OnInit {
 
-  imgUrl: string = "a";
 
-  avatars: any[] = [];
+  avatar: Avatar = new Avatar();
+  avatars: Avatar[] = [];
 
-  id: number = 6;
+  id: number = 0;
+
+  show:boolean = false;
+  showUpdate:boolean = false;
 
   constructor(private avatarService: AvatarService,  public dialog: MatDialog) { }
 
   
   ngOnInit(): void {
-    this.avatarService.getAvatarById(this.id).subscribe(response => {
+    /*this.avatarService.getAvatarById(this.id).subscribe(response => {
       //console.log(response)
       this.avatars = [response];
       console.log(response.icon)
+    });*/
+  }
+
+  searchAvatarById() {
+    this.avatarService.getAvatarById(this.id).subscribe((avatar) => {
+      console.log(avatar);
+      this.avatar = avatar;
     });
+    this.show = true;
+    this.showUpdate = false;
+  }
+
+  showUpdateForm(){
+    this.showUpdate = true;
+    this.show = false;
+  }
+
+  updateAvatar() {
+    this.avatarService.updateAvatar(this.avatar).subscribe(
+      (datos) => {
+        console.log(datos);
+        //this.router.navigate(['ListCustomer']);
+      }
+    );
+    this.avatar = new Avatar();
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(AvatarNewFormComponent);
+    const dialogRef = this.dialog.open(AvatarUpdateFormComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

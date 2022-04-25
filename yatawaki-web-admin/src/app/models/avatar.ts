@@ -1,6 +1,8 @@
+type Nullable<T> = T | null;
 export class Avatar {
+    idUnlockable?: number;
     name: string;
-    description: string;
+    description: Nullable<string>;
     rareness: string;
     unlockerType: string;
     unlockerValue: number;
@@ -10,6 +12,7 @@ export class Avatar {
     enhancedFeaturesJson: string
 
     constructor() {
+        this.idUnlockable = 0;
         this.name = '';
         this.description = '';
         this.rareness = '';

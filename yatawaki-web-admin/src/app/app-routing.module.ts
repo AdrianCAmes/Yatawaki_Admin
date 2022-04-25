@@ -7,6 +7,7 @@ import { AvatarComponent } from './pages/avatar/avatar.component';
 import { ComposerComponent } from './pages/composer/composer.component';
 import { UnlockableComponent } from './pages/unlockable/unlockable.component';
 import { UserComponent } from './pages/user/user.component';
+import { AvatarUpdateFormComponent } from './update-forms/avatar-update-form/avatar-update-form.component';
 /*import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'unlockable', component: UnlockableComponent },
   { path: 'avatar-card', component: AvatarCardComponent },
   { path: 'avatar-new-form', component: AvatarNewFormComponent },
+  { path: 'avatar-update-form', component: AvatarUpdateFormComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

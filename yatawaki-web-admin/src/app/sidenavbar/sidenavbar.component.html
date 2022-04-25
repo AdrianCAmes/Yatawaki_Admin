@@ -4,45 +4,58 @@ Yatawaki
     
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
-      <div>  
-      <a routerLink="/user">
-        <button mat-raised-button>
-            User
-        </button>
-      </a>
-    </div>
-    <div class="top">
-      <a routerLink="/avatar">
-        <button mat-raised-button>
-            Avatar
-        </button>
-      </a>
-    </div>
-    <div class="top">
-      <a routerLink="/achievement">
-        <button mat-raised-button>
-            Achievement
-        </button>
-      </a>
-    </div>
-    <div class="top">
-      <a routerLink="/composer">
-        <button mat-raised-button>
-            Composer
-        </button>
-      </a>
-    </div>
-    <div class="top">
-      <a routerLink="/unlockable">
-        <button mat-raised-button>
-            Unlockable
-        </button>
-      </a>
-    </div>
+      <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Avatar
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="/avatar">
+              <button mat-raised-button>
+                  Avatar List
+              </button>
+            </a>
+            <a routerLink="/avatar-new-form">
+              <button mat-raised-button>
+                  New Avatar   
+              </button>
+            </a>
+            <a routerLink="avatar-card">
+              <button mat-raised-button>
+                  Search Avatar   
+              </button>
+            </a>  
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              User
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="/user">
+              <button mat-raised-button>
+                  User List
+              </button>
+            </a>
+            <a routerLink="/avatar-new-form">
+              <button mat-raised-button>
+                  New User   
+              </button>
+            </a>
+            <a routerLink="avatar-card">
+              <button mat-raised-button>
+                  Search User   
+              </button>
+            </a>  
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-drawer>
     <div>
         <button type="button" mat-button (click)="drawer.toggle()">
-            Toggle sidenav
+          -->
         </button>
     </div>
     <div class="example-sidenav-content">
