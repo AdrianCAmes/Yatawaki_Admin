@@ -28,24 +28,25 @@ export class AvatarUpdateFormComponent implements OnInit {
   }
 
   actualizarAvatar() {
-    if (this.avatar.description == ''){
+    if (this.avatar.description === ''){
       this.avatar.description = null;
     }
-    if(this.avatar.enhancedFeaturesJson == ''){
-      this.avatar.enhancedFeaturesJson == null;
+    if(this.avatar.enhancedFeaturesJson === ''){
+      this.avatar.enhancedFeaturesJson = null;
     }
-    if(this.avatar.icon == ''){
-      this.avatar.icon == null;
+    if(this.avatar.icon === ''){
+      this.avatar.icon = null;
     }
-    if(this.avatar.name == ''){
-      this.avatar.name == null;
+    if(this.avatar.name === ''){
+      this.avatar.name = null;
     }
-    if(this.avatar.rareness == ''){
-      this.avatar.rareness == null;
+    if(this.avatar.rareness === ''){
+      this.avatar.rareness = null;
     }
-    if(this.avatar.unlockerType == ''){
-      this.avatar.unlockerType == null;
+    if(this.avatar.unlockerType === ''){
+      this.avatar.unlockerType = null;
     }
+    console.log(JSON.stringify(this.avatar))
     this.avatarService.updateAvatar(this.avatar).subscribe(
       (datos) => {
         console.log(datos);

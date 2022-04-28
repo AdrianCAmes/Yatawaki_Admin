@@ -39,6 +39,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
 import { AvatarChangeFormComponent } from './change-forms/avatar-change-form/avatar-change-form.component';
+import { AchievementCardComponent } from './cards/achievement-card/achievement-card.component';
+import { AvatarDeleteDialogComponent } from './delete-dialogs/avatar-delete-dialog/avatar-delete-dialog.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,9 @@ import { AvatarChangeFormComponent } from './change-forms/avatar-change-form/ava
     AvatarCardComponent,
     AvatarNewFormComponent,
     AvatarUpdateFormComponent,
-    AvatarChangeFormComponent
+    AvatarChangeFormComponent,
+    AchievementCardComponent,
+    AvatarDeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +80,11 @@ import { AvatarChangeFormComponent } from './change-forms/avatar-change-form/ava
     MatDialogModule,
     MatExpansionModule,
     MatChipsModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger'
+    })
   ],
   providers: [
     {

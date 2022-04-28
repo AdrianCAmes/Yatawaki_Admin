@@ -60,15 +60,9 @@
       <div class="form-group mb-3 row">
         <label for="unlockerType" class="col-sm-2 col-form-label"> Unlocker Type : </label>
         <div class="col-sm-10">
-          <input
-            type="text"
-            class="form-control"
-            id="unlockerType"
-            name="unlockerType"
-            placeholder="unlockerType"
-            required
-            [(ngModel)]="avatar.unlockerType"
-          />
+          <select class="form-control" id="unlockerType"  name="unlockerType" [(ngModel)]="avatar.unlockerType">
+            <option *ngFor="let unlockerType of unlockerTypes">{{unlockerType.value}}</option>
+          </select>
         </div>
       </div>
       <!--*************** END ATTRIBUTE 5 ***************-->
@@ -128,15 +122,9 @@
       <div class="form-group mb-3 row">
         <label for="status" class="col-sm-2 col-form-label"> Status : </label>
         <div class="col-sm-10">
-          <input
-            type="text"
-            class="form-control"
-            id="status"
-            name="status"
-            placeholder="status"
-            required
-            [(ngModel)]="avatar.status"
-          />
+          <select class="form-control" id="status"  name="status" [(ngModel)]="avatar.status">
+            <option *ngFor="let status of statuses">{{status.value}}</option>
+          </select>
         </div>
       </div>
       <!--*************** END ATTRIBUTE 9 ***************-->

@@ -7,10 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class UnlockableService {
 
+  apiURL: string = "http://localhost:8081/api/v1/unlockable"
+
   constructor(private http: HttpClient) { }
-  public getUnlockables(): Observable<any> {
-    const url = '/api/v1/unlockable';
-    return this.http.get<any>(url);
+  getUnlockables(): Observable<any> {
+    return this.http.get<any>(this.apiURL);
+  }
+
+  getUnlockableStatus(): Observable<any>{
+    return this.http.get<any>(this.apiURL + '/status');
+  }
+
+  getUnlockerTypes(): Observable<any>{
+    return this.http.get<any>(this.apiURL + '/unlocker-types');
   }
 
 }

@@ -28,7 +28,8 @@ const routes: Routes = [
   { path: 'unlockable', component: UnlockableComponent },
   { path: 'avatar-card', component: AvatarCardComponent },
   { path: 'avatar-new-form', component: AvatarNewFormComponent },
-  { path: 'avatar-update-form', component: AvatarUpdateFormComponent },
+  { path: 'avatar-update-form/:id', component: AvatarUpdateFormComponent },
+  { path: 'avatar-change-form/:id', component: AvatarUpdateFormComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

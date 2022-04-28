@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Avatar } from 'src/app/models/avatar';
 import { AvatarService } from '../../service/avatar.service'
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { AvatarDeleteDialogComponent } from 'src/app/delete-dialogs/avatar-delete-dialog/avatar-delete-dialog.component';
 
 @Component({
   selector: 'app-avatar',
@@ -11,10 +13,14 @@ import { Router } from '@angular/router';
 export class AvatarComponent implements OnInit {
 
   avatars = new Array<any>();
+  public popoverTitle:string = 'Aviso'
+  public popoverMessage:string = '¿Seguro que quiere eliminar este elemento?'
+  public confirmClicked:boolean = false;
+  public cancelClicked:boolean = false;
 
   //displayedColumns: string[] = ['id', 'name', 'description', 'rareness']
 
-  constructor(private router: Router, private avatarService: AvatarService) { }
+  constructor(private router: Router, private avatarService: AvatarService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.avatarService.getAvatars().subscribe(response => {
@@ -37,7 +43,19 @@ export class AvatarComponent implements OnInit {
 
   
   updateAvatar(avatar: Avatar) {
-    this.router.navigate(['UpdateCustomer', avatar.idUnlockable]);
+    this.router.navigate(['avatar-update-form', avatar.idUnlockable]);
+  }
+
+  changeAvatar(avatar: Avatar) {
+    this.router.navigate(['avatar-change-form', avatar.idUnlockable]);
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(AvatarDeleteDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

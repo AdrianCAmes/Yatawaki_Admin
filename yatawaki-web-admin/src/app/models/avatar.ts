@@ -1,15 +1,15 @@
 type Nullable<T> = T | null;
 export class Avatar {
     idUnlockable?: number;
-    name: string;
+    name: Nullable<string>;
     description: Nullable<string>;
-    rareness: string;
-    unlockerType: string;
+    rareness: Nullable<string>;
+    unlockerType: Nullable<string>;
     unlockerValue: number;
     coinsCost: number;
-    icon: string;
+    icon: Nullable<string>;
     status: number;
-    enhancedFeaturesJson: string
+    enhancedFeaturesJson: Nullable<string>
 
     constructor() {
         this.idUnlockable = 0;
@@ -22,13 +22,5 @@ export class Avatar {
         this.icon = '';
         this.status = 0;
         this.enhancedFeaturesJson = '';
-    }
-
-    getName(): string {
-        return `${this.description}`;
-    }
-
-    getDescription(): string {
-        return `${this.name}`;
     }
 }

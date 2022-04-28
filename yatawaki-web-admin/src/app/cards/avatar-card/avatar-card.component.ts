@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AvatarService } from '../../service/avatar.service'
 import { Avatar } from '../../models/avatar'
 import {MatDialog} from '@angular/material/dialog';
@@ -20,8 +21,14 @@ export class AvatarCardComponent implements OnInit {
 
   show:boolean = false;
   showUpdate:boolean = false;
+  showChange:boolean = false;
 
-  constructor(private avatarService: AvatarService,  public dialog: MatDialog) { }
+  public popoverTitle:string = 'Aviso'
+  public popoverMessage:string = '¿Seguro que quiere eliminar este elemento?'
+  public confirmClicked:boolean = false;
+  public cancelClicked:boolean = false;
+
+  constructor(private avatarService: AvatarService,  public dialog: MatDialog, private router: Router) { }
 
   
   ngOnInit(): void {
@@ -39,11 +46,23 @@ export class AvatarCardComponent implements OnInit {
     });
     this.show = true;
     this.showUpdate = false;
+    this.showChange = false;
   }
 
   showUpdateForm(){
     this.showUpdate = true;
     this.show = false;
+    this.showChange = false;
+  }
+
+  showChangeForm(){
+    this.showChange = true;
+    this.show = false;
+    this.showUpdate = false;
+  }
+
+  loadDataAvatars() {
+    this.router.navigate(['avatar']);
   }
 
   updateAvatar() {
@@ -54,6 +73,21 @@ export class AvatarCardComponent implements OnInit {
       }
     );
     this.avatar = new Avatar();
+  }
+
+  changeAvatar(){
+    this.avatarService.changeAvatar(this.avatar).subscribe(
+      datos => {
+        console.log(datos);
+      }
+    );
+    this.avatar = new Avatar();
+  }
+
+  deleteAvatar(avatar: Avatar) {
+    this.avatarService.deleteAvatar(avatar.idUnlockable).subscribe((data) => {
+      this.loadDataAvatars();
+    });
   }
 
   openDialog() {
