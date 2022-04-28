@@ -1,14 +1,15 @@
+type Nullable<T> = T | null;
 export class Achievement {
-    /*idUnlockable?: number;
-    name: string;
+    idUnlockable?: number;
+    name: Nullable<string>;
     description: Nullable<string>;
-    rareness: string;
-    unlockerType: string;
+    rareness: Nullable<string>;
+    unlockerType: Nullable<string>;
     unlockerValue: number;
     coinsCost: number;
-    icon: string;
+    icon: Nullable<string>;
     status: number;
-    enhancedFeaturesJson: string
+
 
     constructor() {
         this.idUnlockable = 0;
@@ -20,7 +21,6 @@ export class Achievement {
         this.coinsCost = 0;
         this.icon = '';
         this.status = 0;
-        this.enhancedFeaturesJson = '';
-    }*/
+    }
     
 }

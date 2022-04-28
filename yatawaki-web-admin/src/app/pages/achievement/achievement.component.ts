@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AchievementService } from '../../service/achievement.service'
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { Achievement } from 'src/app/models/achievement';
 
 @Component({
   selector: 'app-achievement',
@@ -10,7 +13,12 @@ export class AchievementComponent implements OnInit {
 
   achievements = new Array<any>();
 
-  constructor(private achievementService: AchievementService) { }
+  public popoverTitle:string = 'Aviso'
+  public popoverMessage:string = '¿Seguro que quiere eliminar este elemento?'
+  public confirmClicked:boolean = false;
+  public cancelClicked:boolean = false;
+
+  constructor(private achievementService: AchievementService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.achievementService.getAchievements().subscribe(response => {
@@ -18,5 +26,27 @@ export class AchievementComponent implements OnInit {
       this.achievements = response;
     });
   }
+
+  loadDataAchievements() {
+    this.achievementService
+      .getAchievements()
+      .subscribe((achievements) => (this.achievements = achievements));
+  }
+
+  deleteAchievement(achievement: Achievement) {
+    this.achievementService.deleteAchievement(achievement.idUnlockable).subscribe((data) => {
+      this.loadDataAchievements();
+    });
+  }
+
+  
+  updateAchievement(achievement: Achievement) {
+    this.router.navigate(['achievement-update-form', achievement.idUnlockable]);
+  }
+
+  changeAchievement(achievement: Achievement) {
+    this.router.navigate(['achievement-change-form', achievement.idUnlockable]);
+  }
+
 
 }

@@ -40,9 +40,15 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
 import { AvatarChangeFormComponent } from './change-forms/avatar-change-form/avatar-change-form.component';
 import { AchievementCardComponent } from './cards/achievement-card/achievement-card.component';
-import { AvatarDeleteDialogComponent } from './delete-dialogs/avatar-delete-dialog/avatar-delete-dialog.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover'
 import { ReactiveFormsModule } from '@angular/forms';
+import { AchievementNewFormComponent } from './new-forms/achievement-new-form/achievement-new-form.component';
+import { AchievementUpdateFormComponent } from './update-forms/achievement-update-form/achievement-update-form.component';
+import { AchievementChangeFormComponent } from './change-forms/achievement-change-form/achievement-change-form.component';
+import { ComposerCardComponent } from './cards/composer-card/composer-card.component';
+import { ComposerChangeFormComponent } from './change-forms/composer-change-form/composer-change-form.component';
+import { ComposerNewFormComponent } from './new-forms/composer-new-form/composer-new-form.component';
+import { ComposerUpdateFormComponent } from './update-forms/composer-update-form/composer-update-form.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +65,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     AvatarUpdateFormComponent,
     AvatarChangeFormComponent,
     AchievementCardComponent,
-    AvatarDeleteDialogComponent
+    AchievementNewFormComponent,
+    AchievementUpdateFormComponent,
+    AchievementChangeFormComponent,
+    ComposerCardComponent,
+    ComposerChangeFormComponent,
+    ComposerNewFormComponent,
+    ComposerUpdateFormComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,6 @@ import { Avatar } from 'src/app/models/avatar';
 import { AvatarService } from '../../service/avatar.service'
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { AvatarDeleteDialogComponent } from 'src/app/delete-dialogs/avatar-delete-dialog/avatar-delete-dialog.component';
 
 @Component({
   selector: 'app-avatar',
@@ -50,12 +49,5 @@ export class AvatarComponent implements OnInit {
     this.router.navigate(['avatar-change-form', avatar.idUnlockable]);
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(AvatarDeleteDialogComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 
 }

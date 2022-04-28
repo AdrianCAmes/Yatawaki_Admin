@@ -1,6 +1,57 @@
-<ul>
-    <li *ngFor="let composer of composers">
-        <span>{{composer.name}} {{composer.birthDate}}</span>
-    </li>
-</ul>
+<br />
+<h2 class="text-center text-uppercase">List of Composer</h2>
+<br />
+<div class="table-responsive text-center">
+  <table class="table table-dark table-hover table-bordered border-green">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Birth Date</th>
+        <th scope="col">Death Date</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle">
+      <ng-container *ngFor="let composer of composers">
+        <tr>
+          <th scope="row">{{ composer.idComposer }}</th>
+          <td>{{ composer.name }}</td>
+          <td>{{ composer.birthDate }}</td>
+          <td>{{ composer.deathDate }}</td>
+          <td>{{ composer.status }}</td>
+          <td>
+            <div class="d-grid gap-2 d-md-block">
+              <button
+                type="submit"
+                mwlConfirmationPopover
+                [popoverMessage]="popoverMessage"
+                placement="left"
+                (confirm)="deleteComposer(composer)"
+                (cancel)="cancelClicked = true"
+                class="btn btn-outline-danger"
+              >
+                Delete
+              </button>
 
+              <button
+                type="submit"
+                (click)="updateComposer(composer)"
+                class="btn btn-outline-success"
+                >
+                Update
+              </button>
+              <button
+                type="submit"
+                (click)="changeComposer(composer)"
+                class="btn btn-outline-success"
+                >
+                Change
+              </button>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

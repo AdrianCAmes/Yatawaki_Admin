@@ -1,0 +1,115 @@
+<br />
+<h2 class="text-center text-uppercase">Actualización de Composer</h2>
+<br />
+<div class="container">
+  <div class="row center">
+    <form (ngSubmit)="actualizarComposer()">
+      <div *ngIf="composer">
+        <!--*************** ATTRIBUTE 1 ***************-->
+        <div class="form-group mb-3 row">
+            <label for="id" class="col-sm-2 col-form-label">
+              Id :
+            </label>
+            <div class="col-sm-12">
+              <input
+                type="text"
+                class="form-control"
+                id="id"
+                name="id"
+                placeholder="id"
+                required
+                [(ngModel)]="composer.idComposer"
+                disabled
+              />
+            </div>
+        </div>
+        <div class="form-group mb-3 row">
+          <label for="name" class="col-sm-3 col-form-label">
+            Composer Name :
+          </label>
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Composer Name"
+              required
+              [(ngModel)]="composer.name"
+            />
+          </div>
+        </div>
+        <!--*************** END ATTRIBUTE 1 ***************-->
+        <!--*************** ATTRIBUTE 2 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="birthDate" class="col-sm-4 col-form-label">
+            Composer Birth Date :
+          </label>
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control"
+              id="birthDate"
+              name="birthDate"
+              placeholder="birthDate"
+              required
+              [(ngModel)]="composer.birthDate"
+            />
+          </div>
+        </div>
+        <!--*************** END ATTRIBUTE 2 ***************-->
+        <!--*************** ATTRIBUTE 3 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="deathDate" class="col-sm-4 col-form-label">
+            Composer Death Date :
+          </label>
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control"
+              id="deathDate"
+              name="deathDate"
+              placeholder="Composer Death Date"
+              required
+              [(ngModel)]="composer.deathDate"
+            />
+          </div>
+        </div>
+        <!--*************** END ATTRIBUTE 3 ***************-->
+        <!--*************** ATTRIBUTE 4 ***************-->
+        <!--*************** END ATTRIBUTE 4 ***************-->
+        <!--*************** ATTRIBUTE 5 ***************-->
+        <!--*************** END ATTRIBUTE 6 ***************-->
+        <!--*************** ATTRIBUTE 7 ***************-->
+        <!--*************** END ATTRIBUTE 7 ***************-->
+        <!--*************** ATTRIBUTE 8 ***************-->
+        <div class="form-group mb-3 row">
+          <label for="status" class="col-sm-3 col-form-label">
+            Composer Status :
+          </label>
+          <div class="col-sm-12">
+            <input
+              type="text"
+              class="form-control"
+              id="status"
+              name="status"
+              placeholder="Composer Status"
+              required
+              [(ngModel)]="composer.status"
+            />
+          </div>
+        </div>
+        <!--*************** END ATTRIBUTE 8 ***************-->
+        <!--*************** ATTRIBUTE 9 ***************-->
+        <!--*************** END ATTRIBUTE 9 ***************-->
+      </div>
+      <!--*************** BUTTON ***************-->
+      <div class="d-grid col-2 mx-auto">
+        <button type="submit" class="btn btn-outline-success">Save</button>
+      </div>
+      <!--*************** END BUTTON ***************-->
+    </form>
+  </div>
+</div>
+
+

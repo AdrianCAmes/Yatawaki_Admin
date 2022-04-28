@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AvatarChangeFormComponent implements OnInit {
 
+  id: number = 0;
   avatar: Avatar = new Avatar();
 
   constructor(private route: ActivatedRoute,
@@ -17,6 +18,13 @@ export class AvatarChangeFormComponent implements OnInit {
     private avatarService: AvatarService) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.avatarService.getAvatarById(this.id).subscribe(
+      (datos) => {
+        console.log(datos);
+        this.avatar = datos;
+      }
+    );
   }
 
   changeAvatar() {

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AvatarDeleteDialogComponent } from './avatar-delete-dialog.component';
+import { ComposerChangeFormComponent } from './composer-change-form.component';
 
-describe('AvatarDeleteDialogComponent', () => {
-  let component: AvatarDeleteDialogComponent;
-  let fixture: ComponentFixture<AvatarDeleteDialogComponent>;
+describe('ComposerChangeFormComponent', () => {
+  let component: ComposerChangeFormComponent;
+  let fixture: ComponentFixture<ComposerChangeFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AvatarDeleteDialogComponent ]
+      declarations: [ ComposerChangeFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AvatarDeleteDialogComponent);
+    fixture = TestBed.createComponent(ComposerChangeFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
