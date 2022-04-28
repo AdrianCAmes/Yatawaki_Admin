@@ -25,10 +25,6 @@ export class AvatarService implements ErrorHandler{
     return this.http.get<any>(this.apiURL);
   }
 
-  /*public getAvatarById(id: number): Observable<any>{
-    //const url = `/api/v1/avatar/${id}`;
-    return this.http.get<any>(this.apiURL + '/' + `${id}`);
-  }*/
   
   getAvatarById(id: number): Observable<any> {
     return this.http.get(`${this.apiURL}/${id}`);
