@@ -46,25 +46,27 @@ export class AvatarChangeFormComponent implements OnInit {
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.name = '';
+      this.avatar.name = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+
   nullInputDescription(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.description = '';
+      this.avatar.description = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+  
   nullInputIcon(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.icon = '';
+      this.avatar.icon = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -73,7 +75,50 @@ export class AvatarChangeFormComponent implements OnInit {
   nullInputEnhancedFeatures(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.enhancedFeaturesJson = '';
+      this.avatar.enhancedFeaturesJson = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputCoinsCost(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.coinsCost = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  
+  nullInputStatus(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.status = 0;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+    
+  nullInputRareness(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.rareness = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+    
+  nullInputUnlockerType(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.unlockerType = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -81,19 +126,6 @@ export class AvatarChangeFormComponent implements OnInit {
   }
 
   changeAvatar() {
-    if (this.avatar.description === ''){
-      this.avatar.description = null;
-    }
-    if(this.avatar.enhancedFeaturesJson === ''){
-      this.avatar.enhancedFeaturesJson = null;
-    }
-    if(this.avatar.icon === ''){
-      this.avatar.icon = null;
-    }
-    console.log(this.avatar.name)
-    if(this.avatar.name === ''){
-      this.avatar.name = null;
-    }
     this.avatarService.changeAvatar(this.avatar).subscribe(
       (datos) => {
         console.log(datos);

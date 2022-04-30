@@ -82,16 +82,24 @@
               [(ngModel)]="avatar.rareness"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputRareness('rareness', 'flexSwitchCheckDefaultC3')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 3 ***************-->
         <!--*************** ATTRIBUTE 4 ***************-->
         <div class="form-group mb-3 row">
           <label for="unlockerType" class="col-sm-5 col-form-label"> Unlocker Type : </label>
-          <div class="col-sm-11">
+          <div class="col-sm-10">
             <select class="form-control" id="unlockerType"  name="unlockerType" [(ngModel)]="avatar.unlockerType">
               <option *ngFor="let unlockerType of unlockerTypes" value="{{unlockerType.value}}" selected>{{unlockerType.description}}</option>
             </select>
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputUnlockerType('unlockerType', 'flexSwitchCheckDefaultC4')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 4 ***************-->
         <!--*************** ATTRIBUTE 5 ***************-->
@@ -128,6 +136,10 @@
               [(ngModel)]="avatar.coinsCost"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC5" (change)="nullInputCoinsCost('coinsCost', 'flexSwitchCheckDefaultC5')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 6 ***************-->
         <!--*************** ATTRIBUTE 7 ***************-->
@@ -147,7 +159,7 @@
             />
           </div>
           <div class="form-check form-switch col-sm-2 center">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputIcon('iconC', 'flexSwitchCheckDefaultC3')">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC6" (change)="nullInputIcon('iconC', 'flexSwitchCheckDefaultC6')">
               <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
             </div>
         </div>
@@ -155,11 +167,15 @@
         <!--*************** ATTRIBUTE 8 ***************-->
         <div class="form-group mb-3 row">
           <label for="status" class="col-sm-5 col-form-label"> Status : </label>
-          <div class="col-sm-11">
+          <div class="col-sm-10">
             <select class="form-control" id="status"  name="status" [(ngModel)]="avatar.status">
               <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
             </select>
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC7" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC7')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 8 ***************-->
         <!--*************** ATTRIBUTE 9 ***************-->
@@ -179,7 +195,7 @@
             />
           </div>
           <div class="form-check form-switch col-sm-2 center">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputEnhancedFeatures('enhancedFeaturesJsonC', 'flexSwitchCheckDefaultC4')">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC8" (change)="nullInputEnhancedFeatures('enhancedFeaturesJsonC', 'flexSwitchCheckDefaultC8')">
               <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
             </div>
         </div>

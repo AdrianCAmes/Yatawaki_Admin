@@ -42,9 +42,74 @@ export class AchievementChangeFormComponent implements OnInit {
     );
   }
 
-  nullInput(elementId: string, chbox: string) {
+  nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = '';
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.achievement.name = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputDescription(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.achievement.description = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+  
+  nullInputIcon(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.achievement.icon = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+
+  nullInputCoinsCost(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.achievement.coinsCost = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  
+  nullInputStatus(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.achievement.status = 0;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+    
+  nullInputRareness(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.achievement.rareness = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+    
+  nullInputUnlockerType(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.achievement.unlockerType = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -52,17 +117,6 @@ export class AchievementChangeFormComponent implements OnInit {
   }
 
   changeAchievement() {
-    if (this.achievement.description === ''){
-      this.achievement.description = null;
-    }
-
-    if(this.achievement.icon === ''){
-      this.achievement.icon = null;
-    }
-    
-    if(this.achievement.name === ''){
-      this.achievement.name = null;
-    }
     this.achievementService.changeAchievement(this.achievement).subscribe(
       (datos) => {
         console.log(datos);

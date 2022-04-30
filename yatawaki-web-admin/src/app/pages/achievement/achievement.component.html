@@ -26,40 +26,34 @@
           <td>{{ achievement.unlockerType }}</td>
           <td>{{ achievement.unlockerValue }}</td>
           <td>{{ achievement.coinsCost }}</td>
-          <td>
+          <td class="w20">
             <img
               src="{{ achievement.icon }}"
-              class="rounded mx-auto d-block img-thumbnail thumbnail"
+              class="rounded mx-auto img-thumbnail thumbnail maxW40"
             />
           </td>
           <td>{{ achievement.status }}</td>
           <td>
             <div class="d-grid gap-2 d-md-block">
-              <button
+              <button 
                 type="submit"
                 mwlConfirmationPopover
                 [popoverMessage]="popoverMessage"
                 placement="left"
                 (confirm)="deleteAchievement(achievement)"
                 (cancel)="cancelClicked = true"
-                class="btn btn-outline-danger m-1"
+                class="btn btn-outline-danger col-md-5 justify-content-center align-items-center floatL maxW48"
+                data-toggle="popover" title="Delete"
               >
-                Delete
-              </button>
-
-              <button
-                type="submit"
-                (click)="updateAchievement(achievement)"
-                class="btn btn-outline-success m-1"
-                >
-                Update
+              <mat-icon>clear</mat-icon>
               </button>
               <button
                 type="submit"
                 (click)="changeAchievement(achievement)"
-                class="btn btn-outline-warning m-1"
+                class="btn btn-outline-success col-md-5 justify-content-center align-items-center floatR maxW48"
+                data-toggle="popover" title="Update"
                 >
-                Change
+                <mat-icon>create</mat-icon>
               </button>
             </div>
           </td>

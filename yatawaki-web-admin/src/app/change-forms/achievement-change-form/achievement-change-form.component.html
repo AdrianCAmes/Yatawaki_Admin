@@ -1,5 +1,5 @@
 <br />
-<h2 class="text-center text-uppercase">Actualización de Achievement (Change)</h2>
+<h2 class="text-center text-uppercase">Actualización de Achievement</h2>
 <br />
 <div class="container">
   <div class="row center">
@@ -39,7 +39,7 @@
             />
           </div>
           <div class="form-check form-switch col-sm-2 center">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInput('nameC', 'flexSwitchCheckDefaultC')">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('nameC', 'flexSwitchCheckDefaultC')">
               <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
             </div>
         </div>
@@ -61,7 +61,7 @@
             />
           </div>
           <div class="form-check form-switch col-sm-2 center">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInput('descriptionC', 'flexSwitchCheckDefaultC2')">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputDescription('descriptionC', 'flexSwitchCheckDefaultC2')">
               <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
             </div>
         </div>
@@ -82,6 +82,10 @@
               [(ngModel)]="achievement.rareness"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputRareness('rareness', 'flexSwitchCheckDefaultC3')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 3 ***************-->
         <!--*************** ATTRIBUTE 4 ***************-->
@@ -92,6 +96,10 @@
               <option *ngFor="let unlockerType of unlockerTypes" value="{{unlockerType.value}}">{{unlockerType.description}}</option>
             </select>
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputUnlockerType('unlockerType', 'flexSwitchCheckDefaultC4')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 4 ***************-->
         <!--*************** ATTRIBUTE 5 ***************-->
@@ -128,6 +136,10 @@
               [(ngModel)]="achievement.coinsCost"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC5" (change)="nullInputCoinsCost('coinsCost', 'flexSwitchCheckDefaultC5')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 6 ***************-->
         <!--*************** ATTRIBUTE 7 ***************-->
@@ -147,7 +159,7 @@
             />
           </div>
           <div class="form-check form-switch col-sm-2 center">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInput('iconC', 'flexSwitchCheckDefaultC3')">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC6" (change)="nullInputIcon('iconC', 'flexSwitchCheckDefaultC6')">
               <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
             </div>
         </div>
@@ -160,6 +172,10 @@
               <option *ngFor="let status of statuses" value="{{status.description}}">{{status.description}}</option>
             </select>
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC7" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC7')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 8 ***************-->
         <!--*************** ATTRIBUTE 9 ***************-->
