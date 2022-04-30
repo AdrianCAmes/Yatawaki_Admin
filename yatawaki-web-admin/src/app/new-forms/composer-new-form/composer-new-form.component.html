@@ -6,7 +6,7 @@
     <form (ngSubmit)="insertComposer()" class="center">
       <!--*************** ATTRIBUTE 2 ***************-->
       <div class="form-group mb-3 row">
-        <label for="name" class="col-sm-2 col-form-label">
+        <label for="name" class="col-sm-5 col-form-label">
           Name :
         </label>
         <div class="col-sm-10">
@@ -20,39 +20,57 @@
             [(ngModel)]="composer.name"
           />
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInput('name', 'flexSwitchCheckDefaultC')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 2 ***************-->
       <!--*************** ATTRIBUTE 3 ***************-->
       <div class="form-group mb-3 row">
-        <label for="birthDate" class="col-sm-2 col-form-label">
+        <label for="birthDate" class="col-sm-5 col-form-label">
           Birth Date :
         </label>
         <div class="col-sm-10">
           <input
+            matInput 
             type="birthDate"
             class="form-control"
             id="birthDate"
             name="birthDate"
             placeholder="birthDate"
             required
+            [matDatepicker]="picker"
             [(ngModel)]="composer.birthDate"
           />
+
+        </div>
+        <div class="col-sm-2">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </div>
       </div>
       <!--*************** END ATTRIBUTE 3 ***************-->
       <!--*************** ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
-        <label for="deathDate" class="col-sm-2 col-form-label"> Death Date : </label>
+        <label for="deathDate" class="col-sm-5 col-form-label"> Death Date : </label>
         <div class="col-sm-10">
+          
           <input
+            matInput 
             type="deathDate"
             class="form-control"
             id="deathDate"
             name="deathDate"
             placeholder="deathDate"
             required
+            [matDatepicker]="picker2"
             [(ngModel)]="composer.deathDate"
           />
+        </div>
+        <div class="col-sm-2">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
         </div>
       </div>
       <!--*************** END ATTRIBUTE 4 ***************-->
@@ -66,10 +84,10 @@
       <!--*************** END ATTRIBUTE 8 ***************-->
       <!--*************** ATTRIBUTE 9 ***************-->
       <div class="form-group mb-3 row">
-        <label for="status" class="col-sm-2 col-form-label"> Status : </label>
+        <label for="status" class="col-sm-5 col-form-label"> Status : </label>
         <div class="col-sm-10">
           <select class="form-control" id="status"  name="status" [(ngModel)]="composer.status">
-            <option *ngFor="let status of statuses">{{status.value}}</option>
+            <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
           </select>
         </div>
       </div>
@@ -77,7 +95,7 @@
       <!--*************** ATTRIBUTE 9 ***************-->
       <!--*************** END ATTRIBUTE 9 ***************-->
       <!--*************** BUTTON ***************-->
-      <div class="d-grid col-2 mx-auto">
+      <div class="d-grid col-4 mx-auto">
         <button type="submit" class="btn btn-outline-success">Save</button>
       </div>
       <!--*************** END BUTTON ***************-->

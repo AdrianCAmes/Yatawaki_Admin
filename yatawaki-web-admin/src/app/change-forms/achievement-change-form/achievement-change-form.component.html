@@ -7,10 +7,10 @@
       <div *ngIf="achievement">
         <!--*************** ATTRIBUTE 1 ***************-->
         <div class="form-group mb-3 row">
-            <label for="id" class="col-sm-2 col-form-label">
+            <label for="id" class="col-sm-5 col-form-label">
               Id :
             </label>
-            <div class="col-sm-12">
+            <div class="col-sm-10">
               <input
                 type="text"
                 class="form-control"
@@ -24,46 +24,54 @@
             </div>
         </div>
         <div class="form-group mb-3 row">
-          <label for="achievementName" class="col-sm-3 col-form-label">
+          <label for="achievementName" class="col-sm-5 col-form-label">
             Achievement Name :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
-              id="name"
+              id="nameC"
               name="name"
               placeholder="Achievement Name"
               required
               [(ngModel)]="achievement.name"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInput('nameC', 'flexSwitchCheckDefaultC')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 1 ***************-->
         <!--*************** ATTRIBUTE 2 ***************-->
         <div class="form-group mb-3 row">
-          <label for="description" class="col-sm-4 col-form-label">
+          <label for="description" class="col-sm-5 col-form-label">
             Achievement Description :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
-              id="description"
+              id="descriptionC"
               name="description"
               placeholder="description"
               required
               [(ngModel)]="achievement.description"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInput('descriptionC', 'flexSwitchCheckDefaultC2')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 2 ***************-->
         <!--*************** ATTRIBUTE 3 ***************-->
         <div class="form-group mb-3 row">
-          <label for="rareness" class="col-sm-4 col-form-label">
+          <label for="rareness" class="col-sm-5 col-form-label">
             Achievement Rareness :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
@@ -78,28 +86,20 @@
         <!--*************** END ATTRIBUTE 3 ***************-->
         <!--*************** ATTRIBUTE 4 ***************-->
         <div class="form-group mb-3 row">
-          <label for="unlockerType" class="col-sm-4 col-form-label">
-            Achievement Unlocker Type :
-          </label>
-          <div class="col-sm-12">
-            <input
-              type="text"
-              class="form-control"
-              id="unlockerType"
-              name="unlockerType"
-              placeholder="Achievement Unlocker Type"
-              required
-              [(ngModel)]="achievement.unlockerType"
-            />
+          <label for="unlockerType" class="col-sm-5 col-form-label"> Unlocker Type : </label>
+          <div class="col-sm-10">
+            <select class="form-control" id="unlockerType"  name="unlockerType" [(ngModel)]="achievement.unlockerType">
+              <option *ngFor="let unlockerType of unlockerTypes" value="{{unlockerType.value}}">{{unlockerType.description}}</option>
+            </select>
           </div>
         </div>
         <!--*************** END ATTRIBUTE 4 ***************-->
         <!--*************** ATTRIBUTE 5 ***************-->
         <div class="form-group mb-3 row">
-          <label for="unlockerValue" class="col-sm-4 col-form-label">
+          <label for="unlockerValue" class="col-sm-5 col-form-label">
             Achievement Unlocker Value :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
@@ -114,10 +114,10 @@
         <!--*************** END ATTRIBUTE 5 ***************-->
         <!--*************** ATTRIBUTE 6 ***************-->
         <div class="form-group mb-3 row">
-          <label for="coinsCost" class="col-sm-4 col-form-label">
+          <label for="coinsCost" class="col-sm-5 col-form-label">
             Achievement Coins Cost :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
@@ -132,37 +132,33 @@
         <!--*************** END ATTRIBUTE 6 ***************-->
         <!--*************** ATTRIBUTE 7 ***************-->
         <div class="form-group mb-3 row">
-          <label for="icon" class="col-sm-3 col-form-label">
+          <label for="icon" class="col-sm-5 col-form-label">
             Achievement Icon :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
-              id="icon"
+              id="iconC"
               name="icon"
               placeholder="Achievement Icon"
               required
               [(ngModel)]="achievement.icon"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInput('iconC', 'flexSwitchCheckDefaultC3')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 7 ***************-->
         <!--*************** ATTRIBUTE 8 ***************-->
         <div class="form-group mb-3 row">
-          <label for="status" class="col-sm-3 col-form-label">
-            Achievement Status :
-          </label>
-          <div class="col-sm-12">
-            <input
-              type="text"
-              class="form-control"
-              id="status"
-              name="status"
-              placeholder="Achievement Status"
-              required
-              [(ngModel)]="achievement.status"
-            />
+          <label for="status" class="col-sm-5 col-form-label"> Status : </label>
+          <div class="col-sm-10">
+            <select class="form-control" id="status"  name="status" [(ngModel)]="achievement.status">
+              <option *ngFor="let status of statuses" value="{{status.description}}">{{status.description}}</option>
+            </select>
           </div>
         </div>
         <!--*************** END ATTRIBUTE 8 ***************-->
@@ -170,7 +166,7 @@
         <!--*************** END ATTRIBUTE 9 ***************-->
       </div>
       <!--*************** BUTTON ***************-->
-      <div class="d-grid col-2 mx-auto">
+      <div class="d-grid col-4 mx-auto">
         <button type="submit" class="btn btn-outline-success">Save</button>
       </div>
       <!--*************** END BUTTON ***************-->

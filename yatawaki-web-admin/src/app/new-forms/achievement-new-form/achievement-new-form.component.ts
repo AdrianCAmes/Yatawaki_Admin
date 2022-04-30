@@ -31,7 +31,27 @@ export class AchievementNewFormComponent implements OnInit {
     );
   }
 
+  nullInput(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = '';
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
   insertAchievement() {
+    if (this.achievement.description === ''){
+      this.achievement.description = null;
+    }
+
+    if(this.achievement.icon === ''){
+      this.achievement.icon = null;
+    }
+    
+    if(this.achievement.name === ''){
+      this.achievement.name = null;
+    }
     this.achievementService.createAchievement(this.achievement).subscribe(
       (datos) => console.log(datos)
       //(error) => console.log(error)

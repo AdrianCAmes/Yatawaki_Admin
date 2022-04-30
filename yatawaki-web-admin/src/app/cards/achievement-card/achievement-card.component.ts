@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AchievementService } from '../../service/achievement.service'
 import { Achievement } from '../../models/achievement'
+import { UnlockableService } from 'src/app/service/unlockable.service';
 
 @Component({
   selector: 'app-achievement-card',
@@ -12,6 +13,8 @@ export class AchievementCardComponent implements OnInit {
 
   achievement: Achievement = new Achievement();
   achievements: Achievement[] = [];
+  statuses: any[] = [];
+  unlockerTypes: any[] = [];
 
   id: number = 0;
 
@@ -25,9 +28,31 @@ export class AchievementCardComponent implements OnInit {
   public cancelClicked:boolean = false;
 
 
-  constructor(private achievementService: AchievementService, private router: Router) { }
+  constructor(private achievementService: AchievementService, private router: Router, 
+    private unlockableService: UnlockableService) { }
 
   ngOnInit(): void {
+    this.unlockableService.getUnlockableStatus().subscribe(
+      datos => {
+        console.log(datos)
+        this.statuses = datos;
+      }
+    );
+    this.unlockableService.getUnlockerTypes().subscribe(
+      datos => {
+        console.log(datos)
+        this.unlockerTypes = datos;
+      }
+    );
+  }
+
+  nullInput(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = '';
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
   }
 
   
@@ -58,6 +83,17 @@ export class AchievementCardComponent implements OnInit {
   }
 
   updateAchievement() {
+    if (this.achievement.description === ''){
+      this.achievement.description = null;
+    }
+
+    if(this.achievement.icon === ''){
+      this.achievement.icon = null;
+    }
+    if(this.achievement.name === ''){
+      this.achievement.name = null;
+    }
+
     this.achievementService.updateAchievement(this.achievement).subscribe(
       (datos) => {
         console.log(datos);
@@ -68,6 +104,18 @@ export class AchievementCardComponent implements OnInit {
   }
 
   changeAchievement(){
+    if (this.achievement.description === ''){
+      this.achievement.description = null;
+    }
+
+    if(this.achievement.icon === ''){
+      this.achievement.icon = null;
+    }
+    
+    if(this.achievement.name === ''){
+      this.achievement.name = null;
+    }
+
     this.achievementService.changeAchievement(this.achievement).subscribe(
       datos => {
         console.log(datos);

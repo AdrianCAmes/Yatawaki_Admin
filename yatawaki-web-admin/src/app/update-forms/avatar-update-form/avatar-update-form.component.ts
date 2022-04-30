@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Avatar } from 'src/app/models/avatar';
 import { AvatarService } from 'src/app/service/avatar.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UnlockableService } from 'src/app/service/unlockable.service';
 
 @Component({
   selector: 'app-avatar-update-form',
@@ -12,10 +13,12 @@ export class AvatarUpdateFormComponent implements OnInit {
 
   id: number = 0;
   avatar: Avatar = new Avatar();
+  statuses: any[] = [];
+  unlockerTypes: any[] = [];
 
   constructor( private route: ActivatedRoute,
     private router: Router,
-    private avatarService: AvatarService) { }
+    private avatarService: AvatarService, private unlockableService: UnlockableService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -23,6 +26,18 @@ export class AvatarUpdateFormComponent implements OnInit {
       (datos) => {
         console.log(datos);
         this.avatar = datos;
+      }
+    );
+    this.unlockableService.getUnlockableStatus().subscribe(
+      datos => {
+        console.log(datos)
+        this.statuses = datos;
+      }
+    );
+    this.unlockableService.getUnlockerTypes().subscribe(
+      datos => {
+        console.log(datos)
+        this.unlockerTypes = datos;
       }
     );
   }

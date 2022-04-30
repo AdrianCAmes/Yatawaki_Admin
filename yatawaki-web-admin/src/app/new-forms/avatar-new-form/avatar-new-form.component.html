@@ -6,7 +6,7 @@
     <form (ngSubmit)="insertAvatar()" class="center">
       <!--*************** ATTRIBUTE 2 ***************-->
       <div class="form-group mb-3 row">
-        <label for="name" class="col-sm-2 col-form-label">
+        <label for="name" class="col-sm-5 col-form-label">
           Name :
         </label>
         <div class="col-sm-10">
@@ -20,11 +20,15 @@
             [(ngModel)]="avatar.name"
           />
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('name', 'flexSwitchCheckDefaultC')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 2 ***************-->
       <!--*************** ATTRIBUTE 3 ***************-->
       <div class="form-group mb-3 row">
-        <label for="description" class="col-sm-2 col-form-label">
+        <label for="description" class="col-sm-5 col-form-label">
           Description :
         </label>
         <div class="col-sm-10">
@@ -38,11 +42,15 @@
             [(ngModel)]="avatar.description"
           />
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputDescription('description', 'flexSwitchCheckDefaultC2')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 3 ***************-->
       <!--*************** ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
-        <label for="rareness" class="col-sm-2 col-form-label"> Rareness : </label>
+        <label for="rareness" class="col-sm-5 col-form-label"> Rareness : </label>
         <div class="col-sm-10">
           <input
             type="rareness"
@@ -54,21 +62,29 @@
             [(ngModel)]="avatar.rareness"
           />
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputRareness('rareness', 'flexSwitchCheckDefaultC3')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 4 ***************-->
       <!--*************** ATTRIBUTE 5 ***************-->
       <div class="form-group mb-3 row">
-        <label for="unlockerType" class="col-sm-2 col-form-label"> Unlocker Type : </label>
+        <label for="unlockerType" class="col-sm-5 col-form-label"> Unlocker Type : </label>
         <div class="col-sm-10">
           <select class="form-control" id="unlockerType"  name="unlockerType" [(ngModel)]="avatar.unlockerType">
-            <option *ngFor="let unlockerType of unlockerTypes">{{unlockerType.value}}</option>
+            <option *ngFor="let unlockerType of unlockerTypes" value="{{unlockerType.value}}" selected>{{unlockerType.description}}</option>
           </select>
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputUnlockerType('unlockerType', 'flexSwitchCheckDefaultC4')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 5 ***************-->
       <!--*************** ATTRIBUTE 6 ***************-->
       <div class="form-group mb-3 row">
-        <label for="unlockerValue" class="col-sm-2 col-form-label">
+        <label for="unlockerValue" class="col-sm-5 col-form-label">
           Unlocker Value : 
         </label>
         <div class="col-sm-10">
@@ -86,7 +102,7 @@
       <!--*************** END ATTRIBUTE 6 ***************-->
       <!--*************** ATTRIBUTE 7 ***************-->
       <div class="form-group mb-3 row">
-        <label for="coinsCost" class="col-sm-2 col-form-label">
+        <label for="coinsCost" class="col-sm-5 col-form-label">
           Coins Cost :
         </label>
         <div class="col-sm-10">
@@ -100,11 +116,15 @@
             [(ngModel)]="avatar.coinsCost"
           />
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC5" (change)="nullInputCoinsCost('coinsCost', 'flexSwitchCheckDefaultC5')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 7 ***************-->
       <!--*************** ATTRIBUTE 8 ***************-->
       <div class="form-group mb-3 row">
-        <label for="icon" class="col-sm-2 col-form-label"> Icono : </label>
+        <label for="icon" class="col-sm-5 col-form-label"> Icono : </label>
         <div class="col-sm-10">
           <input
             type="text"
@@ -116,21 +136,29 @@
             [(ngModel)]="avatar.icon"
           />
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC6" (change)="nullInputIcon('icon', 'flexSwitchCheckDefaultC6')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 8 ***************-->
       <!--*************** ATTRIBUTE 9 ***************-->
       <div class="form-group mb-3 row">
-        <label for="status" class="col-sm-2 col-form-label"> Status : </label>
+        <label for="status" class="col-sm-5 col-form-label"> Status : </label>
         <div class="col-sm-10">
           <select class="form-control" id="status"  name="status" [(ngModel)]="avatar.status">
-            <option *ngFor="let status of statuses">{{status.value}}</option>
+            <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
           </select>
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC7" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC7')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 9 ***************-->
       <!--*************** ATTRIBUTE 9 ***************-->
       <div class="form-group mb-3 row">
-        <label for="enhancedFeaturesJson" class="col-sm-2 col-form-label">
+        <label for="enhancedFeaturesJson" class="col-sm-5 col-form-label">
           Enhanced Features :
         </label>
         <div class="col-sm-10">
@@ -144,10 +172,14 @@
             [(ngModel)]="avatar.enhancedFeaturesJson"
           />
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC8" (change)="nullInputEnhancedFeatures('enhancedFeaturesJson', 'flexSwitchCheckDefaultC8')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 9 ***************-->
       <!--*************** BUTTON ***************-->
-      <div class="d-grid col-2 mx-auto">
+      <div class="d-grid col-4 mx-auto">
         <button type="submit" class="btn btn-outline-success">Save</button>
       </div>
       <!--*************** END BUTTON ***************-->

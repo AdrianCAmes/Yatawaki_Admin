@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Composer } from 'src/app/models/composer';
 import { ComposerService } from 'src/app/service/composer.service';
+import { UnlockableService } from 'src/app/service/unlockable.service';
 
 @Component({
   selector: 'app-composer-card',
@@ -12,6 +13,7 @@ export class ComposerCardComponent implements OnInit {
 
   composer: Composer = new Composer();
   composers: Composer[] = [];
+  statuses: any[] = [];
 
   id: number = 0;
 
@@ -24,9 +26,24 @@ export class ComposerCardComponent implements OnInit {
   public confirmClicked:boolean = false;
   public cancelClicked:boolean = false;
 
-  constructor(private composerService: ComposerService, private router: Router) { }
+  constructor(private composerService: ComposerService, private router: Router, private unlockableService: UnlockableService) { }
 
   ngOnInit(): void {
+    this.unlockableService.getUnlockableStatus().subscribe(
+      datos => {
+        console.log(datos)
+        this.statuses = datos;
+      }
+    );
+  }
+
+  nullInput(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = '';
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
   }
 
   searchComposerById() {
@@ -66,6 +83,9 @@ export class ComposerCardComponent implements OnInit {
   }
 
   changeComposer(){
+    if(this.composer.name === ''){
+      this.composer.name = null;
+    }
     this.composerService.changeComposer(this.composer).subscribe(
       datos => {
         console.log(datos);

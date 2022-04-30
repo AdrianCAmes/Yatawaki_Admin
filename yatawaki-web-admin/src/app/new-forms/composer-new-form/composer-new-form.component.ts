@@ -13,7 +13,6 @@ export class ComposerNewFormComponent implements OnInit {
   
   composer: Composer = new Composer();
   statuses: any[] = [];
-  unlockerTypes: any[] = [];
 
   constructor(private composerService: ComposerService, private unlockableService: UnlockableService) { }
 
@@ -24,15 +23,21 @@ export class ComposerNewFormComponent implements OnInit {
         this.statuses = datos;
       }
     );
-    this.unlockableService.getUnlockerTypes().subscribe(
-      datos => {
-        console.log(datos)
-        this.unlockerTypes = datos;
-      }
-    );
+  }
+
+  nullInput(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = '';
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
   }
 
   insertComposer() {
+    if(this.composer.name === ''){
+      this.composer.name = null;
+    }
     this.composerService.createComposer(this.composer).subscribe(
       (datos) => console.log(datos)
       //(error) => console.log(error)

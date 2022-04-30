@@ -49,6 +49,8 @@ import { ComposerCardComponent } from './cards/composer-card/composer-card.compo
 import { ComposerChangeFormComponent } from './change-forms/composer-change-form/composer-change-form.component';
 import { ComposerNewFormComponent } from './new-forms/composer-new-form/composer-new-form.component';
 import { ComposerUpdateFormComponent } from './update-forms/composer-update-form/composer-update-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -94,6 +96,8 @@ import { ComposerUpdateFormComponent } from './update-forms/composer-update-form
     MatChipsModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger'
     })

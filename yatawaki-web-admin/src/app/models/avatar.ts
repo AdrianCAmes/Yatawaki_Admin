@@ -6,9 +6,9 @@ export class Avatar {
     rareness: Nullable<string>;
     unlockerType: Nullable<string>;
     unlockerValue: number;
-    coinsCost: number;
+    coinsCost: Nullable<number>;
     icon: Nullable<string>;
-    status: number;
+    status: Nullable<number>;
     enhancedFeaturesJson: Nullable<string>
 
     constructor() {

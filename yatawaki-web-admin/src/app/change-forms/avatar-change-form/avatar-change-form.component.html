@@ -1,5 +1,5 @@
 <br />
-<h2 class="text-center text-uppercase">Actualización de Avatar (Change)</h2>
+<h2 class="text-center text-uppercase">Actualización de Avatar</h2>
 <br />
 <div class="container">
   <div class="row center">
@@ -7,10 +7,10 @@
       <div *ngIf="avatar">
         <!--*************** ATTRIBUTE 1 ***************-->
         <div class="form-group mb-3 row">
-            <label for="id" class="col-sm-2 col-form-label">
+            <label for="id" class="col-sm-5 col-form-label">
               Id :
             </label>
-            <div class="col-sm-12">
+            <div class="col-sm-10">
               <input
                 type="text"
                 class="form-control"
@@ -24,46 +24,54 @@
             </div>
         </div>
         <div class="form-group mb-3 row">
-          <label for="avatarName" class="col-sm-3 col-form-label">
+          <label for="avatarName" class="col-sm-5 col-form-label">
             Avatar Name :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
-              id="name"
+              id="nameC"
               name="name"
               placeholder="Avatar Name"
               required
               [(ngModel)]="avatar.name"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('nameC', 'flexSwitchCheckDefaultC')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 1 ***************-->
         <!--*************** ATTRIBUTE 2 ***************-->
         <div class="form-group mb-3 row">
-          <label for="description" class="col-sm-4 col-form-label">
+          <label for="description" class="col-sm-5 col-form-label">
             Avatar Description :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
-              id="description"
+              id="descriptionC"
               name="description"
               placeholder="description"
               required
               [(ngModel)]="avatar.description"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputDescription('descriptionC', 'flexSwitchCheckDefaultC2')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 2 ***************-->
         <!--*************** ATTRIBUTE 3 ***************-->
         <div class="form-group mb-3 row">
-          <label for="rareness" class="col-sm-4 col-form-label">
+          <label for="rareness" class="col-sm-5 col-form-label">
             Avatar Rareness :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
@@ -78,28 +86,20 @@
         <!--*************** END ATTRIBUTE 3 ***************-->
         <!--*************** ATTRIBUTE 4 ***************-->
         <div class="form-group mb-3 row">
-          <label for="unlockerType" class="col-sm-4 col-form-label">
-            Avatar Unlocker Type :
-          </label>
-          <div class="col-sm-12">
-            <input
-              type="text"
-              class="form-control"
-              id="unlockerType"
-              name="unlockerType"
-              placeholder="Avatar Unlocker Type"
-              required
-              [(ngModel)]="avatar.unlockerType"
-            />
+          <label for="unlockerType" class="col-sm-5 col-form-label"> Unlocker Type : </label>
+          <div class="col-sm-11">
+            <select class="form-control" id="unlockerType"  name="unlockerType" [(ngModel)]="avatar.unlockerType">
+              <option *ngFor="let unlockerType of unlockerTypes" value="{{unlockerType.value}}" selected>{{unlockerType.description}}</option>
+            </select>
           </div>
         </div>
         <!--*************** END ATTRIBUTE 4 ***************-->
         <!--*************** ATTRIBUTE 5 ***************-->
         <div class="form-group mb-3 row">
-          <label for="unlockerValue" class="col-sm-4 col-form-label">
+          <label for="unlockerValue" class="col-sm-5 col-form-label">
             Avatar Unlocker Value :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
@@ -114,10 +114,10 @@
         <!--*************** END ATTRIBUTE 5 ***************-->
         <!--*************** ATTRIBUTE 6 ***************-->
         <div class="form-group mb-3 row">
-          <label for="coinsCost" class="col-sm-4 col-form-label">
+          <label for="coinsCost" class="col-sm-5 col-form-label">
             Avatar Coins Cost :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
@@ -132,37 +132,33 @@
         <!--*************** END ATTRIBUTE 6 ***************-->
         <!--*************** ATTRIBUTE 7 ***************-->
         <div class="form-group mb-3 row">
-          <label for="icon" class="col-sm-3 col-form-label">
+          <label for="icon" class="col-sm-5 col-form-label">
             Avatar Icon :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
-              id="icon"
+              id="iconC"
               name="icon"
               placeholder="Avatar Icon"
               required
               [(ngModel)]="avatar.icon"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputIcon('iconC', 'flexSwitchCheckDefaultC3')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 7 ***************-->
         <!--*************** ATTRIBUTE 8 ***************-->
         <div class="form-group mb-3 row">
-          <label for="status" class="col-sm-3 col-form-label">
-            Avatar Status :
-          </label>
-          <div class="col-sm-12">
-            <input
-              type="text"
-              class="form-control"
-              id="status"
-              name="status"
-              placeholder="Avatar Status"
-              required
-              [(ngModel)]="avatar.status"
-            />
+          <label for="status" class="col-sm-5 col-form-label"> Status : </label>
+          <div class="col-sm-11">
+            <select class="form-control" id="status"  name="status" [(ngModel)]="avatar.status">
+              <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
+            </select>
           </div>
         </div>
         <!--*************** END ATTRIBUTE 8 ***************-->
@@ -171,22 +167,26 @@
           <label for="enhancedFeaturesJson" class="col-sm-5 col-form-label">
             Avatar Enhanced Features :
           </label>
-          <div class="col-sm-12">
+          <div class="col-sm-10">
             <input
               type="text"
               class="form-control"
-              id="enhancedFeaturesJson"
+              id="enhancedFeaturesJsonC"
               name="enhancedFeaturesJson"
               placeholder="Avatar Enhanced Features"
               required
               [(ngModel)]="avatar.enhancedFeaturesJson"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputEnhancedFeatures('enhancedFeaturesJsonC', 'flexSwitchCheckDefaultC4')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 9 ***************-->
       </div>
       <!--*************** BUTTON ***************-->
-      <div class="d-grid col-2 mx-auto">
+      <div class="d-grid col-4 mx-auto">
         <button type="submit" class="btn btn-outline-success">Save</button>
       </div>
       <!--*************** END BUTTON ***************-->

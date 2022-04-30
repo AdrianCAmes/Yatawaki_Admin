@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Achievement } from 'src/app/models/achievement';
 import { AchievementService } from 'src/app/service/achievement.service';
+import { UnlockableService } from 'src/app/service/unlockable.service';
 
 @Component({
   selector: 'app-achievement-update-form',
@@ -12,10 +13,12 @@ export class AchievementUpdateFormComponent implements OnInit {
 
   id: number = 0;
   achievement: Achievement = new Achievement();
+  statuses: any[] = [];
+  unlockerTypes: any[] = [];
 
   constructor( private route: ActivatedRoute,
     private router: Router,
-    private achievementService: AchievementService) { }
+    private achievementService: AchievementService,   private unlockableService: UnlockableService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -23,6 +26,18 @@ export class AchievementUpdateFormComponent implements OnInit {
       (datos) => {
         console.log(datos);
         this.achievement = datos;
+      }
+    );
+    this.unlockableService.getUnlockableStatus().subscribe(
+      datos => {
+        console.log(datos)
+        this.statuses = datos;
+      }
+    );
+    this.unlockableService.getUnlockerTypes().subscribe(
+      datos => {
+        console.log(datos)
+        this.unlockerTypes = datos;
       }
     );
   }

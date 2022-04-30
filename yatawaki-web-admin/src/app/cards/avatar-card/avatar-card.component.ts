@@ -5,6 +5,7 @@ import { Avatar } from '../../models/avatar'
 import {MatDialog} from '@angular/material/dialog';
 import { AvatarNewFormComponent } from 'src/app/new-forms/avatar-new-form/avatar-new-form.component';
 import { AvatarUpdateFormComponent } from 'src/app/update-forms/avatar-update-form/avatar-update-form.component';
+import { UnlockableService } from 'src/app/service/unlockable.service';
 
 @Component({
   selector: 'app-avatar-card',
@@ -16,6 +17,8 @@ export class AvatarCardComponent implements OnInit {
 
   avatar: Avatar = new Avatar();
   avatars: Avatar[] = [];
+  statuses: any[] = [];
+  unlockerTypes: any[] = [];
 
   id: number = 0;
 
@@ -28,15 +31,23 @@ export class AvatarCardComponent implements OnInit {
   public confirmClicked:boolean = false;
   public cancelClicked:boolean = false;
 
-  constructor(private avatarService: AvatarService,  public dialog: MatDialog, private router: Router) { }
+  constructor(private avatarService: AvatarService,  public dialog: MatDialog, private router: Router,
+    private unlockableService: UnlockableService) { }
 
   
   ngOnInit(): void {
-    /*this.avatarService.getAvatarById(this.id).subscribe(response => {
-      //console.log(response)
-      this.avatars = [response];
-      console.log(response.icon)
-    });*/
+    this.unlockableService.getUnlockableStatus().subscribe(
+      datos => {
+        console.log(datos)
+        this.statuses = datos;
+      }
+    );
+    this.unlockableService.getUnlockerTypes().subscribe(
+      datos => {
+        console.log(datos)
+        this.unlockerTypes = datos;
+      }
+    );
   }
 
   searchAvatarById() {
@@ -65,7 +76,29 @@ export class AvatarCardComponent implements OnInit {
     this.router.navigate(['avatar']);
   }
 
+  nullInput(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = '';
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
   updateAvatar() {
+    if (this.avatar.description === ''){
+      this.avatar.description = null;
+    }
+    if(this.avatar.enhancedFeaturesJson === ''){
+      this.avatar.enhancedFeaturesJson = null;
+    }
+    if(this.avatar.icon === ''){
+      this.avatar.icon = null;
+    }
+    if(this.avatar.name === ''){
+      this.avatar.name = null;
+    }
+
     this.avatarService.updateAvatar(this.avatar).subscribe(
       (datos) => {
         console.log(datos);
@@ -76,6 +109,18 @@ export class AvatarCardComponent implements OnInit {
   }
 
   changeAvatar(){
+    if (this.avatar.description === ''){
+      this.avatar.description = null;
+    }
+    if(this.avatar.enhancedFeaturesJson === ''){
+      this.avatar.enhancedFeaturesJson = null;
+    }
+    if(this.avatar.icon === ''){
+      this.avatar.icon = null;
+    }
+    if(this.avatar.name === ''){
+      this.avatar.name = null;
+    }
     this.avatarService.changeAvatar(this.avatar).subscribe(
       datos => {
         console.log(datos);
