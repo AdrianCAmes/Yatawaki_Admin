@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AchievementCardComponent } from './cards/achievement-card/achievement-card.component';
 import { AvatarCardComponent } from './cards/avatar-card/avatar-card.component';
 import { ComposerCardComponent } from './cards/composer-card/composer-card.component';
+import { UnlockableCardComponent } from './cards/unlockable-card/unlockable-card.component';
 import { AchievementChangeFormComponent } from './change-forms/achievement-change-form/achievement-change-form.component';
 import { AvatarChangeFormComponent } from './change-forms/avatar-change-form/avatar-change-form.component';
 import { ComposerChangeFormComponent } from './change-forms/composer-change-form/composer-change-form.component';
@@ -48,6 +49,10 @@ const routes: Routes = [
   { path: 'composer-new-form', component: ComposerNewFormComponent },
   { path: 'composer-update-form/:id', component: ComposerUpdateFormComponent },
   { path: 'composer-change-form/:id', component: ComposerChangeFormComponent },
+
+  
+  { path: 'unlockable', component: UnlockableComponent },
+  { path: 'unlockable-card', component: UnlockableCardComponent },
 
   { path: 'composer', component: ComposerComponent },
   { path: 'unlockable', component: UnlockableComponent },

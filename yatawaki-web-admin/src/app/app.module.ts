@@ -51,6 +51,7 @@ import { ComposerNewFormComponent } from './new-forms/composer-new-form/composer
 import { ComposerUpdateFormComponent } from './update-forms/composer-update-form/composer-update-form.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { UnlockableCardComponent } from './cards/unlockable-card/unlockable-card.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ComposerCardComponent,
     ComposerChangeFormComponent,
     ComposerNewFormComponent,
-    ComposerUpdateFormComponent
+    ComposerUpdateFormComponent,
+    UnlockableCardComponent
   ],
   imports: [
     BrowserModule,

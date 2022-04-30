@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Unlockable } from 'src/app/models/unlockable';
-import { UnlockableService } from '../../service/unlockable.service'
+import { UnlockableService } from 'src/app/service/unlockable.service';
 
 @Component({
-  selector: 'app-unlockable',
-  templateUrl: './unlockable.component.html',
-  styleUrls: ['./unlockable.component.css']
+  selector: 'app-unlockable-card',
+  templateUrl: './unlockable-card.component.html',
+  styleUrls: ['./unlockable-card.component.css']
 })
-export class UnlockableComponent implements OnInit {
+export class UnlockableCardComponent implements OnInit {
 
-  unlockables = new Array<any>();
+
+  unlockable: Unlockable = new Unlockable();
+  unlockables: Unlockable[] = [];
+
+
+  id: number = 0;
+  show:boolean = false;
+
   public popoverTitle:string = 'Aviso'
   public popoverMessage:string = '¿Seguro que quiere eliminar este elemento?'
   public confirmClicked:boolean = false;
@@ -19,26 +26,24 @@ export class UnlockableComponent implements OnInit {
   constructor(private router: Router, private unlockableService: UnlockableService) { }
 
   ngOnInit(): void {
-    this.unlockableService.getUnlockables().subscribe(response => {
-      console.log(response)
-      this.unlockables = response;
-    });
   }
 
   loadDataUnlockables() {
-    this.unlockableService
-      .getUnlockables()
-      .subscribe((unlockables) => (this.unlockables = unlockables));
+    this.router.navigate(['unlockable']);
+  }
+
+  searchUnlockableById() {
+    this.unlockableService.getUnlockableById(this.id).subscribe((unlockable) => {
+      console.log(unlockable);
+      this.unlockable = unlockable;
+    });
+    this.show = true;
   }
 
   deleteUnlockable(unlockable: Unlockable) {
     this.unlockableService.deleteUnlockable(unlockable.idUnlockable).subscribe((data) => {
       this.loadDataUnlockables();
     });
-  }
-
-  changeUnlockable(unlockable: Unlockable) {
-    this.router.navigate(['composer-change-form', unlockable.idUnlockable]);
   }
 
 }

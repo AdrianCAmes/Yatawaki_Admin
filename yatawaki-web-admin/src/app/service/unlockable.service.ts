@@ -22,4 +22,16 @@ export class UnlockableService {
     return this.http.get<any>(this.apiURL + '/unlocker-types');
   }
 
+  getUnlockerRareness(): Observable<any>{
+    return this.http.get<any>(this.apiURL + '/unlocker-types');
+  }
+
+  getUnlockableById(id: number): Observable<any> {
+    return this.http.get(`${this.apiURL}/${id}`);
+  }
+
+  deleteUnlockable(id?: number): Observable<any> {
+    return this.http.delete(`${this.apiURL}/${id}`);
+  }
+
 }
