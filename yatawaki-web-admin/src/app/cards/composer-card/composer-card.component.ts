@@ -37,9 +37,40 @@ export class ComposerCardComponent implements OnInit {
     );
   }
 
-  nullInput(elementId: string, chbox: string) {
+  nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = '';
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.composer.name = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputStatus(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.composer.status = 0;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputBirthDate(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.composer.birthDate = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputDeathDate(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.composer.deathDate = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -72,20 +103,8 @@ export class ComposerCardComponent implements OnInit {
     this.router.navigate(['composer']);
   }
 
-  updateComposer() {
-    this.composerService.updateComposer(this.composer).subscribe(
-      (datos) => {
-        console.log(datos);
-        //this.router.navigate(['ListCustomer']);
-      }
-    );
-    this.composer = new Composer();
-  }
 
   changeComposer(){
-    if(this.composer.name === ''){
-      this.composer.name = null;
-    }
     this.composerService.changeComposer(this.composer).subscribe(
       datos => {
         console.log(datos);

@@ -1,5 +1,5 @@
 <br />
-<h2 class="text-center text-uppercase">Actualización de Composer (Change)</h2>
+<h2 class="text-center text-uppercase">Actualización de Composer</h2>
 <br />
 <div class="container">
   <div class="row center">
@@ -39,7 +39,7 @@
             />
           </div>
           <div class="form-check form-switch col-sm-2 center">
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInput('name', 'flexSwitchCheckDefaultC')">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('name', 'flexSwitchCheckDefaultC')">
               <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
           </div>
         </div>
@@ -49,7 +49,7 @@
             <label for="birthDate" class="col-sm-5 col-form-label">
               Composer Birth Date :
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-8">
               <input
                 type="text"
                 class="form-control"
@@ -65,6 +65,10 @@
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputBirthDate('birthDate', 'flexSwitchCheckDefaultC2')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
           </div>
         <!--*************** END ATTRIBUTE 2 ***************-->
         <!--*************** ATTRIBUTE 3 ***************-->
@@ -72,7 +76,7 @@
             <label for="deathDate" class="col-sm-5 col-form-label">
               Composer Death Date :
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-8">
               <input
                 type="text"
                 class="form-control"
@@ -87,6 +91,10 @@
             <div class="col-sm-2">
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
+            </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputDeathDate('deathDate', 'flexSwitchCheckDefaultC3')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
             </div>
           </div>
         <!--*************** END ATTRIBUTE 3 ***************-->
@@ -106,6 +114,10 @@
             <select class="form-control" id="status"  name="status" [(ngModel)]="composer.status">
               <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
             </select>
+          </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
           </div>
         </div>
         <!--*************** END ATTRIBUTE 8 ***************-->

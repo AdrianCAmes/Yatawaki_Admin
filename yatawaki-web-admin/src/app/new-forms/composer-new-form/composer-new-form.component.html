@@ -21,7 +21,7 @@
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInput('name', 'flexSwitchCheckDefaultC')">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('name', 'flexSwitchCheckDefaultC')">
             <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
           </div>
       </div>
@@ -31,7 +31,7 @@
         <label for="birthDate" class="col-sm-5 col-form-label">
           Birth Date :
         </label>
-        <div class="col-sm-10">
+        <div class="col-sm-8">
           <input
             matInput 
             type="birthDate"
@@ -49,12 +49,16 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputBirthDate('birthDate', 'flexSwitchCheckDefaultC2')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 3 ***************-->
       <!--*************** ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
         <label for="deathDate" class="col-sm-5 col-form-label"> Death Date : </label>
-        <div class="col-sm-10">
+        <div class="col-sm-8">
           
           <input
             matInput 
@@ -72,6 +76,10 @@
           <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
           <mat-datepicker #picker2></mat-datepicker>
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputDeathDate('deathDate', 'flexSwitchCheckDefaultC3')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 4 ***************-->
       <!--*************** ATTRIBUTE 5 ***************-->
@@ -90,6 +98,10 @@
             <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
           </select>
         </div>
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 9 ***************-->
       <!--*************** ATTRIBUTE 9 ***************-->

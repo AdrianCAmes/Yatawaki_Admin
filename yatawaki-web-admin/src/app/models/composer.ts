@@ -2,9 +2,9 @@ type Nullable<T> = T | null;
 export class Composer{
     idComposer:number;
     name:Nullable<string>;
-    birthDate: Date;
-    deathDate: Date;
-    status: number;
+    birthDate: Nullable<Date>;
+    deathDate: Nullable<Date>;
+    status: Nullable<number>;
 
     constructor() {
         this.idComposer = 0;
