@@ -39,11 +39,6 @@ export class ComposerComponent implements OnInit {
     });
   }
 
-  
-  updateComposer(composers: Composer) {
-    this.router.navigate(['composer-update-form', composers.idComposer]);
-  }
-
   changeComposer(composers: Composer) {
     this.router.navigate(['composer-change-form', composers.idComposer]);
   }

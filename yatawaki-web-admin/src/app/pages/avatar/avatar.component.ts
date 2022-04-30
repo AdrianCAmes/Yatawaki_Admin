@@ -40,10 +40,6 @@ export class AvatarComponent implements OnInit {
     });
   }
 
-  
-
-
-
   changeAvatar(avatar: Avatar) {
     this.router.navigate(['avatar-change-form', avatar.idUnlockable]);
   }
