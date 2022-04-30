@@ -117,28 +117,6 @@ export class AvatarNewFormComponent implements OnInit {
 
 
   insertAvatar() {
-    /*if (this.avatar.description === ''){
-      this.avatar.description = null;
-    }
-    if(this.avatar.enhancedFeaturesJson === ''){
-      this.avatar.enhancedFeaturesJson = null;
-    }
-    if(this.avatar.icon === ''){
-      this.avatar.icon = null;
-    }
-    if(this.avatar.name === ''){
-      this.avatar.name = null;
-    }
-    if(this.avatar.coinsCost === 0){
-      this.avatar.coinsCost = null;
-    }
-    if(this.avatar.rareness === ''){
-      this.avatar.rareness = null;
-    }
-    if(this.avatar.unlockerType === ''){
-      this.avatar.unlockerType = null;
-    }*/
-
     this.avatarService.createAvatar(this.avatar).subscribe(
       (datos) => console.log(datos)
       //(error) => console.log(error)
