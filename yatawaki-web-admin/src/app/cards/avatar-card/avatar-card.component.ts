@@ -76,40 +76,91 @@ export class AvatarCardComponent implements OnInit {
     this.router.navigate(['avatar']);
   }
 
-  nullInput(elementId: string, chbox: string) {
+  nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = '';
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.name = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
 
-  updateAvatar() {
-    if (this.avatar.description === ''){
+  nullInputDescription(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
       this.avatar.description = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
-    if(this.avatar.enhancedFeaturesJson === ''){
-      this.avatar.enhancedFeaturesJson = null;
-    }
-    if(this.avatar.icon === ''){
+  }
+  
+  nullInputIcon(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
       this.avatar.icon = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
-    if(this.avatar.name === ''){
-      this.avatar.name = null;
+  }
+  nullInputEnhancedFeatures(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.enhancedFeaturesJson = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
-
-    this.avatarService.updateAvatar(this.avatar).subscribe(
-      (datos) => {
-        console.log(datos);
-        //this.router.navigate(['ListCustomer']);
-      }
-    );
-    this.avatar = new Avatar();
   }
 
+  nullInputCoinsCost(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.coinsCost = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  
+  nullInputStatus(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.status = 0;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+    
+  nullInputRareness(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.rareness = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+    
+  nullInputUnlockerType(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.unlockerType = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+
   changeAvatar(){
-    if (this.avatar.description === ''){
+    /*if (this.avatar.description === ''){
       this.avatar.description = null;
     }
     if(this.avatar.enhancedFeaturesJson === ''){
@@ -120,7 +171,7 @@ export class AvatarCardComponent implements OnInit {
     }
     if(this.avatar.name === ''){
       this.avatar.name = null;
-    }
+    }*/
     this.avatarService.changeAvatar(this.avatar).subscribe(
       datos => {
         console.log(datos);
