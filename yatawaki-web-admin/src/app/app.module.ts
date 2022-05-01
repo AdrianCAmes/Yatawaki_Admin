@@ -52,6 +52,10 @@ import { ComposerUpdateFormComponent } from './update-forms/composer-update-form
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UnlockableCardComponent } from './cards/unlockable-card/unlockable-card.component';
+import { SymphonyComponent } from './pages/symphony/symphony.component';
+import { SymphonyNewFormComponent } from './new-forms/symphony-new-form/symphony-new-form.component';
+import { SymphonyChangeFormComponent } from './change-forms/symphony-change-form/symphony-change-form.component';
+import { SymphonyCardComponent } from './cards/symphony-card/symphony-card.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +79,11 @@ import { UnlockableCardComponent } from './cards/unlockable-card/unlockable-card
     ComposerChangeFormComponent,
     ComposerNewFormComponent,
     ComposerUpdateFormComponent,
-    UnlockableCardComponent
+    UnlockableCardComponent,
+    SymphonyComponent,
+    SymphonyNewFormComponent,
+    SymphonyChangeFormComponent,
+    SymphonyCardComponent
   ],
   imports: [
     BrowserModule,

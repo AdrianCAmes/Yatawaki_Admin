@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AvatarService } from '../../service/avatar.service'
-import { Avatar } from '../../models/avatar'
-import {MatDialog} from '@angular/material/dialog';
-import { AvatarNewFormComponent } from 'src/app/new-forms/avatar-new-form/avatar-new-form.component';
-import { AvatarUpdateFormComponent } from 'src/app/update-forms/avatar-update-form/avatar-update-form.component';
+import { Symphony } from 'src/app/models/symphony';
+import { SymphonyService } from 'src/app/service/symphony.service';
 import { UnlockableService } from 'src/app/service/unlockable.service';
 
 @Component({
-  selector: 'app-avatar-card',
-  templateUrl: './avatar-card.component.html',
-  styleUrls: ['./avatar-card.component.css']
+  selector: 'app-symphony-card',
+  templateUrl: './symphony-card.component.html',
+  styleUrls: ['./symphony-card.component.css']
 })
-export class AvatarCardComponent implements OnInit {
+export class SymphonyCardComponent implements OnInit {
 
-
-  avatar: Avatar = new Avatar();
-  avatars: Avatar[] = [];
+  symphony: Symphony = new Symphony();
+  symphonies: Symphony[] = [];
   statuses: any[] = [];
   unlockerTypes: any[] = [];
 
@@ -31,10 +27,10 @@ export class AvatarCardComponent implements OnInit {
   public confirmClicked:boolean = false;
   public cancelClicked:boolean = false;
 
-  constructor(private avatarService: AvatarService,  public dialog: MatDialog, private router: Router,
+
+  constructor(private symphonyService: SymphonyService, private router: Router,
     private unlockableService: UnlockableService) { }
 
-  
   ngOnInit(): void {
     this.unlockableService.getUnlockableStatus().subscribe(
       datos => {
@@ -50,36 +46,29 @@ export class AvatarCardComponent implements OnInit {
     );
   }
 
-  searchAvatarById() {
-    this.avatarService.getAvatarById(this.id).subscribe((avatar) => {
-      console.log(avatar);
-      this.avatar = avatar;
+  searchSymphonyById() {
+    this.symphonyService.getSymphonyById(this.id).subscribe((symphony) => {
+      console.log(symphony);
+      this.symphony = symphony;
     });
     this.show = true;
-    this.showUpdate = false;
     this.showChange = false;
   }
 
-  showUpdateForm(){
-    this.showUpdate = true;
-    this.show = false;
-    this.showChange = false;
-  }
 
   showChangeForm(){
     this.showChange = true;
     this.show = false;
-    this.showUpdate = false;
   }
 
-  loadDataAvatars() {
-    this.router.navigate(['avatar']);
+  loadDataSymphonies() {
+    this.router.navigate(['symphony']);
   }
 
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.name = null;
+      this.symphony.name = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -89,58 +78,17 @@ export class AvatarCardComponent implements OnInit {
   nullInputDescription(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.description = null;
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
-    } else {
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
-    }
-  }
-  
-  nullInputIcon(elementId: string, chbox: string) {
-    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.icon = null;
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
-    } else {
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
-    }
-  }
-  nullInputEnhancedFeatures(elementId: string, chbox: string) {
-    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.enhancedFeaturesJson = null;
+      this.symphony.description = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
 
-  nullInputCoinsCost(elementId: string, chbox: string) {
-    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.coinsCost = null;
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
-    } else {
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
-    }
-  }
-
-  
-  nullInputStatus(elementId: string, chbox: string) {
-    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.status = 0;
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
-    } else {
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
-    }
-  }
-
-    
   nullInputRareness(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.rareness = null;
+      this.symphony.rareness = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -151,7 +99,7 @@ export class AvatarCardComponent implements OnInit {
   nullInputUnlockerType(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.avatar.unlockerType = null;
+      this.symphony.unlockerType = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -159,38 +107,100 @@ export class AvatarCardComponent implements OnInit {
   }
 
 
-  changeAvatar(){
-    this.avatarService.changeAvatar(this.avatar).subscribe(
+  nullInputCoinsCost(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.coinsCost = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+  
+  nullInputIcon(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.icon = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  
+  nullInputStatus(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.status = 0;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputYear(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.year = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputDuration(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.duration = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputType(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.type = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputPreviewTrack(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.previewTrack = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputInitialBpm(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.initialBpm = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  changeSymphony(){
+    this.symphonyService.changeSymphony(this.symphony).subscribe(
       datos => {
         console.log(datos);
       }
     );
-    this.avatar = new Avatar();
+    this.symphony = new Symphony();
   }
 
-  deleteAvatar(avatar: Avatar) {
-    this.avatarService.deleteAvatar(avatar.idUnlockable).subscribe((data) => {
-      this.loadDataAvatars();
+  deleteSymphony(symphony: Symphony) {
+    this.symphonyService.deleteSymphony(symphony.idUnlockable).subscribe((data) => {
+      this.loadDataSymphonies();
     });
   }
-
-  openDialog() {
-    const dialogRef = this.dialog.open(AvatarUpdateFormComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-  
-  toPngBlob(str:string){
-    var hexStr = str.slice(2);
-    var buf = new ArrayBuffer(hexStr.length/2);
-    var byteBuf = new Uint8Array(buf);
-    for (let i=0; i<hexStr.length; i+=2) {
-      byteBuf[i/2] = parseInt(hexStr.slice(i,i+2),16);
-    }
-    var blob = new Blob([byteBuf], {type: "image/png"});
-    return blob;
-  };
 
 }
