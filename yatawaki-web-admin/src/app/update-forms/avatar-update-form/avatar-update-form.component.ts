@@ -55,12 +55,6 @@ export class AvatarUpdateFormComponent implements OnInit {
     if(this.avatar.name === ''){
       this.avatar.name = null;
     }
-    if(this.avatar.rareness === ''){
-      this.avatar.rareness = null;
-    }
-    if(this.avatar.unlockerType === ''){
-      this.avatar.unlockerType = null;
-    }
     console.log(JSON.stringify(this.avatar))
     this.avatarService.updateAvatar(this.avatar).subscribe(
       (datos) => {

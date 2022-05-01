@@ -1,25 +1,32 @@
 <br />
-<h2 class="text-center text-uppercase">List of Composers</h2>
+<h2 class="text-center text-uppercase">List of Instruments</h2>
 <br />
 <div class="table-responsive text-center">
   <table class="table table-dark table-hover table-bordered border-green">
     <thead>
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">Name</th>
-        <th scope="col">Birth Date</th>
-        <th scope="col">Death Date</th>
+        <th scope="col">Trivias Played</th>
+        <th scope="col">Trivias Won</th>
+        <th scope="col">Concerts Orchestrated</th>
         <th scope="col">Status</th>
+        <th scope="col">Icon</th>
       </tr>
     </thead>
     <tbody class="align-middle">
-      <ng-container *ngFor="let composer of composers">
+      <ng-container *ngFor="let instrument of instruments">
         <tr>
-          <th scope="row">{{ composer.idComposer }}</th>
-          <td>{{ composer.name }}</td>
-          <td>{{ composer.birthDate }}</td>
-          <td>{{ composer.deathDate }}</td>
-          <td>{{ composer.status }}</td>
+          <th scope="row">{{ instrument.idInstrument }}</th>
+          <td>{{ instrument.name }}</td>
+          <td>{{ instrument.shortDescription }}</td>
+          <td>{{ instrument.type }}</td>
+          <td>{{ instrument.status }}</td>
+          <td class="w20">
+            <img
+              src="{{ instrument.icon }}"
+              class="rounded mx-auto img-thumbnail thumbnail maxW40"
+            />
+          </td>
           <td>
             <div class="d-grid gap-2 d-md-block">
               <button 
@@ -27,7 +34,7 @@
                 mwlConfirmationPopover
                 [popoverMessage]="popoverMessage"
                 placement="left"
-                (confirm)="deleteComposer(composer)"
+                (confirm)="deleteInstrument(instrument)"
                 (cancel)="cancelClicked = true"
                 class="btn btn-outline-danger col-md-5 justify-content-center align-items-center floatL maxW48"
                 data-toggle="popover" title="Delete"
@@ -36,7 +43,7 @@
               </button>
               <button
                 type="submit"
-                (click)="changeComposer(composer)"
+                (click)="changeInstrument(instrument)"
                 class="btn btn-outline-success col-md-5 justify-content-center align-items-center floatR maxW48"
                 data-toggle="popover" title="Update"
                 >
@@ -49,3 +56,5 @@
     </tbody>
   </table>
 </div>
+
+
