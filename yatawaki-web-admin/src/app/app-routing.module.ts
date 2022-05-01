@@ -3,19 +3,27 @@ import { Routes, RouterModule } from '@angular/router';
 import { AchievementCardComponent } from './cards/achievement-card/achievement-card.component';
 import { AvatarCardComponent } from './cards/avatar-card/avatar-card.component';
 import { ComposerCardComponent } from './cards/composer-card/composer-card.component';
+import { GestureCardComponent } from './cards/gesture-card/gesture-card.component';
+import { InstrumentCardComponent } from './cards/instrument-card/instrument-card.component';
 import { SymphonyCardComponent } from './cards/symphony-card/symphony-card.component';
 import { UnlockableCardComponent } from './cards/unlockable-card/unlockable-card.component';
 import { AchievementChangeFormComponent } from './change-forms/achievement-change-form/achievement-change-form.component';
 import { AvatarChangeFormComponent } from './change-forms/avatar-change-form/avatar-change-form.component';
 import { ComposerChangeFormComponent } from './change-forms/composer-change-form/composer-change-form.component';
+import { GestureChangeFormComponent } from './change-forms/gesture-change-form/gesture-change-form.component';
+import { InstrumentChangeFormComponent } from './change-forms/instrument-change-form/instrument-change-form.component';
 import { SymphonyChangeFormComponent } from './change-forms/symphony-change-form/symphony-change-form.component';
 import { AchievementNewFormComponent } from './new-forms/achievement-new-form/achievement-new-form.component';
 import { AvatarNewFormComponent } from './new-forms/avatar-new-form/avatar-new-form.component';
 import { ComposerNewFormComponent } from './new-forms/composer-new-form/composer-new-form.component';
+import { GestureNewFormComponent } from './new-forms/gesture-new-form/gesture-new-form.component';
+import { InstrumentNewFormComponent } from './new-forms/instrument-new-form/instrument-new-form.component';
 import { SymphonyNewFormComponent } from './new-forms/symphony-new-form/symphony-new-form.component';
 import { AchievementComponent } from './pages/achievement/achievement.component';
 import { AvatarComponent } from './pages/avatar/avatar.component';
 import { ComposerComponent } from './pages/composer/composer.component';
+import { GestureComponent } from './pages/gesture/gesture.component';
+import { InstrumentComponent } from './pages/instrument/instrument.component';
 import { SymphonyComponent } from './pages/symphony/symphony.component';
 import { UnlockableComponent } from './pages/unlockable/unlockable.component';
 import { UserComponent } from './pages/user/user.component';
@@ -62,6 +70,17 @@ const routes: Routes = [
   { path: 'symphony-card', component: SymphonyCardComponent },
   { path: 'symphony-new-form', component: SymphonyNewFormComponent },
   { path: 'symphony-change-form/:id', component: SymphonyChangeFormComponent },
+
+  { path: 'gesture', component: GestureComponent },
+  { path: 'gesture-card', component: GestureCardComponent },
+  { path: 'gesture-new-form', component: GestureNewFormComponent },
+  { path: 'gesture-change-form/:id', component: GestureChangeFormComponent },
+
+  
+  { path: 'instrument', component: InstrumentComponent },
+  { path: 'instrument-card', component: InstrumentCardComponent },
+  { path: 'instrument-new-form', component: InstrumentNewFormComponent },
+  { path: 'instrument-change-form/:id', component: InstrumentChangeFormComponent },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

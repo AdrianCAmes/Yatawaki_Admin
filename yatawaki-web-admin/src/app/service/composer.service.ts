@@ -26,10 +26,6 @@ export class ComposerService {
     return this.http.post(this.apiURL, composer);
   }
 
-  updateComposer(composer: Object): Observable<Object> {
-    return this.http.patch(this.apiURL, composer);
-  }
-
   changeComposer(composer: Object): Observable<Object> {
     return this.http.put(this.apiURL, composer);
   }

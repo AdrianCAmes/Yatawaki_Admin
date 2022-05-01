@@ -56,6 +56,15 @@ import { SymphonyComponent } from './pages/symphony/symphony.component';
 import { SymphonyNewFormComponent } from './new-forms/symphony-new-form/symphony-new-form.component';
 import { SymphonyChangeFormComponent } from './change-forms/symphony-change-form/symphony-change-form.component';
 import { SymphonyCardComponent } from './cards/symphony-card/symphony-card.component';
+import { GestureComponent } from './pages/gesture/gesture.component';
+import { GestureNewFormComponent } from './new-forms/gesture-new-form/gesture-new-form.component';
+import { GestureChangeFormComponent } from './change-forms/gesture-change-form/gesture-change-form.component';
+import { GestureCardComponent } from './cards/gesture-card/gesture-card.component';
+import { InstrumentComponent } from './pages/instrument/instrument.component';
+import { InstrumentNewFormComponent } from './new-forms/instrument-new-form/instrument-new-form.component';
+import { InstrumentChangeFormComponent } from './change-forms/instrument-change-form/instrument-change-form.component';
+import { InstrumentCardComponent } from './cards/instrument-card/instrument-card.component';
+import { UserStatisticComponent } from './pages/user-statistic/user-statistic.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +92,16 @@ import { SymphonyCardComponent } from './cards/symphony-card/symphony-card.compo
     SymphonyComponent,
     SymphonyNewFormComponent,
     SymphonyChangeFormComponent,
-    SymphonyCardComponent
+    SymphonyCardComponent,
+    GestureComponent,
+    GestureNewFormComponent,
+    GestureChangeFormComponent,
+    GestureCardComponent,
+    InstrumentComponent,
+    InstrumentNewFormComponent,
+    InstrumentChangeFormComponent,
+    InstrumentCardComponent,
+    UserStatisticComponent
   ],
   imports: [
     BrowserModule,

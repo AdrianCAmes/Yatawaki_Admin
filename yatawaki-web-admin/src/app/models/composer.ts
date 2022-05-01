@@ -1,6 +1,6 @@
 type Nullable<T> = T | null;
 export class Composer{
-    idComposer:number;
+    idComposer?:number;
     name:Nullable<string>;
     birthDate: Nullable<Date>;
     deathDate: Nullable<Date>;

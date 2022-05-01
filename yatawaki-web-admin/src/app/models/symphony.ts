@@ -11,7 +11,7 @@ export class Symphony{
     icon: Nullable<string>;
     status: Nullable<number>;
     composer: {
-        idComposer: Nullable<number>;
+        idComposer?: Nullable<number>;
         name: Nullable<string>;
         birthDate: Nullable<Date>;
         deathDate: Nullable<Date>;

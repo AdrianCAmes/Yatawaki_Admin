@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+}
+
+.w20{
+    width: 20%;
+}
+
+.maxW40{
+    max-width: 40%;
+}
+
+.maxW48{
+    max-width: 48%;
+}
+
+.center {
+    display:block;
+    margin: auto;
+    width: 50%;
+}
+
+.floatL{
+    float: left;
+}
+
+.floatR{
+    float: right;
+}

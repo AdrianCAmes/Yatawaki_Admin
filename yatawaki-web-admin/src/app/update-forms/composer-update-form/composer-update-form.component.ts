@@ -36,18 +36,5 @@ export class ComposerUpdateFormComponent implements OnInit {
     );
   }
 
-  actualizarComposer() {
-    if(this.composer.name === ''){
-      this.composer.name = null;
-    }
-    console.log(JSON.stringify(this.composer))
-    this.composerService.updateComposer(this.composer).subscribe(
-      (datos) => {
-        console.log(datos);
-        //this.router.navigate(['ListCustomer']);
-      }
-    );
-    this.composer = new Composer();
-  }
 
 }
