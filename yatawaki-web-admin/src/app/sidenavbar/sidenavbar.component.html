@@ -253,11 +253,34 @@ Yatawaki
                 </p>
             </a>  
         </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              User Rank
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+            <a routerLink="/user-rank">
+              <p>
+                User Rank List
+              </p>
+            </a>
+            <a routerLink="/user-rank-new-form">
+              <p>
+                  New User Rank   
+                </p>
+            </a>
+            <a routerLink="user-rank-card">
+              <p>
+                  Search User Rank   
+                </p>
+            </a>  
+        </mat-expansion-panel>
       </mat-accordion>
     </mat-drawer>
     <div>
         <button type="button" mat-button (click)="drawer.toggle()">
-          -->
+          <mat-icon>keyboard_arrow_right</mat-icon>
         </button>
     </div>
     <div class="example-sidenav-content">

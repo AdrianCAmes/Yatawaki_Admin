@@ -3,8 +3,7 @@ import { User } from "./user";
 import { Symphony } from "./symphony";
 export class Concert{
      idConcert: number;
-     idUnlockable: number;
-     /*symphony: {
+     symphony: {
         idUnlockable?: number;
         name: Nullable<string>;
         description: Nullable<string>;
@@ -26,11 +25,10 @@ export class Concert{
         type: Nullable<string>;
         previewTrack: Nullable<string>;
         initialBpm: Nullable<number>;
-     };*/
+     };
      playedDate: Nullable<Date>;
      status: Nullable<number>;
-     idUser: number;
-     /*user:{
+     user:{
         idUser: number;
         userStatistics: {
             idUserStatistics?: number;
@@ -50,19 +48,17 @@ export class Concert{
         status: Nullable<number>;
         role: Nullable<string>;
         showTutorials: Nullable<boolean>
-     };*/
+     };
      points: Nullable<number>;
      accuracyRate: Nullable<number>;
      gesturesCompleted: Nullable<number>;
 
     constructor() {
         this.idConcert = 0;
-        //this.symphony = new Symphony;
-        this.idUnlockable = 0;
+        this.symphony = new Symphony;
         this.playedDate = new Date;
         this.status = 0;
-        this.idUser = 0;
-        //this.user = new User;
+        this.user = new User;
         this.points = 0;
         this.accuracyRate = 0;
         this.gesturesCompleted = 0;

@@ -79,6 +79,10 @@ import { RankComponent } from './pages/rank/rank.component';
 import { RankNewFormComponent } from './new-forms/rank-new-form/rank-new-form.component';
 import { RankChangeFormComponent } from './change-forms/rank-change-form/rank-change-form.component';
 import { RankCardComponent } from './cards/rank-card/rank-card.component';
+import { UserRankComponent } from './pages/user-rank/user-rank.component';
+import { UserRankNewFormComponent } from './new-forms/user-rank-new-form/user-rank-new-form.component';
+import { UserRankChangeFormComponent } from './change-forms/user-rank-change-form/user-rank-change-form.component';
+import { UserRankCardComponent } from './cards/user-rank-card/user-rank-card.component';
 
 @NgModule({
   declarations: [
@@ -129,7 +133,11 @@ import { RankCardComponent } from './cards/rank-card/rank-card.component';
     RankComponent,
     RankNewFormComponent,
     RankChangeFormComponent,
-    RankCardComponent
+    RankCardComponent,
+    UserRankComponent,
+    UserRankNewFormComponent,
+    UserRankChangeFormComponent,
+    UserRankCardComponent
   ],
   imports: [
     BrowserModule,
