@@ -1,5 +1,5 @@
 <br />
-<h2 class="text-center text-uppercase">List of Instruments</h2>
+<h2 class="text-center text-uppercase">List of User Statistics</h2>
 <br />
 <div class="table-responsive text-center">
   <table class="table table-dark table-hover table-bordered border-green">
@@ -9,24 +9,19 @@
         <th scope="col">Trivias Played</th>
         <th scope="col">Trivias Won</th>
         <th scope="col">Concerts Orchestrated</th>
+        <th scope="col">Orchestration Accuracy</th>
         <th scope="col">Status</th>
-        <th scope="col">Icon</th>
       </tr>
     </thead>
     <tbody class="align-middle">
-      <ng-container *ngFor="let instrument of instruments">
+      <ng-container *ngFor="let userStatistic of userStatistics">
         <tr>
-          <th scope="row">{{ instrument.idInstrument }}</th>
-          <td>{{ instrument.name }}</td>
-          <td>{{ instrument.shortDescription }}</td>
-          <td>{{ instrument.type }}</td>
-          <td>{{ instrument.status }}</td>
-          <td class="w20">
-            <img
-              src="{{ instrument.icon }}"
-              class="rounded mx-auto img-thumbnail thumbnail maxW40"
-            />
-          </td>
+          <th scope="row">{{ userStatistic.idUserStatistics }}</th>
+          <td>{{ userStatistic.triviasPlayed }}</td>
+          <td>{{ userStatistic.triviasWon }}</td>
+          <td>{{ userStatistic.concertsOrchestrated }}</td>
+          <td>{{ userStatistic.orchestrationAccuracy }}</td>
+          <td>{{ userStatistic.status }}</td>
           <td>
             <div class="d-grid gap-2 d-md-block">
               <button 
@@ -34,7 +29,7 @@
                 mwlConfirmationPopover
                 [popoverMessage]="popoverMessage"
                 placement="left"
-                (confirm)="deleteInstrument(instrument)"
+                (confirm)="deleteUserStatistic(userStatistic)"
                 (cancel)="cancelClicked = true"
                 class="btn btn-outline-danger col-md-5 justify-content-center align-items-center floatL maxW48"
                 data-toggle="popover" title="Delete"
@@ -43,7 +38,7 @@
               </button>
               <button
                 type="submit"
-                (click)="changeInstrument(instrument)"
+                (click)="changeUserStatistic(userStatistic)"
                 class="btn btn-outline-success col-md-5 justify-content-center align-items-center floatR maxW48"
                 data-toggle="popover" title="Update"
                 >

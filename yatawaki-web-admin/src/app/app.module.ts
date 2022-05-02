@@ -65,6 +65,16 @@ import { InstrumentNewFormComponent } from './new-forms/instrument-new-form/inst
 import { InstrumentChangeFormComponent } from './change-forms/instrument-change-form/instrument-change-form.component';
 import { InstrumentCardComponent } from './cards/instrument-card/instrument-card.component';
 import { UserStatisticComponent } from './pages/user-statistic/user-statistic.component';
+import { UserStatisticNewFormComponent } from './new-forms/user-statistic-new-form/user-statistic-new-form.component';
+import { UserStatisticChangeFormComponent } from './change-forms/user-statistic-change-form/user-statistic-change-form.component';
+import { UserStatisticCardComponent } from './cards/user-statistic-card/user-statistic-card.component';
+import { UserNewFormComponent } from './new-forms/user-new-form/user-new-form.component';
+import { UserChangeFormComponent } from './change-forms/user-change-form/user-change-form.component';
+import { UserCardComponent } from './cards/user-card/user-card.component';
+import { ConcertComponent } from './pages/concert/concert.component';
+import { ConcertNewFormComponent } from './new-forms/concert-new-form/concert-new-form.component';
+import { ConcertChangeFormComponent } from './change-forms/concert-change-form/concert-change-form.component';
+import { ConcertCardComponent } from './cards/concert-card/concert-card.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +111,17 @@ import { UserStatisticComponent } from './pages/user-statistic/user-statistic.co
     InstrumentNewFormComponent,
     InstrumentChangeFormComponent,
     InstrumentCardComponent,
-    UserStatisticComponent
+    UserStatisticComponent,
+    UserStatisticNewFormComponent,
+    UserStatisticChangeFormComponent,
+    UserStatisticCardComponent,
+    UserNewFormComponent,
+    UserChangeFormComponent,
+    UserCardComponent,
+    ConcertComponent,
+    ConcertNewFormComponent,
+    ConcertChangeFormComponent,
+    ConcertCardComponent
   ],
   imports: [
     BrowserModule,

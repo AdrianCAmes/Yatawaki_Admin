@@ -3,29 +3,40 @@ import { Routes, RouterModule } from '@angular/router';
 import { AchievementCardComponent } from './cards/achievement-card/achievement-card.component';
 import { AvatarCardComponent } from './cards/avatar-card/avatar-card.component';
 import { ComposerCardComponent } from './cards/composer-card/composer-card.component';
+import { ConcertCardComponent } from './cards/concert-card/concert-card.component';
 import { GestureCardComponent } from './cards/gesture-card/gesture-card.component';
 import { InstrumentCardComponent } from './cards/instrument-card/instrument-card.component';
 import { SymphonyCardComponent } from './cards/symphony-card/symphony-card.component';
 import { UnlockableCardComponent } from './cards/unlockable-card/unlockable-card.component';
+import { UserCardComponent } from './cards/user-card/user-card.component';
+import { UserStatisticCardComponent } from './cards/user-statistic-card/user-statistic-card.component';
 import { AchievementChangeFormComponent } from './change-forms/achievement-change-form/achievement-change-form.component';
 import { AvatarChangeFormComponent } from './change-forms/avatar-change-form/avatar-change-form.component';
 import { ComposerChangeFormComponent } from './change-forms/composer-change-form/composer-change-form.component';
+import { ConcertChangeFormComponent } from './change-forms/concert-change-form/concert-change-form.component';
 import { GestureChangeFormComponent } from './change-forms/gesture-change-form/gesture-change-form.component';
 import { InstrumentChangeFormComponent } from './change-forms/instrument-change-form/instrument-change-form.component';
 import { SymphonyChangeFormComponent } from './change-forms/symphony-change-form/symphony-change-form.component';
+import { UserChangeFormComponent } from './change-forms/user-change-form/user-change-form.component';
+import { UserStatisticChangeFormComponent } from './change-forms/user-statistic-change-form/user-statistic-change-form.component';
 import { AchievementNewFormComponent } from './new-forms/achievement-new-form/achievement-new-form.component';
 import { AvatarNewFormComponent } from './new-forms/avatar-new-form/avatar-new-form.component';
 import { ComposerNewFormComponent } from './new-forms/composer-new-form/composer-new-form.component';
+import { ConcertNewFormComponent } from './new-forms/concert-new-form/concert-new-form.component';
 import { GestureNewFormComponent } from './new-forms/gesture-new-form/gesture-new-form.component';
 import { InstrumentNewFormComponent } from './new-forms/instrument-new-form/instrument-new-form.component';
 import { SymphonyNewFormComponent } from './new-forms/symphony-new-form/symphony-new-form.component';
+import { UserNewFormComponent } from './new-forms/user-new-form/user-new-form.component';
+import { UserStatisticNewFormComponent } from './new-forms/user-statistic-new-form/user-statistic-new-form.component';
 import { AchievementComponent } from './pages/achievement/achievement.component';
 import { AvatarComponent } from './pages/avatar/avatar.component';
 import { ComposerComponent } from './pages/composer/composer.component';
+import { ConcertComponent } from './pages/concert/concert.component';
 import { GestureComponent } from './pages/gesture/gesture.component';
 import { InstrumentComponent } from './pages/instrument/instrument.component';
 import { SymphonyComponent } from './pages/symphony/symphony.component';
 import { UnlockableComponent } from './pages/unlockable/unlockable.component';
+import { UserStatisticComponent } from './pages/user-statistic/user-statistic.component';
 import { UserComponent } from './pages/user/user.component';
 import { AchievementUpdateFormComponent } from './update-forms/achievement-update-form/achievement-update-form.component';
 import { AvatarUpdateFormComponent } from './update-forms/avatar-update-form/avatar-update-form.component';
@@ -44,6 +55,10 @@ const routes: Routes = [
   //{ path: 'register', component: RegisterComponent },
   //{ path: 'profile', component: ProfileComponent },
   { path: 'user', component: UserComponent },
+  { path: 'user-card', component: UserCardComponent },
+  { path: 'user-new-form', component: UserNewFormComponent },
+  { path: 'user-change-form/:id', component: UserChangeFormComponent },
+
   { path: 'avatar', component: AvatarComponent },
   { path: 'avatar-card', component: AvatarCardComponent },
   { path: 'avatar-new-form', component: AvatarNewFormComponent },
@@ -81,6 +96,16 @@ const routes: Routes = [
   { path: 'instrument-card', component: InstrumentCardComponent },
   { path: 'instrument-new-form', component: InstrumentNewFormComponent },
   { path: 'instrument-change-form/:id', component: InstrumentChangeFormComponent },
+
+  { path: 'user-statistic', component: UserStatisticComponent },
+  { path: 'user-statistic-card', component: UserStatisticCardComponent },
+  { path: 'user-statistic-new-form', component: UserStatisticNewFormComponent },
+  { path: 'user-statistic-change-form/:id', component: UserStatisticChangeFormComponent },
+
+  { path: 'concert', component: ConcertComponent },
+  { path: 'concert-card', component: ConcertCardComponent },
+  { path: 'concert-new-form', component: ConcertNewFormComponent },
+  { path: 'concert-change-form/:id', component: ConcertChangeFormComponent },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
