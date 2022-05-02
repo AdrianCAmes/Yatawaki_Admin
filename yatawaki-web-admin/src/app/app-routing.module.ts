@@ -6,6 +6,7 @@ import { ComposerCardComponent } from './cards/composer-card/composer-card.compo
 import { ConcertCardComponent } from './cards/concert-card/concert-card.component';
 import { GestureCardComponent } from './cards/gesture-card/gesture-card.component';
 import { InstrumentCardComponent } from './cards/instrument-card/instrument-card.component';
+import { RankCardComponent } from './cards/rank-card/rank-card.component';
 import { SymphonyCardComponent } from './cards/symphony-card/symphony-card.component';
 import { UnlockableCardComponent } from './cards/unlockable-card/unlockable-card.component';
 import { UserCardComponent } from './cards/user-card/user-card.component';
@@ -16,6 +17,7 @@ import { ComposerChangeFormComponent } from './change-forms/composer-change-form
 import { ConcertChangeFormComponent } from './change-forms/concert-change-form/concert-change-form.component';
 import { GestureChangeFormComponent } from './change-forms/gesture-change-form/gesture-change-form.component';
 import { InstrumentChangeFormComponent } from './change-forms/instrument-change-form/instrument-change-form.component';
+import { RankChangeFormComponent } from './change-forms/rank-change-form/rank-change-form.component';
 import { SymphonyChangeFormComponent } from './change-forms/symphony-change-form/symphony-change-form.component';
 import { UserChangeFormComponent } from './change-forms/user-change-form/user-change-form.component';
 import { UserStatisticChangeFormComponent } from './change-forms/user-statistic-change-form/user-statistic-change-form.component';
@@ -25,6 +27,7 @@ import { ComposerNewFormComponent } from './new-forms/composer-new-form/composer
 import { ConcertNewFormComponent } from './new-forms/concert-new-form/concert-new-form.component';
 import { GestureNewFormComponent } from './new-forms/gesture-new-form/gesture-new-form.component';
 import { InstrumentNewFormComponent } from './new-forms/instrument-new-form/instrument-new-form.component';
+import { RankNewFormComponent } from './new-forms/rank-new-form/rank-new-form.component';
 import { SymphonyNewFormComponent } from './new-forms/symphony-new-form/symphony-new-form.component';
 import { UserNewFormComponent } from './new-forms/user-new-form/user-new-form.component';
 import { UserStatisticNewFormComponent } from './new-forms/user-statistic-new-form/user-statistic-new-form.component';
@@ -34,6 +37,7 @@ import { ComposerComponent } from './pages/composer/composer.component';
 import { ConcertComponent } from './pages/concert/concert.component';
 import { GestureComponent } from './pages/gesture/gesture.component';
 import { InstrumentComponent } from './pages/instrument/instrument.component';
+import { RankComponent } from './pages/rank/rank.component';
 import { SymphonyComponent } from './pages/symphony/symphony.component';
 import { UnlockableComponent } from './pages/unlockable/unlockable.component';
 import { UserStatisticComponent } from './pages/user-statistic/user-statistic.component';
@@ -106,6 +110,11 @@ const routes: Routes = [
   { path: 'concert-card', component: ConcertCardComponent },
   { path: 'concert-new-form', component: ConcertNewFormComponent },
   { path: 'concert-change-form/:id', component: ConcertChangeFormComponent },
+
+  { path: 'rank', component: RankComponent },
+  { path: 'rank-card', component: RankCardComponent },
+  { path: 'rank-new-form', component: RankNewFormComponent },
+  { path: 'rank-change-form/:id', component: RankChangeFormComponent },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

@@ -75,6 +75,10 @@ import { ConcertComponent } from './pages/concert/concert.component';
 import { ConcertNewFormComponent } from './new-forms/concert-new-form/concert-new-form.component';
 import { ConcertChangeFormComponent } from './change-forms/concert-change-form/concert-change-form.component';
 import { ConcertCardComponent } from './cards/concert-card/concert-card.component';
+import { RankComponent } from './pages/rank/rank.component';
+import { RankNewFormComponent } from './new-forms/rank-new-form/rank-new-form.component';
+import { RankChangeFormComponent } from './change-forms/rank-change-form/rank-change-form.component';
+import { RankCardComponent } from './cards/rank-card/rank-card.component';
 
 @NgModule({
   declarations: [
@@ -121,7 +125,11 @@ import { ConcertCardComponent } from './cards/concert-card/concert-card.componen
     ConcertComponent,
     ConcertNewFormComponent,
     ConcertChangeFormComponent,
-    ConcertCardComponent
+    ConcertCardComponent,
+    RankComponent,
+    RankNewFormComponent,
+    RankChangeFormComponent,
+    RankCardComponent
   ],
   imports: [
     BrowserModule,
