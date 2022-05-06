@@ -41,6 +41,7 @@ import { ConcertComponent } from './pages/concert/concert.component';
 import { GestureComponent } from './pages/gesture/gesture.component';
 import { InstrumentComponent } from './pages/instrument/instrument.component';
 import { RankComponent } from './pages/rank/rank.component';
+import { SymphonyGestureComponent } from './pages/symphony-gesture/symphony-gesture.component';
 import { SymphonyComponent } from './pages/symphony/symphony.component';
 import { UnlockableComponent } from './pages/unlockable/unlockable.component';
 import { UserRankComponent } from './pages/user-rank/user-rank.component';
@@ -93,6 +94,8 @@ const routes: Routes = [
   { path: 'symphony-card', component: SymphonyCardComponent },
   { path: 'symphony-new-form', component: SymphonyNewFormComponent },
   { path: 'symphony-change-form/:id', component: SymphonyChangeFormComponent },
+
+  { path: 'symphony-gesture', component: SymphonyGestureComponent},
 
   { path: 'gesture', component: GestureComponent },
   { path: 'gesture-card', component: GestureCardComponent },

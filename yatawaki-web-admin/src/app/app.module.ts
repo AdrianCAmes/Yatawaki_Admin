@@ -83,6 +83,9 @@ import { UserRankComponent } from './pages/user-rank/user-rank.component';
 import { UserRankNewFormComponent } from './new-forms/user-rank-new-form/user-rank-new-form.component';
 import { UserRankChangeFormComponent } from './change-forms/user-rank-change-form/user-rank-change-form.component';
 import { UserRankCardComponent } from './cards/user-rank-card/user-rank-card.component';
+import { SymphonyGestureComponent } from './pages/symphony-gesture/symphony-gesture.component';
+import { SymphonyInstrumentComponent } from './pages/symphony-instrument/symphony-instrument.component';
+import { UserUnlockableComponent } from './pages/user-unlockable/user-unlockable.component';
 
 @NgModule({
   declarations: [
@@ -137,7 +140,10 @@ import { UserRankCardComponent } from './cards/user-rank-card/user-rank-card.com
     UserRankComponent,
     UserRankNewFormComponent,
     UserRankChangeFormComponent,
-    UserRankCardComponent
+    UserRankCardComponent,
+    SymphonyGestureComponent,
+    SymphonyInstrumentComponent,
+    UserUnlockableComponent
   ],
   imports: [
     BrowserModule,
