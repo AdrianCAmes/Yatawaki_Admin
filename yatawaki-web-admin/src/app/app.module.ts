@@ -86,6 +86,15 @@ import { UserRankCardComponent } from './cards/user-rank-card/user-rank-card.com
 import { SymphonyGestureComponent } from './pages/symphony-gesture/symphony-gesture.component';
 import { SymphonyInstrumentComponent } from './pages/symphony-instrument/symphony-instrument.component';
 import { UserUnlockableComponent } from './pages/user-unlockable/user-unlockable.component';
+import { SymphonyGestureNewFormComponent } from './new-forms/symphony-gesture-new-form/symphony-gesture-new-form.component';
+import { SymphonyInstrumentNewFormComponent } from './new-forms/symphony-instrument-new-form/symphony-instrument-new-form.component';
+import { UserUnlockableNewFormComponent } from './new-forms/user-unlockable-new-form/user-unlockable-new-form.component';
+import { SymphonyInstrumentChangeFormComponent } from './change-forms/symphony-instrument-change-form/symphony-instrument-change-form.component';
+import { SymphonyGestureChangeFormComponent } from './change-forms/symphony-gesture-change-form/symphony-gesture-change-form.component';
+import { UserUnlockableChangeFormComponent } from './change-forms/user-unlockable-change-form/user-unlockable-change-form.component';
+import { UserUnlockableCardComponent } from './cards/user-unlockable-card/user-unlockable-card.component';
+import { SymphonyInstrumentCardComponent } from './cards/symphony-instrument-card/symphony-instrument-card.component';
+import { SymphonyGestureCardComponent } from './cards/symphony-gesture-card/symphony-gesture-card.component';
 
 @NgModule({
   declarations: [
@@ -143,7 +152,16 @@ import { UserUnlockableComponent } from './pages/user-unlockable/user-unlockable
     UserRankCardComponent,
     SymphonyGestureComponent,
     SymphonyInstrumentComponent,
-    UserUnlockableComponent
+    UserUnlockableComponent,
+    SymphonyGestureNewFormComponent,
+    SymphonyInstrumentNewFormComponent,
+    UserUnlockableNewFormComponent,
+    SymphonyInstrumentChangeFormComponent,
+    SymphonyGestureChangeFormComponent,
+    UserUnlockableChangeFormComponent,
+    UserUnlockableCardComponent,
+    SymphonyInstrumentCardComponent,
+    SymphonyGestureCardComponent
   ],
   imports: [
     BrowserModule,

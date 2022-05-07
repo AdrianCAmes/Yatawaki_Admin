@@ -39,7 +39,7 @@ export class UserUnlockableComponent implements OnInit {
   }
 
   changeUser(userUnlockable: UserUnlockable) {
-    this.router.navigate(['user-change-form', userUnlockable.idUserUnlockable]);
+    this.router.navigate(['user-unlockable-change-form', userUnlockable.idUserUnlockable]);
   }
 
 }

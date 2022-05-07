@@ -37,7 +37,7 @@ export class SymphonyInstrumentComponent implements OnInit {
   }
 
   changeSymphony(symphonyInst: SymphonyInstrument) {
-    this.router.navigate(['symphony-change-form', symphonyInst.idSymphonyInstrument]);
+    this.router.navigate(['symphony-instrument-change-form', symphonyInst.idSymphonyInstrument]);
   }
 
 }

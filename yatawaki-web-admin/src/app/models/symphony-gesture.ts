@@ -6,10 +6,10 @@ type Nullable<T> = T | null;
 export class SymphonyGesture{
     idSymphonyGesture?: number;
     gesture: {
-        idGesture?: Nullable<number>;
-        name: Nullable<string>;
-        description: Nullable<string>;
-        status: Nullable<number>;
+        idGesture?: number;
+        name:Nullable<string>;
+        description:Nullable<string>;
+        status:Nullable<number>;
     };
     symphony: {
         idUnlockable?: number;

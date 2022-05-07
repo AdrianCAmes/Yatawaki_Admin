@@ -36,6 +36,6 @@ export class SymphonyGestureComponent implements OnInit {
   }
 
   changeSymphony(symphonyGest: SymphonyGesture) {
-    this.router.navigate(['symphony-change-form', symphonyGest.idSymphonyGesture]);
+    this.router.navigate(['symphony-gesture-change-form', symphonyGest.idSymphonyGesture]);
   }
 }
