@@ -9,6 +9,10 @@ jobs:
   ci:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: yatawaki-web-admin
+
     strategy:
       matrix:
         node-version: [15.x, 16.x]
