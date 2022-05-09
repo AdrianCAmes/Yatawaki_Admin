@@ -2,8 +2,7 @@ name: Angular Github CI
 
 on:
   push:
-    branches:
-      - development
+    branches: [ main, development, feature-DS ]
 
 jobs:
   ci:
