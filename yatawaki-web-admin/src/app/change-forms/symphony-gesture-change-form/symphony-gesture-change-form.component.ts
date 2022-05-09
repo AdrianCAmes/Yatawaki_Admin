@@ -17,7 +17,9 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
   symphonies: any[] = [];
   gestures: any[] = [];
   statuses: any[] = [];
-
+  idSymphony:any;
+  symphonyDefault:any = '';
+  rarenesss: any[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private unlockableService: UnlockableService, private symphonyService: SymphonyService, private gestureService: GestureService, private symphonyGesService: SymphonyGestureService) { }
 
@@ -30,12 +32,20 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
         console.log(datos);
         this.symphonyGesture = datos
       }
-    )
+    );
+
+    this.idSymphony = this.symphonyGesture.idSymphony
 
     this.symphonyService.getSymphonies().subscribe(
       data => {
         console.log(data);
         this.symphonies = data
+      }
+    );
+    this.unlockableService.getUnlockerRareness().subscribe(
+      datos => {
+        console.log(datos)
+        this.rarenesss = datos;
       }
     );
 
@@ -45,6 +55,13 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
         this.gestures = data
       }
     );
+
+    this.symphonyService.getSymphonyById(this.idSymphony).subscribe(
+      data => {
+        console.log(data);
+        this.symphonyDefault = data.name
+      }
+    )
 
     this.unlockableService.getUnlockableStatus().subscribe(
       datos => {
@@ -58,7 +75,7 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.symphonyGesture.status = 0;
+      this.symphonyGesture.status = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -68,7 +85,7 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
   nullInputBeginningTime(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.symphonyGesture.beginningTime = 0;
+      this.symphonyGesture.beginningTime = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -78,12 +95,32 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
   nullInputEndingTime(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.symphonyGesture.endingTime = 0;
+      this.symphonyGesture.endingTime = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+
+  // nullInputGesture(elementId: string, chbox: string) {
+  //   if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+  //     (<HTMLInputElement>document.getElementById(elementId)).value = "";
+  //     this.symphonyGesture.idGesture = null;
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+  //   } else {
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+  //   }
+  // }
+
+  // nullInputSymphony(elementId: string, chbox: string) {
+  //   if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+  //     (<HTMLInputElement>document.getElementById(elementId)).value = "";
+  //     this.symphonyGesture.idSymphony = null;
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+  //   } else {
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+  //   }
+  // }
 
   changeSymphonyGesture() {
     this.symphonyGesService.changeSymphonyGesture(this.symphonyGesture).subscribe(
@@ -91,6 +128,11 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
     );
     this.symphonyGesture = new SymphonyGestureUpdate();
     //this.router.navigate(['ListCustomer']);
+    return this.router.navigate(['/symphony-gesture']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

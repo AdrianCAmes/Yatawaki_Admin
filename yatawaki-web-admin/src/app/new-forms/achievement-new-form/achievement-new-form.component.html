@@ -52,15 +52,9 @@
       <div class="form-group mb-3 row">
         <label for="rareness" class="col-sm-5 col-form-label"> Rareness : </label>
         <div class="col-sm-10">
-          <input
-            type="rareness"
-            class="form-control"
-            id="rareness"
-            name="rareness"
-            placeholder="rareness"
-            required
-            [(ngModel)]="achievement.rareness"
-          />
+          <select class="form-control" id="rareness"  name="rareness" [(ngModel)]="achievement.rareness">
+            <option *ngFor="let rareness of rarenesss" value="{{rareness.value}}">{{rareness.description}}</option>
+          </select>
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputRareness('rareness', 'flexSwitchCheckDefaultC3')">
@@ -98,7 +92,10 @@
             [(ngModel)]="achievement.unlockerValue"
           />
         </div>
-        
+        <div class="form-check form-switch col-sm-2 center">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC9" (change)="nullInputUnlockerValue('unlockerValue', 'flexSwitchCheckDefaultC9')">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+          </div>
       </div>
       <!--*************** END ATTRIBUTE 6 ***************-->
       <!--*************** ATTRIBUTE 7 ***************-->
@@ -148,6 +145,7 @@
         <label for="status" class="col-sm-5 col-form-label"> Status : </label>
         <div class="col-sm-10">
           <select class="form-control" id="status"  name="status" [(ngModel)]="achievement.status">
+            <option [value]="0" hidden selected>Activo</option>
             <option *ngFor="let status of statuses" value="{{status.description}}">{{status.description}}</option>
           </select>
         </div>

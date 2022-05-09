@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ConcertUpdate } from 'src/app/models/update/ConcertUpdate';
 import { Concert } from 'src/app/models/concert';
 import { ConcertService } from 'src/app/service/concert.service';
 
@@ -11,10 +12,10 @@ import { ConcertService } from 'src/app/service/concert.service';
 export class ConcertChangeFormComponent implements OnInit {
 
   id: number = 0;
-  concert: Concert = new Concert();
+  concert: ConcertUpdate = new ConcertUpdate();
   statuses: any[] = [];
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router, private route: ActivatedRoute,
     private concertService: ConcertService) { }
 
   ngOnInit(): void {
@@ -90,7 +91,12 @@ export class ConcertChangeFormComponent implements OnInit {
         //this.router.navigate(['ListCustomer']);
       }
     );
-    this.concert = new Concert();
+    this.concert = new ConcertUpdate();
+    return this.router.navigate(['/concert']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 

@@ -16,6 +16,8 @@
 }
 
 mat-toolbar {
+    font-family: 'Water Brush', cursive;
+    font-size: 40px;
     background:#E7962E;
 }
 

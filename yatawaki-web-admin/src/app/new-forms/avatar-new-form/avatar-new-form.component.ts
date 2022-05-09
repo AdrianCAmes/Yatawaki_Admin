@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { Avatar } from 'src/app/models/avatar';
 import { AvatarService } from 'src/app/service/avatar.service';
 import { UnlockableService } from 'src/app/service/unlockable.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-avatar-new-form',
@@ -14,9 +15,10 @@ export class AvatarNewFormComponent implements OnInit {
   avatar: Avatar = new Avatar();
   statuses: any[] = [];
   unlockerTypes: any[] = [];
+  rarenesss: any[] = [];
   //formulario: FormGroup;
 
-  constructor(private avatarService: AvatarService, private unlockableService: UnlockableService) { }
+  constructor(private router: Router, private avatarService: AvatarService, private unlockableService: UnlockableService) { }
 
   ngOnInit(): void {
     this.unlockableService.getUnlockableStatus().subscribe(
@@ -31,6 +33,12 @@ export class AvatarNewFormComponent implements OnInit {
         this.unlockerTypes = datos;
       }
     );
+    this.unlockableService.getUnlockerRareness().subscribe(
+      datos => {
+        console.log(datos)
+        this.rarenesss = datos;
+      }
+    )
   }
 
   nullInputName(elementId: string, chbox: string) {
@@ -115,6 +123,16 @@ export class AvatarNewFormComponent implements OnInit {
     }
   }
 
+  nullInputUnlockerValue(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.unlockerValue = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
 
   insertAvatar() {
     this.avatarService.createAvatar(this.avatar).subscribe(
@@ -122,7 +140,11 @@ export class AvatarNewFormComponent implements OnInit {
       //(error) => console.log(error)
     );
     this.avatar = new Avatar();
-    //this.router.navigate(['ListCustomer']);
+    return this.router.navigate(['/avatar']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 

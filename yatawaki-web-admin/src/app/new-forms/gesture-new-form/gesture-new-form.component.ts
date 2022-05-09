@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Gesture } from 'src/app/models/gesture';
 import { GestureService } from 'src/app/service/gesture.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gesture-new-form',
@@ -12,7 +13,7 @@ export class GestureNewFormComponent implements OnInit {
   gesture: Gesture = new Gesture();
   statuses: any[] = [];
 
-  constructor(private gestureService: GestureService) { }
+  constructor(private router: Router, private gestureService: GestureService) { }
 
   ngOnInit(): void {
     this.gestureService.getGestureStatus().subscribe(
@@ -58,7 +59,11 @@ export class GestureNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.gesture = new Gesture();
-    //this.router.navigate(['ListCustomer']);
+    return this.router.navigate(['/gesture']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

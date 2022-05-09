@@ -72,15 +72,9 @@
             Symphony Rareness :
           </label>
           <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="rareness"
-              name="rareness"
-              placeholder="Symphony Rareness"
-              required
-              [(ngModel)]="symphony.rareness"
-            />
+            <select class="form-control" id="rareness"  name="rareness" [(ngModel)]="symphony.rareness">
+              <option *ngFor="let rareness of rarenesss" value="{{rareness.value}}" selected>{{rareness.description}}</option>
+            </select>
           </div>
           <div class="form-check form-switch col-sm-2 center">
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputRareness('rareness', 'flexSwitchCheckDefaultC3')">
@@ -182,19 +176,17 @@
         <!--*************** END ATTRIBUTE 9 ***************-->
         <div class="form-group mb-3 row">
             <label for="composerId" class="col-sm-5 col-form-label">
-              Composer Id :
+              Composer:
             </label>
             <div class="col-sm-10">
-              <input
-                type="text"
-                class="form-control"
-                id="composerId"
-                name="composerId"
-                placeholder="Composer Id"
-                required
-                [(ngModel)]="symphony.composer.idComposer"
-              />
+              <select class="form-control" id="idComposer"  name="idComposer" [(ngModel)]="symphony.idComposer">
+                <option *ngFor="let composer of composers" value="{{composer.idComposer}}">{{composer.name}}</option>
+              </select>
             </div>
+            <div class="form-check form-switch col-sm-2 center">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC20" (change)="nullInputComposer('idComposer', 'flexSwitchCheckDefaultC20')">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+              </div>
           </div>
           <!--*************** END ATTRIBUTE 9 ***************-->
           <div class="form-group mb-3 row">

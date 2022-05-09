@@ -56,7 +56,7 @@ export class UserUnlockableChangeFormComponent implements OnInit {
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.userUnlockable.status = 0;
+      this.userUnlockable.status = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -73,12 +73,36 @@ export class UserUnlockableChangeFormComponent implements OnInit {
     }
   }
 
+  // nullInputUnlockable(elementId: string, chbox: string) {
+  //   if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+  //     (<HTMLInputElement>document.getElementById(elementId)).value = "";
+  //     this.userUnlockable.idUnlockable = null;
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+  //   } else {
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+  //   }
+  // }
+  // nullInputUser(elementId: string, chbox: string) {
+  //   if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+  //     (<HTMLInputElement>document.getElementById(elementId)).value = "";
+  //     this.userUnlockable.idUnlockable = null;
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+  //   } else {
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+  //   }
+  // }
+
   changeUserUnlockable() {
     this.userUnlockService.changeUserUnlockable(this.userUnlockable).subscribe(
       (datos) => console.log(datos)
     );
     this.userUnlockable = new UserUnlockableUpdate();
     //this.router.navigate(['ListCustomer']);
+    return this.router.navigate(['/user-unlockable']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

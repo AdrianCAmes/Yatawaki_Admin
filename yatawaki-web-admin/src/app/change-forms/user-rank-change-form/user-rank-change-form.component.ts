@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserRankUpdate } from 'src/app/models/update/UserRankUpdate';
 import { UserRank } from 'src/app/models/user-rank';
 import { UserRankService } from 'src/app/service/user-rank.service';
 
@@ -11,10 +12,10 @@ import { UserRankService } from 'src/app/service/user-rank.service';
 export class UserRankChangeFormComponent implements OnInit {
 
   id: number = 0;
-  userRank: UserRank = new UserRank();
+  userRank: UserRankUpdate = new UserRankUpdate();
   statuses: any[] = [];
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router, private route: ActivatedRoute,
     private userRankService: UserRankService) { }
 
   ngOnInit(): void {
@@ -77,7 +78,12 @@ export class UserRankChangeFormComponent implements OnInit {
         //this.router.navigate(['ListCustomer']);
       }
     );
-    this.userRank = new UserRank();
+    this.userRank = new UserRankUpdate();
+    return this.router.navigate(['/user-rank']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

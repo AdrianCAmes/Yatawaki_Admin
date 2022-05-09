@@ -3,6 +3,7 @@ import { SymphonyInstrumentCreate } from 'src/app/models/create/SymphonyInstrume
 import { SymphonyService } from 'src/app/service/symphony.service';
 import { InstrumentService } from 'src/app/service/instrument.service';
 import { SymphonyInstrumentService } from 'src/app/service/symphony-instrument.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-symphony-instrument-new-form',
@@ -15,7 +16,7 @@ export class SymphonyInstrumentNewFormComponent implements OnInit {
   symphonies: any[] = [];
   instruments: any[] = []
 
-  constructor(private symphonyService: SymphonyService, private instrumentService: InstrumentService, private symphonyInsService: SymphonyInstrumentService) { }
+  constructor(private router: Router, private symphonyService: SymphonyService, private instrumentService: InstrumentService, private symphonyInsService: SymphonyInstrumentService) { }
 
   ngOnInit(): void {
 
@@ -55,13 +56,31 @@ export class SymphonyInstrumentNewFormComponent implements OnInit {
     }
   }
 
+  // nullInputInstrument(elementId: string, chbox: string) {
+  //   if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+  //     (<HTMLInputElement>document.getElementById(elementId)).value = "";
+  //     this.symphonyInstrument.idInstrument = null;
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+  //   } else {
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+  //   }
+  // }
+  // nullInputSymphony(elementId: string, chbox: string) {
+  //   if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+  //     (<HTMLInputElement>document.getElementById(elementId)).value = "";
+  //     this.symphonyInstrument.idSymphony = null;
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+  //   } else {
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+  //   }
+  // }
+
   insertSymphonyInstrument() {
     console.log(this.symphonyInstrument);
     this.symphonyInsService.createSymphonyInstrument(this.symphonyInstrument).subscribe(
       (datos) => console.log(datos)
     );
     this.symphonyInstrument = new SymphonyInstrumentCreate();
-    //this.router.navigate(['ListCustomer']);
   }
 
 }

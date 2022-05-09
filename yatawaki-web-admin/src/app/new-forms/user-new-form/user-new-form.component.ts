@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-new-form',
@@ -13,7 +14,7 @@ export class UserNewFormComponent implements OnInit {
   statuses: any[] = [];
   roles: any[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getUserStatus().subscribe(
@@ -125,7 +126,11 @@ export class UserNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.user = new User();
-    //this.router.navigate(['ListCustomer']);
+    return this.router.navigate(['/user']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

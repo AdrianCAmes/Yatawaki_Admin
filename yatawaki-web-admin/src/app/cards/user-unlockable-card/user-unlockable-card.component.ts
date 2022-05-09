@@ -109,7 +109,7 @@ export class UserUnlockableCardComponent implements OnInit {
   }
 
   deleteUserUnlockable(userUnlockable: UserUnlockableUpdate) {
-    this.userUnlockService.deleteUserUnlockable(userUnlockable.idUnlockable).subscribe((data) => {
+    this.userUnlockService.deleteUserUnlockable(userUnlockable.idUserUnlockable).subscribe((data) => {
       this.loadDataUserUnlockable();
     });
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Instrument } from 'src/app/models/instrument';
 import { InstrumentService } from 'src/app/service/instrument.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-instrument-new-form',
@@ -12,7 +13,7 @@ export class InstrumentNewFormComponent implements OnInit {
   instrument: Instrument = new Instrument();
   statuses: any[] = [];
 
-  constructor(private instrumentService: InstrumentService) { }
+  constructor(private router: Router, private instrumentService: InstrumentService) { }
 
   ngOnInit(): void {
     this.instrumentService.getInstrumentStatus().subscribe(
@@ -91,7 +92,11 @@ export class InstrumentNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.instrument = new Instrument();
-    //this.router.navigate(['ListCustomer']);
+    return this.router.navigate(['/instrument']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

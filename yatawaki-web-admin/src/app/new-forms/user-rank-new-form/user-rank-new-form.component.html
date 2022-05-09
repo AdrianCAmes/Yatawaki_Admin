@@ -6,38 +6,21 @@
     <form (ngSubmit)="insertUserRank()" class="center">
       <!--*************** ATTRIBUTE 2 ***************-->
       <div class="form-group mb-3 row">
-        <label for="idUser" class="col-sm-5 col-form-label">
-          User Id :
-        </label>
+        <label for="idUser" class="col-sm-5 col-form-label"> User: </label>
         <div class="col-sm-10">
-          <input
-            type="text"
-            class="form-control"
-            id="idUser"
-            name="idUser"
-            placeholder="idUser"
-            required
-            [(ngModel)]="userRank.user.idUser"
-          />
+          <select class="form-control" id="idUser"  name="idUser" [(ngModel)]="userRank.idUser">
+            <option *ngFor="let user of users" value="{{user.idUser}}">{{user.nickname}}</option>
+          </select>
         </div>
       </div>
       <!--*************** END ATTRIBUTE 2 ***************-->
       <!--*************** ATTRIBUTE 3 ***************-->
       <div class="form-group mb-3 row">
-        <label for="idRank" class="col-sm-5 col-form-label">
-          Rank Id :
-        </label>
+        <label for="idRank" class="col-sm-5 col-form-label"> Rank: </label>
         <div class="col-sm-10">
-          <input
-            matInput 
-            type="idRank"
-            class="form-control"
-            id="idRank"
-            name="idRank"
-            placeholder="idRank"
-            required
-            [(ngModel)]="userRank.rank.idRank"
-          />
+          <select class="form-control" id="idRank"  name="idRank" [(ngModel)]="userRank.idRank">
+            <option *ngFor="let rank of ranks" value="{{rank.idRank}}">{{rank.name}}</option>
+          </select>
         </div>
       </div>
       <!--*************** END ATTRIBUTE 3 ***************-->

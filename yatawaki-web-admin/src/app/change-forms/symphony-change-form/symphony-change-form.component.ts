@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SymphonyUpdate } from 'src/app/models/update/SymphonyUpdate';
 import { Symphony } from 'src/app/models/symphony';
 import { SymphonyService } from 'src/app/service/symphony.service';
 import { UnlockableService } from 'src/app/service/unlockable.service';
+import { ComposerService } from 'src/app/service/composer.service';
 
 @Component({
   selector: 'app-symphony-change-form',
@@ -12,11 +14,13 @@ import { UnlockableService } from 'src/app/service/unlockable.service';
 export class SymphonyChangeFormComponent implements OnInit {
 
   id: number = 0;
-  symphony: Symphony = new Symphony();
+  symphony: SymphonyUpdate = new SymphonyUpdate();
   statuses: any[] = [];
   unlockerTypes: any[] = [];
+  rarenesss: any[] = [];
+  composers: any[] = [];
 
-  constructor(private route: ActivatedRoute,
+  constructor(private composerService: ComposerService, private route: ActivatedRoute,
     private router: Router,
     private symphonyService: SymphonyService, private unlockableService: UnlockableService) { }
 
@@ -28,6 +32,14 @@ export class SymphonyChangeFormComponent implements OnInit {
         this.symphony = datos;
       }
     );
+
+    this.composerService.getComposers().subscribe(
+      data => {
+        console.log(data);
+        this.composers = data
+      }
+    );
+
     this.unlockableService.getUnlockableStatus().subscribe(
       datos => {
         console.log(datos)
@@ -40,6 +52,12 @@ export class SymphonyChangeFormComponent implements OnInit {
         this.unlockerTypes = datos;
       }
     );
+    this.unlockableService.getUnlockerRareness().subscribe(
+      datos => {
+        console.log(datos)
+        this.rarenesss = datos;
+      }
+    )
   }
 
   nullInputName(elementId: string, chbox: string) {
@@ -108,7 +126,17 @@ export class SymphonyChangeFormComponent implements OnInit {
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.symphony.status = 0;
+      this.symphony.status = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputComposer(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.idComposer = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -172,7 +200,12 @@ export class SymphonyChangeFormComponent implements OnInit {
         //this.router.navigate(['ListCustomer']);
       }
     );
-    this.symphony = new Symphony();
+    this.symphony = new SymphonyUpdate();
+    return this.router.navigate(['/symphony']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 

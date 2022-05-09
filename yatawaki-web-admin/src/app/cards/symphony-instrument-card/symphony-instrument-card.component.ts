@@ -121,7 +121,7 @@ export class SymphonyInstrumentCardComponent implements OnInit {
   }
 
   deleteSymphony(symphonyIns: SymphonyInstrumentUpdate) {
-    this.symphonyInsService.deleteSymphonyInstrument(symphonyIns.idInstrument).subscribe((data) => {
+    this.symphonyInsService.deleteSymphonyInstrument(symphonyIns.idSymphonyInstrument).subscribe((data) => {
       this.loadDataSymphonyInstrument();
     });
   }

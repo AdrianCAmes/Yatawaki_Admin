@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Achievement } from 'src/app/models/achievement';
 import { AchievementService } from 'src/app/service/achievement.service';
 import { UnlockableService } from 'src/app/service/unlockable.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-achievement-new-form',
@@ -13,8 +14,9 @@ export class AchievementNewFormComponent implements OnInit {
   achievement: Achievement = new Achievement();
   statuses: any[] = [];
   unlockerTypes: any[] = [];
+  rarenesss: any[] = [];
 
-  constructor(private achievementService: AchievementService, private unlockableService: UnlockableService) { }
+  constructor(private router: Router, private achievementService: AchievementService, private unlockableService: UnlockableService) { }
 
   ngOnInit(): void {
     this.unlockableService.getUnlockableStatus().subscribe(
@@ -29,6 +31,12 @@ export class AchievementNewFormComponent implements OnInit {
         this.unlockerTypes = datos;
       }
     );
+    this.unlockableService.getUnlockerRareness().subscribe(
+      datos => {
+        console.log(datos)
+        this.rarenesss = datos;
+      }
+    )
   }
 
   nullInputName(elementId: string, chbox: string) {
@@ -105,13 +113,27 @@ export class AchievementNewFormComponent implements OnInit {
     }
   }
 
+  nullInputUnlockerValue(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.achievement.unlockerValue = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
   insertAchievement() {
     this.achievementService.createAchievement(this.achievement).subscribe(
       (datos) => console.log(datos)
       //(error) => console.log(error)
     );
     this.achievement = new Achievement();
-    //this.router.navigate(['ListCustomer']);
+    return this.router.navigate(['/achievement']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

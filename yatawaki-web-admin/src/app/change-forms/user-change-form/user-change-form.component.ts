@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
 
@@ -15,7 +15,7 @@ export class UserChangeFormComponent implements OnInit {
   statuses: any[] = [];
   roles: any[] = [];
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router, private route: ActivatedRoute,
     private userService: UserService) { }
 
   ngOnInit(): void {
@@ -139,6 +139,11 @@ export class UserChangeFormComponent implements OnInit {
       }
     );
     this.user = new User();
+    return this.router.navigate(['/user']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

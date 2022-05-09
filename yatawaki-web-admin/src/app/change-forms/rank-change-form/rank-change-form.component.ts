@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Rank } from 'src/app/models/ranks';
 import { RankService } from 'src/app/service/rank.service';
 
@@ -14,7 +14,7 @@ export class RankChangeFormComponent implements OnInit {
   rank: Rank = new Rank();
   statuses: any[] = [];
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router, private route: ActivatedRoute,
     private rankService: RankService) { }
 
   ngOnInit(): void {
@@ -81,6 +81,11 @@ export class RankChangeFormComponent implements OnInit {
       }
     );
     this.rank = new Rank();
+    return this.router.navigate(['/rank']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 

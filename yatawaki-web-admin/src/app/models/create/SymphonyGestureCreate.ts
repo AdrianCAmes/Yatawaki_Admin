@@ -7,7 +7,7 @@ export class SymphonyGestureCreate{
     endingTime: Nullable<number>;
 
     constructor(){
-        this.idSymphony = 0;
+        this.idGesture = 0;
         this.idSymphony = 0;
         this.beginningTime = 0;
         this.endingTime = 0;

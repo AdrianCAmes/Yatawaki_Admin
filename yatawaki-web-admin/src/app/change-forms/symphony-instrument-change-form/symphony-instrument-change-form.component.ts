@@ -42,16 +42,16 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
     );
 
     this.symphonyService.getSymphonies().subscribe(
-      data => {
-        console.log(data);
-        this.symphonies = data
+      datos => {
+        console.log(datos);
+        this.symphonies = datos
       }
     );
 
     this.instrumentService.getInstruments().subscribe(
-      data => {
-        console.log(data);
-        this.instruments = data
+      datos => {
+        console.log(datos);
+        this.instruments = datos
       }
     );
 
@@ -93,12 +93,36 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
     }
   }
 
+  // nullInputInstrument(elementId: string, chbox: string) {
+  //   if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+  //     (<HTMLInputElement>document.getElementById(elementId)).value = "";
+  //     this.symphonyInstrument.idInstrument = null;
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+  //   } else {
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+  //   }
+  // }
+  // nullInputSymphony(elementId: string, chbox: string) {
+  //   if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+  //     (<HTMLInputElement>document.getElementById(elementId)).value = "";
+  //     this.symphonyInstrument.idSymphony = null;
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+  //   } else {
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+  //   }
+  // }
+
   changeSymphonyInstrument() {
     this.symphonyInsService.changeSymphonyInstrument(this.symphonyInstrument).subscribe(
       (datos) => console.log(datos)
     );
     this.symphonyInstrument = new SymphonyInstrumentUpdate();
     //this.router.navigate(['ListCustomer']);
+    return this.router.navigate(['/symphony-instrument']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

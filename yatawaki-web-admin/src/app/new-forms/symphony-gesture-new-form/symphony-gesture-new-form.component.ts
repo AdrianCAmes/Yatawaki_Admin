@@ -3,6 +3,7 @@ import { SymphonyGestureCreate } from 'src/app/models/create/SymphonyGestureCrea
 import { SymphonyService } from 'src/app/service/symphony.service';
 import { GestureService } from 'src/app/service/gesture.service';
 import { SymphonyGestureService } from 'src/app/service/symphony-gesture.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-symphony-gesture-new-form',
@@ -15,7 +16,7 @@ export class SymphonyGestureNewFormComponent implements OnInit {
   symphonies: any[] = [];
   gestures: any[] = []
 
-  constructor(private symphonyService: SymphonyService, private gestureService: GestureService, private symphonyGesService: SymphonyGestureService) { }
+  constructor(private router: Router, private symphonyService: SymphonyService, private gestureService: GestureService, private symphonyGesService: SymphonyGestureService) { }
 
   ngOnInit(): void {
 
@@ -55,12 +56,36 @@ export class SymphonyGestureNewFormComponent implements OnInit {
     }
   }
 
+  // nullInputGesture(elementId: string, chbox: string) {
+  //   if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+  //     (<HTMLInputElement>document.getElementById(elementId)).value = "";
+  //     this.symphonyGesture.idGesture = null;
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+  //   } else {
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+  //   }
+  // }
+
+  // nullInputSymphony(elementId: string, chbox: string) {
+  //   if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+  //     (<HTMLInputElement>document.getElementById(elementId)).value = "";
+  //     this.symphonyGesture.idSymphony = null;
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+  //   } else {
+  //     (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+  //   }
+  // }
+
   insertSymphonyGesture() {
     this.symphonyGesService.createSymphonyGesture(this.symphonyGesture).subscribe(
       (datos) => console.log(datos)
     );
     this.symphonyGesture = new SymphonyGestureCreate();
-    //this.router.navigate(['ListCustomer']);
+    return this.router.navigate(['/symphony-gesture']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

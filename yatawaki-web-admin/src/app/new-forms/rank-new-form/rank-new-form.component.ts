@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Rank } from 'src/app/models/ranks';
 import { RankService } from 'src/app/service/rank.service';
+import { Router } from '@angular/router';
+import { ThisReceiver } from '@angular/compiler';
 
 
 @Component({
@@ -13,7 +15,7 @@ export class RankNewFormComponent implements OnInit {
   rank: Rank = new Rank();
   statuses: any[] = [];
 
-  constructor(private rankService: RankService) { }
+  constructor(private router: Router, private rankService: RankService) { }
 
   ngOnInit(): void {
     this.rankService.getRankStatus().subscribe(
@@ -68,8 +70,12 @@ export class RankNewFormComponent implements OnInit {
     this.rankService.createRank(this.rank).subscribe(
       (datos) => console.log(datos)
     );
+    console.log(this.rank);
     this.rank = new Rank();
-    //this.router.navigate(['ListCustomer']);
+    this.router.navigate(['rank']).then(()=>
+    {
+      console.log(this.router.url);
+    })
   }
 
 }
