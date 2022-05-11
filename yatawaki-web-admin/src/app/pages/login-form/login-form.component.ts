@@ -35,7 +35,7 @@ export class LoginFormComponent implements OnInit {
       return this.router.navigate(['sidenavbar']).then(()=>
       {
         console.log(this.router.url);
-        //window.location.reload();
+        window.location.reload();
       })
     }else{
       return;

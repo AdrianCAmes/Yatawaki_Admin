@@ -137,39 +137,39 @@ const routes: Routes = [
     { path: 'user-rank', component: UserRankComponent },
     { path: 'user-rank-card', component: UserRankCardComponent },
     { path: 'user-rank-new-form', component: UserRankNewFormComponent },
-  ], canActivate: [AuthGuard],},
+  ], canActivate: [AuthGuard]},
 
-  { path: 'user-change-form/:id', component: UserChangeFormComponent },
+  { path: 'user-change-form/:id', component: UserChangeFormComponent, canActivate: [AuthGuard] },
 
   //{ path: 'avatar', component: AvatarComponent },
   { path: 'avatar-update-form/:id', component: AvatarUpdateFormComponent },
-  { path: 'avatar-change-form/:id', component: AvatarChangeFormComponent },
+  { path: 'avatar-change-form/:id', component: AvatarChangeFormComponent, canActivate: [AuthGuard] },
 
   { path: 'achievement-update-form/:id', component: AchievementUpdateFormComponent },
-  { path: 'achievement-change-form/:id', component: AchievementChangeFormComponent },
+  { path: 'achievement-change-form/:id', component: AchievementChangeFormComponent, canActivate: [AuthGuard] },
 
   { path: 'composer-update-form/:id', component: ComposerUpdateFormComponent },
-  { path: 'composer-change-form/:id', component: ComposerChangeFormComponent },
+  { path: 'composer-change-form/:id', component: ComposerChangeFormComponent, canActivate: [AuthGuard] },
 
-  { path: 'symphony-change-form/:id', component: SymphonyChangeFormComponent },
+  { path: 'symphony-change-form/:id', component: SymphonyChangeFormComponent, canActivate: [AuthGuard] },
 
-  { path: 'symphony-gesture-change-form/:id', component: SymphonyGestureChangeFormComponent},
+  { path: 'symphony-gesture-change-form/:id', component: SymphonyGestureChangeFormComponent, canActivate: [AuthGuard]},
 
-  { path: 'symphony-instrument-change-form/:id', component: SymphonyInstrumentChangeFormComponent},
+  { path: 'symphony-instrument-change-form/:id', component: SymphonyInstrumentChangeFormComponent, canActivate: [AuthGuard]},
 
-  { path: 'user-unlockable-change-form/:id', component: UserUnlockableChangeFormComponent},
+  { path: 'user-unlockable-change-form/:id', component: UserUnlockableChangeFormComponent, canActivate: [AuthGuard]},
 
-  { path: 'gesture-change-form/:id', component: GestureChangeFormComponent },
+  { path: 'gesture-change-form/:id', component: GestureChangeFormComponent, canActivate: [AuthGuard] },
 
-  { path: 'instrument-change-form/:id', component: InstrumentChangeFormComponent },
+  { path: 'instrument-change-form/:id', component: InstrumentChangeFormComponent, canActivate: [AuthGuard] },
 
-  { path: 'user-statistic-change-form/:id', component: UserStatisticChangeFormComponent },
+  { path: 'user-statistic-change-form/:id', component: UserStatisticChangeFormComponent, canActivate: [AuthGuard] },
 
-  { path: 'concert-change-form/:id', component: ConcertChangeFormComponent },
+  { path: 'concert-change-form/:id', component: ConcertChangeFormComponent, canActivate: [AuthGuard] },
 
-  { path: 'rank-change-form/:id', component: RankChangeFormComponent },
+  { path: 'rank-change-form/:id', component: RankChangeFormComponent, canActivate: [AuthGuard] },
 
-  { path: 'user-rank-change-form/:id', component: UserRankChangeFormComponent },
+  { path: 'user-rank-change-form/:id', component: UserRankChangeFormComponent, canActivate: [AuthGuard] },
 
   { path: '', redirectTo: 'sidenavbar', pathMatch: 'full' }
 ];

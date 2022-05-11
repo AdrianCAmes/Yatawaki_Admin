@@ -21,6 +21,10 @@ mat-toolbar {
     background:#E7962E;
 }
 
+.flexExpand {
+    flex: 1 1 auto;
+}
+
 mat-expansion-panel {
     margin: 2%
 }
