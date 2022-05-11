@@ -11,6 +11,10 @@ const httpOptions = {
 })
 export class AuthService {
 
+  requestHeader = new HttpHeaders(
+    {"No-Auth":"True"}
+  );
+
   constructor(private http: HttpClient) { }
   login(username: string, password: string): Observable<any> {
     console.log("Iniciando login")
@@ -18,6 +22,11 @@ export class AuthService {
       username,
       password
     }, httpOptions);
+
+  }
+  login2(loginData: any): Observable<any> {
+    console.log("Iniciando login")
+    return this.http.post(AUTH_API, loginData,httpOptions);
 
   }
   register(username: string, password: string): Observable<any> {

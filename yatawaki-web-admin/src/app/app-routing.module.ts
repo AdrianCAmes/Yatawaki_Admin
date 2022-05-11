@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { AchievementCardComponent } from './cards/achievement-card/achievement-card.component';
 import { AvatarCardComponent } from './cards/avatar-card/avatar-card.component';
 import { ComposerCardComponent } from './cards/composer-card/composer-card.component';
@@ -49,6 +50,7 @@ import { ComposerComponent } from './pages/composer/composer.component';
 import { ConcertComponent } from './pages/concert/concert.component';
 import { GestureComponent } from './pages/gesture/gesture.component';
 import { InstrumentComponent } from './pages/instrument/instrument.component';
+import { LoginFormComponent } from './pages/login-form/login-form.component';
 import { RankComponent } from './pages/rank/rank.component';
 import { SymphonyGestureComponent } from './pages/symphony-gesture/symphony-gesture.component';
 import { SymphonyInstrumentComponent } from './pages/symphony-instrument/symphony-instrument.component';
@@ -58,6 +60,7 @@ import { UserRankComponent } from './pages/user-rank/user-rank.component';
 import { UserStatisticComponent } from './pages/user-statistic/user-statistic.component';
 import { UserUnlockableComponent } from './pages/user-unlockable/user-unlockable.component';
 import { UserComponent } from './pages/user/user.component';
+import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
 import { AchievementUpdateFormComponent } from './update-forms/achievement-update-form/achievement-update-form.component';
 import { AvatarUpdateFormComponent } from './update-forms/avatar-update-form/avatar-update-form.component';
 import { ComposerUpdateFormComponent } from './update-forms/composer-update-form/composer-update-form.component';
@@ -71,88 +74,104 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';*/
 
 const routes: Routes = [
   //{ path: 'home', component: HomeComponent },
-  //{ path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginFormComponent },
   //{ path: 'register', component: RegisterComponent },
   //{ path: 'profile', component: ProfileComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'user-card', component: UserCardComponent },
-  { path: 'user-new-form', component: UserNewFormComponent },
+  { path: 'sidenavbar', component: SidenavbarComponent, children:[
+
+    { path: 'avatar', component: AvatarComponent },
+    { path: 'avatar-card', component: AvatarCardComponent },
+    { path: 'avatar-new-form', component: AvatarNewFormComponent },
+
+    { path: 'user', component: UserComponent },
+    { path: 'user-card', component: UserCardComponent },
+    { path: 'user-new-form', component: UserNewFormComponent },
+
+    { path: 'achievement', component: AchievementComponent },
+    { path: 'achievement-card', component: AchievementCardComponent },
+    { path: 'achievement-new-form', component: AchievementNewFormComponent },
+
+    { path: 'composer', component: ComposerComponent },
+    { path: 'composer-card', component: ComposerCardComponent },
+    { path: 'composer-new-form', component: ComposerNewFormComponent },
+
+    { path: 'unlockable', component: UnlockableComponent },
+    { path: 'unlockable-card', component: UnlockableCardComponent },
+
+    { path: 'symphony', component: SymphonyComponent },
+    { path: 'symphony-card', component: SymphonyCardComponent },
+    { path: 'symphony-new-form', component: SymphonyNewFormComponent },
+
+    { path: 'symphony-gesture', component: SymphonyGestureComponent},
+    { path: 'symphony-gesture-card', component: SymphonyGestureCardComponent},
+    { path: 'symphony-gesture-new-form', component: SymphonyGestureNewFormComponent},
+
+    { path: 'symphony-instrument', component: SymphonyInstrumentComponent},
+    { path: 'symphony-instrument-card', component: SymphonyInstrumentCardComponent},
+    { path: 'symphony-instrument-new-form', component: SymphonyInstrumentNewFormComponent},
+
+    { path: 'user-unlockable', component: UserUnlockableComponent},
+    { path: 'user-unlockable-card', component: UserUnlockableCardComponent},
+    { path: 'user-unlockable-new-form', component: UserUnlockableNewFormComponent},
+
+    { path: 'gesture', component: GestureComponent },
+    { path: 'gesture-card', component: GestureCardComponent },
+    { path: 'gesture-new-form', component: GestureNewFormComponent },
+
+    { path: 'instrument', component: InstrumentComponent },
+    { path: 'instrument-card', component: InstrumentCardComponent },
+    { path: 'instrument-new-form', component: InstrumentNewFormComponent },
+
+    { path: 'user-statistic', component: UserStatisticComponent },
+    { path: 'user-statistic-card', component: UserStatisticCardComponent },
+    { path: 'user-statistic-new-form', component: UserStatisticNewFormComponent },
+
+    { path: 'concert', component: ConcertComponent },
+    { path: 'concert-card', component: ConcertCardComponent },
+    { path: 'concert-new-form', component: ConcertNewFormComponent },
+
+    { path: 'rank', component: RankComponent },
+    { path: 'rank-card', component: RankCardComponent },
+    { path: 'rank-new-form', component: RankNewFormComponent },
+
+    { path: 'user-rank', component: UserRankComponent },
+    { path: 'user-rank-card', component: UserRankCardComponent },
+    { path: 'user-rank-new-form', component: UserRankNewFormComponent },
+  ], canActivate: [AuthGuard],},
+
   { path: 'user-change-form/:id', component: UserChangeFormComponent },
 
-  { path: 'avatar', component: AvatarComponent },
-  { path: 'avatar-card', component: AvatarCardComponent },
-  { path: 'avatar-new-form', component: AvatarNewFormComponent },
+  //{ path: 'avatar', component: AvatarComponent },
   { path: 'avatar-update-form/:id', component: AvatarUpdateFormComponent },
   { path: 'avatar-change-form/:id', component: AvatarChangeFormComponent },
 
-  { path: 'achievement', component: AchievementComponent },
-  { path: 'achievement-card', component: AchievementCardComponent },
-  { path: 'achievement-new-form', component: AchievementNewFormComponent },
   { path: 'achievement-update-form/:id', component: AchievementUpdateFormComponent },
   { path: 'achievement-change-form/:id', component: AchievementChangeFormComponent },
 
-  { path: 'composer', component: ComposerComponent },
-  { path: 'composer-card', component: ComposerCardComponent },
-  { path: 'composer-new-form', component: ComposerNewFormComponent },
   { path: 'composer-update-form/:id', component: ComposerUpdateFormComponent },
   { path: 'composer-change-form/:id', component: ComposerChangeFormComponent },
 
-  
-  { path: 'unlockable', component: UnlockableComponent },
-  { path: 'unlockable-card', component: UnlockableCardComponent },
-
-  { path: 'symphony', component: SymphonyComponent },
-  { path: 'symphony-card', component: SymphonyCardComponent },
-  { path: 'symphony-new-form', component: SymphonyNewFormComponent },
   { path: 'symphony-change-form/:id', component: SymphonyChangeFormComponent },
 
-  { path: 'symphony-gesture', component: SymphonyGestureComponent},
-  { path: 'symphony-gesture-card', component: SymphonyGestureCardComponent},
-  { path: 'symphony-gesture-new-form', component: SymphonyGestureNewFormComponent},
   { path: 'symphony-gesture-change-form/:id', component: SymphonyGestureChangeFormComponent},
 
-  { path: 'symphony-instrument', component: SymphonyInstrumentComponent},
-  { path: 'symphony-instrument-card', component: SymphonyInstrumentCardComponent},
-  { path: 'symphony-instrument-new-form', component: SymphonyInstrumentNewFormComponent},
   { path: 'symphony-instrument-change-form/:id', component: SymphonyInstrumentChangeFormComponent},
 
-  { path: 'user-unlockable', component: UserUnlockableComponent},
-  { path: 'user-unlockable-card', component: UserUnlockableCardComponent},
-  { path: 'user-unlockable-new-form', component: UserUnlockableNewFormComponent},
   { path: 'user-unlockable-change-form/:id', component: UserUnlockableChangeFormComponent},
 
-  { path: 'gesture', component: GestureComponent },
-  { path: 'gesture-card', component: GestureCardComponent },
-  { path: 'gesture-new-form', component: GestureNewFormComponent },
   { path: 'gesture-change-form/:id', component: GestureChangeFormComponent },
 
-  
-  { path: 'instrument', component: InstrumentComponent },
-  { path: 'instrument-card', component: InstrumentCardComponent },
-  { path: 'instrument-new-form', component: InstrumentNewFormComponent },
   { path: 'instrument-change-form/:id', component: InstrumentChangeFormComponent },
 
-  { path: 'user-statistic', component: UserStatisticComponent },
-  { path: 'user-statistic-card', component: UserStatisticCardComponent },
-  { path: 'user-statistic-new-form', component: UserStatisticNewFormComponent },
   { path: 'user-statistic-change-form/:id', component: UserStatisticChangeFormComponent },
 
-  { path: 'concert', component: ConcertComponent },
-  { path: 'concert-card', component: ConcertCardComponent },
-  { path: 'concert-new-form', component: ConcertNewFormComponent },
   { path: 'concert-change-form/:id', component: ConcertChangeFormComponent },
 
-  { path: 'rank', component: RankComponent },
-  { path: 'rank-card', component: RankCardComponent },
-  { path: 'rank-new-form', component: RankNewFormComponent },
   { path: 'rank-change-form/:id', component: RankChangeFormComponent },
 
-  { path: 'user-rank', component: UserRankComponent },
-  { path: 'user-rank-card', component: UserRankCardComponent },
-  { path: 'user-rank-new-form', component: UserRankNewFormComponent },
   { path: 'user-rank-change-form/:id', component: UserRankChangeFormComponent },
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'sidenavbar', pathMatch: 'full' }
 ];
 
 @NgModule({

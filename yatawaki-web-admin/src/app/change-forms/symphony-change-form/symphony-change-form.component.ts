@@ -201,7 +201,7 @@ export class SymphonyChangeFormComponent implements OnInit {
       }
     );
     this.symphony = new SymphonyUpdate();
-    return this.router.navigate(['/symphony']).then(()=>
+    return this.router.navigate(['sidenavbar/symphony']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

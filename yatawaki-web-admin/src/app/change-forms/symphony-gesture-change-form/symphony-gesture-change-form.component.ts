@@ -128,7 +128,7 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
     );
     this.symphonyGesture = new SymphonyGestureUpdate();
     //this.router.navigate(['ListCustomer']);
-    return this.router.navigate(['/symphony-gesture']).then(()=>
+    return this.router.navigate(['sidenavbar/symphony-gesture']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

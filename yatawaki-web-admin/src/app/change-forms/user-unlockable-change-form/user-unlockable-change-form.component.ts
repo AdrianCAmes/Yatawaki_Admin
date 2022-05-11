@@ -98,7 +98,7 @@ export class UserUnlockableChangeFormComponent implements OnInit {
     );
     this.userUnlockable = new UserUnlockableUpdate();
     //this.router.navigate(['ListCustomer']);
-    return this.router.navigate(['/user-unlockable']).then(()=>
+    return this.router.navigate(['sidenavbar/user-unlockable']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

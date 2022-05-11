@@ -95,6 +95,7 @@ import { UserUnlockableChangeFormComponent } from './change-forms/user-unlockabl
 import { UserUnlockableCardComponent } from './cards/user-unlockable-card/user-unlockable-card.component';
 import { SymphonyInstrumentCardComponent } from './cards/symphony-instrument-card/symphony-instrument-card.component';
 import { SymphonyGestureCardComponent } from './cards/symphony-gesture-card/symphony-gesture-card.component';
+import { LoginFormComponent } from './pages/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -161,7 +162,8 @@ import { SymphonyGestureCardComponent } from './cards/symphony-gesture-card/symp
     UserUnlockableChangeFormComponent,
     UserUnlockableCardComponent,
     SymphonyInstrumentCardComponent,
-    SymphonyGestureCardComponent
+    SymphonyGestureCardComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

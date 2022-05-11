@@ -79,7 +79,7 @@ export class UserStatisticNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.userStatistic = new UserStatistic();
-    return this.router.navigate(['/user-statistic']).then(()=>
+    return this.router.navigate(['sidenavbar/user-statistic']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

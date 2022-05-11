@@ -129,7 +129,7 @@ export class AchievementNewFormComponent implements OnInit {
       //(error) => console.log(error)
     );
     this.achievement = new Achievement();
-    return this.router.navigate(['/achievement']).then(()=>
+    return this.router.navigate(['sidenavbar/achievement']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

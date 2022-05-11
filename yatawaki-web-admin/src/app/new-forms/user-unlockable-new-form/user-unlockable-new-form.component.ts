@@ -60,7 +60,7 @@ export class UserUnlockableNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.userUnlockable = new UserUnlockableCreate();
-    return this.router.navigate(['/user-unlockable']).then(()=>
+    return this.router.navigate(['sidenavbar/user-unlockable']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

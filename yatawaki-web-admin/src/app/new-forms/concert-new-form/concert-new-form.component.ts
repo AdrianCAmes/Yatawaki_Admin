@@ -40,7 +40,7 @@ export class ConcertNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.concert = new ConcertCreate();
-    return this.router.navigate(['/concert']).then(()=>
+    return this.router.navigate(['concert']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

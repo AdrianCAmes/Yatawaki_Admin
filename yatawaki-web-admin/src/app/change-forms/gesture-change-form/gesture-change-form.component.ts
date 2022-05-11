@@ -71,7 +71,7 @@ export class GestureChangeFormComponent implements OnInit {
       }
     );
     this.gesture = new Gesture();
-    return this.router.navigate(['/gesture']).then(()=>
+    return this.router.navigate(['sidenavbar/gesture']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

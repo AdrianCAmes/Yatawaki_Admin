@@ -81,7 +81,7 @@ export class RankChangeFormComponent implements OnInit {
       }
     );
     this.rank = new Rank();
-    return this.router.navigate(['/rank']).then(()=>
+    return this.router.navigate(['sidenavbar/rank']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

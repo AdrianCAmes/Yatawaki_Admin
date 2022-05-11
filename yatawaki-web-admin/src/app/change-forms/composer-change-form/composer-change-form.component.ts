@@ -89,7 +89,7 @@ export class ComposerChangeFormComponent implements OnInit {
       }
     );
     this.composer = new Composer();
-    return this.router.navigate(['/composer']).then(()=>
+    return this.router.navigate(['sidenavbar/composer']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

@@ -92,7 +92,7 @@ export class InstrumentNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.instrument = new Instrument();
-    return this.router.navigate(['/instrument']).then(()=>
+    return this.router.navigate(['sidenavbar/instrument']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

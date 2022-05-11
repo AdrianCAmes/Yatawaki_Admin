@@ -140,7 +140,7 @@ export class AvatarNewFormComponent implements OnInit {
       //(error) => console.log(error)
     );
     this.avatar = new Avatar();
-    return this.router.navigate(['/avatar']).then(()=>
+    return this.router.navigate(['sidenavbar/avatar']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

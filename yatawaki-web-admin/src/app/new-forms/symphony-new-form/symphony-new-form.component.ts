@@ -170,7 +170,7 @@ export class SymphonyNewFormComponent implements OnInit {
       //(error) => console.log(error)
     );
     this.symphony = new SymphonyCreate();
-    return this.router.navigate(['/symphony']).then(()=>
+    return this.router.navigate(['sidenavbar/symphony']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

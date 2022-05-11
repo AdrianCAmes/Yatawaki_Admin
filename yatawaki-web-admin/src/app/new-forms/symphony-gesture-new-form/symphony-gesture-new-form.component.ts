@@ -81,7 +81,7 @@ export class SymphonyGestureNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.symphonyGesture = new SymphonyGestureCreate();
-    return this.router.navigate(['/symphony-gesture']).then(()=>
+    return this.router.navigate(['sidenavbar/symphony-gesture']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

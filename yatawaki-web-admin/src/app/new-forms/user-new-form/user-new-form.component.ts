@@ -126,7 +126,7 @@ export class UserNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.user = new User();
-    return this.router.navigate(['/user']).then(()=>
+    return this.router.navigate(['sidenavbar/user']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

@@ -40,7 +40,7 @@ export class UserRankNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.userRank = new UserRankCreate();
-    return this.router.navigate(['/user-rank']).then(()=>
+    return this.router.navigate(['sidenavbar/user-rank']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

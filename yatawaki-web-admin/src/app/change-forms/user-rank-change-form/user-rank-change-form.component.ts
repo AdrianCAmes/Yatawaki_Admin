@@ -79,7 +79,7 @@ export class UserRankChangeFormComponent implements OnInit {
       }
     );
     this.userRank = new UserRankUpdate();
-    return this.router.navigate(['/user-rank']).then(()=>
+    return this.router.navigate(['sidenavbar/user-rank']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

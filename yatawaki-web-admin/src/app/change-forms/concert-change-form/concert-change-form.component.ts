@@ -92,7 +92,7 @@ export class ConcertChangeFormComponent implements OnInit {
       }
     );
     this.concert = new ConcertUpdate();
-    return this.router.navigate(['/concert']).then(()=>
+    return this.router.navigate(['sidenavbar/concert']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

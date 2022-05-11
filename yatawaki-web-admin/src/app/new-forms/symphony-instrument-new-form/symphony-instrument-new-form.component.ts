@@ -81,6 +81,11 @@ export class SymphonyInstrumentNewFormComponent implements OnInit {
       (datos) => console.log(datos)
     );
     this.symphonyInstrument = new SymphonyInstrumentCreate();
+    return this.router.navigate(['sidenavbar/symphony-instrument']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

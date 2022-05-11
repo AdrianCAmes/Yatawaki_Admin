@@ -1,5 +1,6 @@
 <mat-toolbar>
 Yatawaki
+  <button class="btn btn-outline" (click)="logout()">Logout</button>
 </mat-toolbar>
     
 <mat-drawer-container class="example-container" autosize>
@@ -12,12 +13,10 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/avatar">
-              <p>
-                  Avatar List
-              </p>
+            <a routerLink="avatar">
+              Avatar List
             </a>
-            <a routerLink="/avatar-new-form">
+            <a routerLink="avatar-new-form">
               <p>
                   New Avatar   
               </p>
@@ -35,12 +34,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/achievement">
+            <a routerLink="achievement">
               <p>
                 Achievement List
               </p>
             </a>
-            <a routerLink="/achievement-new-form">
+            <a routerLink="achievement-new-form">
               <p>
                   New Achievement   
                 </p>
@@ -58,12 +57,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/composer">
+            <a routerLink="composer">
               <p>
                 Composer List
               </p>
             </a>
-            <a routerLink="/composer-new-form">
+            <a routerLink="composer-new-form">
               <p>
                   New Composer   
                 </p>
@@ -81,7 +80,7 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/unlockable">
+            <a routerLink="unlockable">
               <p>
                 Unlockable List
               </p>
@@ -99,12 +98,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/symphony">
+            <a routerLink="symphony">
               <p>
                 Symphony List
               </p>
             </a>
-            <a routerLink="/symphony-new-form">
+            <a routerLink="symphony-new-form">
               <p>
                   New Symphony   
                 </p>
@@ -122,12 +121,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/symphony-gesture">
+            <a routerLink="symphony-gesture">
               <p>
                 Symphony Gesture List
               </p>
             </a>
-            <a routerLink="/symphony-gesture-new-form">
+            <a routerLink="symphony-gesture-new-form">
               <p>
                   New Symphony Gesture  
                 </p>
@@ -145,12 +144,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/symphony-instrument">
+            <a routerLink="symphony-instrument">
               <p>
                 Symphony Instrument List
               </p>
             </a>
-            <a routerLink="/symphony-instrument-new-form">
+            <a routerLink="symphony-instrument-new-form">
               <p>
                   New Symphony Instrument  
                 </p>
@@ -168,12 +167,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/gesture">
+            <a routerLink="gesture">
               <p>
                 Gesture List
               </p>
             </a>
-            <a routerLink="/gesture-new-form">
+            <a routerLink="gesture-new-form">
               <p>
                   New Gesture   
                 </p>
@@ -191,12 +190,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/instrument">
+            <a routerLink="instrument">
               <p>
                 Instrument List
               </p>
             </a>
-            <a routerLink="/instrument-new-form">
+            <a routerLink="instrument-new-form">
               <p>
                   New Instrument   
                 </p>
@@ -214,12 +213,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/user-statistic">
+            <a routerLink="user-statistic">
               <p>
                 User Statistic List
               </p>
             </a>
-            <a routerLink="/user-statistic-new-form">
+            <a routerLink="user-statistic-new-form">
               <p>
                   New User Statistic   
                 </p>
@@ -237,12 +236,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/user-unlockable">
+            <a routerLink="user-unlockable">
               <p>
                 User Unlockable List
               </p>
             </a>
-            <a routerLink="/user-unlockable-new-form">
+            <a routerLink="user-unlockable-new-form">
               <p>
                   New User Unlockable  
                 </p>
@@ -260,12 +259,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/user">
+            <a routerLink="user">
               <p>
                 User List
               </p>
             </a>
-            <a routerLink="/user-new-form">
+            <a routerLink="user-new-form">
               <p>
                   New User   
                 </p>
@@ -283,12 +282,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/concert">
+            <a routerLink="concert">
               <p>
                 Concert List
               </p>
             </a>
-            <a routerLink="/concert-new-form">
+            <a routerLink="concert-new-form">
               <p>
                   New Concert   
                 </p>
@@ -306,12 +305,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/rank">
+            <a routerLink="rank">
               <p>
                 Rank List
               </p>
             </a>
-            <a routerLink="/rank-new-form">
+            <a routerLink="rank-new-form">
               <p>
                   New Rank   
                 </p>
@@ -329,12 +328,12 @@ Yatawaki
             </mat-panel-title>
           </mat-expansion-panel-header>
       
-            <a routerLink="/user-rank">
+            <a routerLink="user-rank">
               <p>
                 User Rank List
               </p>
             </a>
-            <a routerLink="/user-rank-new-form">
+            <a routerLink="user-rank-new-form">
               <p>
                   New User Rank   
                 </p>
@@ -353,7 +352,8 @@ Yatawaki
         </button>
     </div>
     <div class="example-sidenav-content">
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </div>
-  
+    
 </mat-drawer-container>
+

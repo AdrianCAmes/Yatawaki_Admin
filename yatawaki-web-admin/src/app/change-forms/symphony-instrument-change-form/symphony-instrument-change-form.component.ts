@@ -118,7 +118,7 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
     );
     this.symphonyInstrument = new SymphonyInstrumentUpdate();
     //this.router.navigate(['ListCustomer']);
-    return this.router.navigate(['/symphony-instrument']).then(()=>
+    return this.router.navigate(['sidenavbar/symphony-instrument']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();
