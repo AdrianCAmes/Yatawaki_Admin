@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 /*import { LoginComponent } from './login/login.component';
@@ -38,6 +38,8 @@ import { AvatarUpdateFormComponent } from './update-forms/avatar-update-form/ava
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AvatarChangeFormComponent } from './change-forms/avatar-change-form/avatar-change-form.component';
 import { AchievementCardComponent } from './cards/achievement-card/achievement-card.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover'
@@ -96,6 +98,10 @@ import { UserUnlockableCardComponent } from './cards/user-unlockable-card/user-u
 import { SymphonyInstrumentCardComponent } from './cards/symphony-instrument-card/symphony-instrument-card.component';
 import { SymphonyGestureCardComponent } from './cards/symphony-gesture-card/symphony-gesture-card.component';
 import { LoginFormComponent } from './pages/login-form/login-form.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -170,6 +176,13 @@ import { LoginFormComponent } from './pages/login-form/login-form.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    }),
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,

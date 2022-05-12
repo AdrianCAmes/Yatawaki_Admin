@@ -1,0 +1,144 @@
+{
+    "COMPOSER":{
+        "NAME": "Composer",
+        "LIST": "Composer List",
+        "NEW": "New Composer",
+        "SEARCH": "Search Composer"
+    },
+
+    "AVATAR":{
+        "NAME": "Avatar",
+        "LIST": "Avatar List",
+        "NEW": "New Avatar",
+        "SEARCH": "Search Avatar"
+    },
+
+    "ACHIEVEMENT":{
+        "NAME": "Achievement",
+        "LIST": "Achievement List",
+        "NEW": "New Achievement",
+        "SEARCH": "Search Achievement"
+    },
+    
+    "UNLOCKABLE":{
+        "NAME": "Unlockable",
+        "LIST": "Unlockable List",
+        "NEW": "New Unlockable",
+        "SEARCH": "Search Unlockable"
+    },
+    "SYMPHONY":{
+        "NAME": "Symphony",
+        "LIST": "Symphony List",
+        "NEW": "New Symphony",
+        "SEARCH": "Search Symphony"
+    },
+    "SYMPHONYGESTURE":{
+        "NAME": "Symphony Gesture",
+        "LIST": "Symphony Gesture List",
+        "NEW": "New Symphony Gesture",
+        "SEARCH": "Search Symphony Gesture"
+    }, 
+    "SYMPHONYINSTRUMENT":{
+        "NAME": "Symphony Instrument",
+        "LIST": "Symphony Instrument List",
+        "NEW": "New Symphony Instrument",
+        "SEARCH": "Search Symphony Instrument"
+    }, 
+    "GESTURE":{
+        "NAME": "Gesture",
+        "LIST": "Gesture List",
+        "NEW": "New Gesture",
+        "SEARCH": "Search Gesture"
+    }, 
+    "INSTRUMENT":{
+        "NAME": "Instrument",
+        "LIST": "Instrument List",
+        "NEW": "New Instrument",
+        "SEARCH": "Search Instrument"
+    }, 
+    "USERSTATISTIC":{
+        "NAME": "User Statistic",
+        "LIST": "User Statistic List",
+        "NEW": "New User Statistic",
+        "SEARCH": "Search User Statistic"
+    }, 
+    "USERUNLOCKABLE":{
+        "NAME": "User Unlockable",
+        "LIST": "User Unlockable List",
+        "NEW": "New User Unlockable",
+        "SEARCH": "Search User Unlockable"
+    },
+    "USER":{
+        "NAME": "User",
+        "LIST": "User List",
+        "NEW": "New User",
+        "SEARCH": "Search User"
+    },
+    "CONCERT":{
+        "NAME": "Concert",
+        "LIST": "Concert List",
+        "NEW": "New Concert",
+        "SEARCH": "Search Concert"
+    },
+    "RANK":{
+        "NAME": "Rank",
+        "LIST": "Rank List",
+        "NEW": "New Rank",
+        "SEARCH": "Search Rank"
+    },
+    "USERRANK":{
+        "NAME": "User Rank",
+        "LIST": "User Rank List",
+        "NEW": "New User Rank",
+        "SEARCH": "Search User Rank"
+    },
+
+    "NAME": "Name",
+    "DESCRIPTION": "Description",
+    "RARENESS": "Rareness",
+    "UNLOCKERTYPE": "Unlocker Type",
+    "UNLOCKERVALUE": "Unlocker Value",
+    "COINSCOST": "Coins Cost",
+    "ICON": "Icon",
+    "STATUS": "Status",
+    "ENHANCEDFEATURE": "Enhanced Feature",
+    "BIRTHDATE": "Birth Date",
+    "DEATHDATE": "Death Date",
+    "COMPOSERNAME": "Composer Name",
+    "YEAR": "Year",
+    "DURATION": "Duration",
+    "TYPE": "Type",
+    "PREVIEWTRACK": "Preview Track",
+    "INITIALBPM": "Initial BPM",
+    "GESTURENAME": "Gesture Name",
+    "SYMPHONYNAME": "Symphony Name",
+    "BEGININGTIME": "Begining Time",
+    "ENDTIME": "End Time",
+    "TRACK": "Track",
+    "INSTRUMENTNAME": "Instrument Name",
+    "POSITION": "Position",
+    "TRIVIASPLAYED": "Trivias Played",
+    "TRIVIASWON": "Trivias Won",
+    "CONCERTSORCHESTRATED": "Concerts Orchestrated",
+    "ORCHESTRATORACCURACY": "Orhestrator Accuracy",
+    "NICKNAME": "Nickname",
+    "UNLOCKABLENAME": "Unlockable Name",
+    "UNLOCKEDDATE": "Unlocked Date",
+    "PASSWORD": "Password",
+    "FIRSTNAME": "First Name",
+    "LASTNAME": "Last Name",
+    "MAIL": "Mail",
+    "COINSOWNED": "Coins Owned",
+    "ROLE": "Role",
+    "PLAYEDDATE": "Played Date",
+    "POINTS": "Points",
+    "ACCURACYRATE": "Accuracy Rate",
+    "GESTURECOMPLETED": "Gesture Completed",
+    "LEVEL": "Level",
+    "MAXEXPERIENCE": "Max Experience",
+    "STARTDATE": "Start Date",
+    "USERID": "User Id",
+    "RANKID": "Rank Id",
+    "ENDDATE": "End Date",
+    "CURRENTEXPERIENCE": "Current Experience"
+}

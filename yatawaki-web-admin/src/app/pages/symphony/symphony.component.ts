@@ -39,7 +39,7 @@ export class SymphonyComponent implements OnInit {
   }
 
   changeSymphony(symphony: Symphony) {
-    this.router.navigate(['symphony-change-form', symphony.idUnlockable]);
+    this.router.navigate(['sidenavbar/symphony-change-form', symphony.idUnlockable]);
   }
 
 }

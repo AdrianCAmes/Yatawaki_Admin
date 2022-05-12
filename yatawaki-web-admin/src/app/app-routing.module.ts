@@ -82,18 +82,23 @@ const routes: Routes = [
     { path: 'avatar', component: AvatarComponent },
     { path: 'avatar-card', component: AvatarCardComponent },
     { path: 'avatar-new-form', component: AvatarNewFormComponent },
+    { path: 'avatar-change-form/:id', component: AvatarChangeFormComponent },
 
     { path: 'user', component: UserComponent },
     { path: 'user-card', component: UserCardComponent },
     { path: 'user-new-form', component: UserNewFormComponent },
+    { path: 'user-change-form/:id', component: UserChangeFormComponent },
+
 
     { path: 'achievement', component: AchievementComponent },
     { path: 'achievement-card', component: AchievementCardComponent },
     { path: 'achievement-new-form', component: AchievementNewFormComponent },
+    { path: 'achievement-change-form/:id', component: AchievementChangeFormComponent },
 
     { path: 'composer', component: ComposerComponent },
     { path: 'composer-card', component: ComposerCardComponent },
     { path: 'composer-new-form', component: ComposerNewFormComponent },
+    { path: 'composer-change-form/:id', component: ComposerChangeFormComponent },
 
     { path: 'unlockable', component: UnlockableComponent },
     { path: 'unlockable-card', component: UnlockableCardComponent },
@@ -101,75 +106,60 @@ const routes: Routes = [
     { path: 'symphony', component: SymphonyComponent },
     { path: 'symphony-card', component: SymphonyCardComponent },
     { path: 'symphony-new-form', component: SymphonyNewFormComponent },
+    { path: 'symphony-change-form/:id', component: SymphonyChangeFormComponent },
 
     { path: 'symphony-gesture', component: SymphonyGestureComponent},
     { path: 'symphony-gesture-card', component: SymphonyGestureCardComponent},
     { path: 'symphony-gesture-new-form', component: SymphonyGestureNewFormComponent},
+    { path: 'symphony-gesture-change-form/:id', component: SymphonyGestureChangeFormComponent },
 
     { path: 'symphony-instrument', component: SymphonyInstrumentComponent},
     { path: 'symphony-instrument-card', component: SymphonyInstrumentCardComponent},
     { path: 'symphony-instrument-new-form', component: SymphonyInstrumentNewFormComponent},
+    { path: 'symphony-instrument-change-form/:id', component: SymphonyInstrumentChangeFormComponent },
 
     { path: 'user-unlockable', component: UserUnlockableComponent},
     { path: 'user-unlockable-card', component: UserUnlockableCardComponent},
     { path: 'user-unlockable-new-form', component: UserUnlockableNewFormComponent},
+    { path: 'user-unlockable-change-form/:id', component: UserUnlockableChangeFormComponent },
 
     { path: 'gesture', component: GestureComponent },
     { path: 'gesture-card', component: GestureCardComponent },
     { path: 'gesture-new-form', component: GestureNewFormComponent },
+    { path: 'gesture-change-form/:id', component: GestureChangeFormComponent },
 
     { path: 'instrument', component: InstrumentComponent },
     { path: 'instrument-card', component: InstrumentCardComponent },
     { path: 'instrument-new-form', component: InstrumentNewFormComponent },
+    { path: 'instrument-change-form/:id', component: InstrumentChangeFormComponent },
 
     { path: 'user-statistic', component: UserStatisticComponent },
     { path: 'user-statistic-card', component: UserStatisticCardComponent },
     { path: 'user-statistic-new-form', component: UserStatisticNewFormComponent },
+    { path: 'user-statistic-change-form/:id', component: UserStatisticChangeFormComponent },
 
     { path: 'concert', component: ConcertComponent },
     { path: 'concert-card', component: ConcertCardComponent },
     { path: 'concert-new-form', component: ConcertNewFormComponent },
+    { path: 'concert-change-form/:id', component: ConcertChangeFormComponent },
 
     { path: 'rank', component: RankComponent },
     { path: 'rank-card', component: RankCardComponent },
     { path: 'rank-new-form', component: RankNewFormComponent },
+    { path: 'rank-change-form/:id', component: RankChangeFormComponent },
 
     { path: 'user-rank', component: UserRankComponent },
     { path: 'user-rank-card', component: UserRankCardComponent },
     { path: 'user-rank-new-form', component: UserRankNewFormComponent },
+    { path: 'user-rank-change-form/:id', component: UserRankChangeFormComponent },
   ], canActivate: [AuthGuard]},
-
-  { path: 'user-change-form/:id', component: UserChangeFormComponent, canActivate: [AuthGuard] },
 
   //{ path: 'avatar', component: AvatarComponent },
   { path: 'avatar-update-form/:id', component: AvatarUpdateFormComponent },
-  { path: 'avatar-change-form/:id', component: AvatarChangeFormComponent, canActivate: [AuthGuard] },
 
   { path: 'achievement-update-form/:id', component: AchievementUpdateFormComponent },
-  { path: 'achievement-change-form/:id', component: AchievementChangeFormComponent, canActivate: [AuthGuard] },
 
   { path: 'composer-update-form/:id', component: ComposerUpdateFormComponent },
-  { path: 'composer-change-form/:id', component: ComposerChangeFormComponent, canActivate: [AuthGuard] },
-
-  { path: 'symphony-change-form/:id', component: SymphonyChangeFormComponent, canActivate: [AuthGuard] },
-
-  { path: 'symphony-gesture-change-form/:id', component: SymphonyGestureChangeFormComponent, canActivate: [AuthGuard]},
-
-  { path: 'symphony-instrument-change-form/:id', component: SymphonyInstrumentChangeFormComponent, canActivate: [AuthGuard]},
-
-  { path: 'user-unlockable-change-form/:id', component: UserUnlockableChangeFormComponent, canActivate: [AuthGuard]},
-
-  { path: 'gesture-change-form/:id', component: GestureChangeFormComponent, canActivate: [AuthGuard] },
-
-  { path: 'instrument-change-form/:id', component: InstrumentChangeFormComponent, canActivate: [AuthGuard] },
-
-  { path: 'user-statistic-change-form/:id', component: UserStatisticChangeFormComponent, canActivate: [AuthGuard] },
-
-  { path: 'concert-change-form/:id', component: ConcertChangeFormComponent, canActivate: [AuthGuard] },
-
-  { path: 'rank-change-form/:id', component: RankChangeFormComponent, canActivate: [AuthGuard] },
-
-  { path: 'user-rank-change-form/:id', component: UserRankChangeFormComponent, canActivate: [AuthGuard] },
 
   { path: '', redirectTo: 'sidenavbar', pathMatch: 'full' }
 ];

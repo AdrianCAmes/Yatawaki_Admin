@@ -39,7 +39,7 @@ export class InstrumentComponent implements OnInit {
   }
 
   changeInstrument(instrument: Instrument) {
-    this.router.navigate(['instrument-change-form', instrument.idInstrument]);
+    this.router.navigate(['sidenavbar/instrument-change-form', instrument.idInstrument]);
   }
 
 }

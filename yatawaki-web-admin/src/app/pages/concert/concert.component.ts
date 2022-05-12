@@ -39,7 +39,7 @@ export class ConcertComponent implements OnInit {
   }
 
   changeConcert(concert: Concert) {
-    this.router.navigate(['concert-change-form', concert.idConcert]);
+    this.router.navigate(['sidenavbar/concert-change-form', concert.idConcert]);
   }
 
 }

@@ -25,6 +25,13 @@ mat-toolbar {
     flex: 1 1 auto;
 }
 
+.sep{
+    width: 90px;
+}
+.custom-select {
+    width: 80px;
+}
+
 mat-expansion-panel {
     margin: 2%
 }

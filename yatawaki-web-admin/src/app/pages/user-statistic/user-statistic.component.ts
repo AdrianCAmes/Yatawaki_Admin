@@ -38,7 +38,7 @@ export class UserStatisticComponent implements OnInit {
   }
 
   changeUserStatistic(userStatistic: UserStatistic) {
-    this.router.navigate(['user-statistic-change-form', userStatistic.idUserStatistics]);
+    this.router.navigate(['sidenavbar/user-statistic-change-form', userStatistic.idUserStatistics]);
   }
 
 }

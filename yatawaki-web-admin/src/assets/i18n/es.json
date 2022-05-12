@@ -1,0 +1,144 @@
+{
+    "COMPOSER":{
+        "NAME": "Compositor",
+        "LIST": "Lista de Compositores",
+        "NEW": "Nuevo Compositor",
+        "SEARCH": "Buscar Compositor"
+    },
+
+    "AVATAR":{
+        "NAME": "Avatar",
+        "LIST": "Lista de Avatares",
+        "NEW": "Nuevo Avatar",
+        "SEARCH": "Buscar Avatar"
+    },
+
+    "ACHIEVEMENT":{
+        "NAME": "Logro",
+        "LIST": "Lista de Logros",
+        "NEW": "Nuevo Logro",
+        "SEARCH": "Buscar Logro"
+    },
+    
+    "UNLOCKABLE":{
+        "NAME": "Desbloqueable",
+        "LIST": "Lista de Desbloqueables",
+        "NEW": "Nuevo Desbloqueable",
+        "SEARCH": "Buscar Desbloqueable"
+    },
+    "SYMPHONY":{
+        "NAME": "Sinfonía",
+        "LIST": "Lista de sinfonías",
+        "NEW": "Nueva Sinfonía",
+        "SEARCH": "Buscar Sinfonías"
+    },
+    "SYMPHONYGESTURE":{
+        "NAME": "Gesto Sinfónico",
+        "LIST": "Lista de Gestos Sinfonicos",
+        "NEW": "Gesto Sinfónico Compositor",
+        "SEARCH": "Buscar Gesto Sinfónico"
+    }, 
+    "SYMPHONYINSTRUMENT":{
+        "NAME": "Instrumento Sinfonico",
+        "LIST": "Lista de Instrumentos Sinfonicos",
+        "NEW": "Nuevo Instrumento Sinfonico",
+        "SEARCH": "Buscar Instrumento Sinfonico"
+    }, 
+    "GESTURE":{
+        "NAME": "Gesto",
+        "LIST": "Lista de Gestos",
+        "NEW": "Nuevo Gesto",
+        "SEARCH": "Buscar Gesto"
+    }, 
+    "INSTRUMENT":{
+        "NAME": "Instrumento",
+        "LIST": "Lista de Instrumentos",
+        "NEW": "Nuevo Instrumento",
+        "SEARCH": "Buscar Instrumento"
+    }, 
+    "USERSTATISTIC":{
+        "NAME": "Estadística del Usuario",
+        "LIST": "Lista de Estadística de los Usuarios",
+        "NEW": "Nueva Estadística del Usuario",
+        "SEARCH": "Buscar Estadística del Usuario"
+    }, 
+    "USERUNLOCKABLE":{
+        "NAME": "Usuario Desbloqueable",
+        "LIST": "Lista de Usuarios Desbloqueables",
+        "NEW": "Nuevo Usuario Desbloqueable",
+        "SEARCH": "Buscar Usuario Desbloqueable"
+    },
+    "USER":{
+        "NAME": "Usuario",
+        "LIST": "Lista de Usuarios",
+        "NEW": "Nuevo Usuario",
+        "SEARCH": "Buscar Usuario"
+    },
+    "CONCERT":{
+        "NAME": "Concierto",
+        "LIST": "Lista de Conciertos",
+        "NEW": "Nuevo Concierto",
+        "SEARCH": "Buscar Concierto"
+    },
+    "RANK":{
+        "NAME": "Rango",
+        "LIST": "Lista de Rangos",
+        "NEW": "Nuevo Rango",
+        "SEARCH": "Buscar v"
+    },
+    "USERRANK":{
+        "NAME": "Rango de Usuario",
+        "LIST": "Lista de Rangos de Usuarios",
+        "NEW": "Nuevo Rango de Usuario",
+        "SEARCH": "Buscar Rango de Usuario"
+    },
+
+    "NAME": "Nombre",
+    "DESCRIPTION": "Descripción",
+    "RARENESS": "Rareza",
+    "UNLOCKERTYPE": "Tipo de desbloqueador",
+    "UNLOCKERVALUE": "Valor de desbloqueo",
+    "COINSCOST": "Costo de monedas",
+    "ICON": "Icono",
+    "STATUS": "Estado",
+    "ENHANCEDFEATURE": "Característica mejorada",
+    "BIRTHDATE": "Fecha de nacimiento",
+    "DEATHDATE": "Fecha de la muerte",
+    "COMPOSERNAME": "Nombre del compositor",
+    "YEAR": "Año",
+    "DURATION": "Duración",
+    "TYPE": "Tipo",
+    "PREVIEWTRACK": "Vista previa de la pista",
+    "INITIALBPM": "BPM iniciales",
+    "GESTURENAME": "Nombre del gesto",
+    "SYMPHONYNAME": "Nombre de la sinfonía",
+    "BEGININGTIME": "Hora de inicio",
+    "ENDTIME": "Hora de finalización",
+    "TRACK": "Pista",
+    "INSTRUMENTNAME": "Nombre del instrumento",
+    "POSITION": "Posición",
+    "TRIVIASPLAYED": "Trivias jugadas",
+    "TRIVIASWON": "Trivias ganadas",
+    "CONCERTSORCHESTRATED": "Conciertos Orquestados",
+    "ORCHESTRATORACCURACY": "Precisión del orquestador",
+    "NICKNAME": "Apodo",
+    "UNLOCKABLENAME": "Nombre desbloqueable",
+    "UNLOCKEDDATE": "Fecha de desbloqueo",
+    "PASSWORD": "Contraseña",
+    "FIRSTNAME": "Primer nombre",
+    "LASTNAME": "Apellido",
+    "MAIL": "Correo",
+    "COINSOWNED": "Monedas de propiedad",
+    "ROLE": "Rol",
+    "PLAYEDDATE": "Fecha de reproducción",
+    "POINTS": "Puntos",
+    "ACCURACYRATE": "Tasa de precisión",
+    "GESTURECOMPLETED": "Gesto completado",
+    "LEVEL": "Nivel",
+    "MAXEXPERIENCE": "Experiencia máxima",
+    "STARTDATE": "Fecha de inicio",
+    "USERID": "Id de usuario",
+    "RANKID": "Id de rango",
+    "ENDDATE": "Fecha final",
+    "CURRENTEXPERIENCE": "Experiencia actual"
+}

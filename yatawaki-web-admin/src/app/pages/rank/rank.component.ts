@@ -40,7 +40,7 @@ export class RankComponent implements OnInit {
   }
 
   changeRank(rank: Rank) {
-    this.router.navigate(['rank-change-form', rank.idRank]);
+    this.router.navigate(['sidenavbar/rank-change-form', rank.idRank]);
   }
 
 }

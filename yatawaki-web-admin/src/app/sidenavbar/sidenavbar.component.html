@@ -1,6 +1,10 @@
 <mat-toolbar>
 Yatawaki
 <span class="flexExpand"></span>
+<select #langSelect class="custom-select" (change)="changeLang(langSelect.value)">
+  <option *ngFor="let lang of langs" [value]="lang">{{lang}}</option>
+</select>
+<span class="sep"></span>
 <button mat-raised-button color="warn" (click)="logout()">Logout</button>
 </mat-toolbar>
     
@@ -10,338 +14,338 @@ Yatawaki
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Avatar
+              {{ 'AVATAR.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="avatar">
-              Avatar List
+              {{ 'AVATAR.LIST' | translate }}
             </a>
             <a routerLink="avatar-new-form">
               <p>
-                  New Avatar   
+                {{ 'AVATAR.NEW' | translate }}   
               </p>
             </a>
             <a routerLink="avatar-card">
                 <p>
-                  Search Avatar   
+                  {{ 'AVATAR.SEARCH' | translate }}   
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Achievement
+              {{ 'ACHIEVEMENT.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="achievement">
               <p>
-                Achievement List
+                {{ 'ACHIEVEMENT.LIST' | translate }}
               </p>
             </a>
             <a routerLink="achievement-new-form">
               <p>
-                  New Achievement   
+                {{ 'ACHIEVEMENT.NEW' | translate }} 
                 </p>
             </a>
             <a routerLink="achievement-card">
               <p>
-                  Search Achievement   
+                {{ 'ACHIEVEMENT.SEARCH' | translate }} 
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Composer
+              {{ 'COMPOSER.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="composer">
               <p>
-                Composer List
+                {{ 'COMPOSER.LIST' | translate }}
               </p>
             </a>
             <a routerLink="composer-new-form">
               <p>
-                  New Composer   
+                {{ 'COMPOSER.NEW' | translate }}  
                 </p>
             </a>
             <a routerLink="composer-card">
              <p>
-                  Search Composer   
+              {{ 'COMPOSER.SEARCH' | translate }}   
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Unlockable
+              {{ 'UNLOCKABLE.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="unlockable">
               <p>
-                Unlockable List
+                {{ 'UNLOCKABLE.LIST' | translate }}
               </p>
             </a>
             <a routerLink="unlockable-card">
               <p>
-                  Search Unlockable   
+                {{ 'UNLOCKABLE.SEARCH' | translate }}  
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Symphony
+              {{ 'SYMPHONY.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="symphony">
               <p>
-                Symphony List
+                {{ 'SYMPHONY.LIST' | translate }}
               </p>
             </a>
             <a routerLink="symphony-new-form">
               <p>
-                  New Symphony   
+                {{ 'SYMPHONY.NEW' | translate }}   
                 </p>
             </a>
             <a routerLink="symphony-card">
               <p>
-                  Search Symphony   
+                {{ 'SYMPHONY.SEARCH' | translate }}  
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Symphony Gesture
+              {{ 'SYMPHONYGESTURE.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="symphony-gesture">
               <p>
-                Symphony Gesture List
+                {{ 'SYMPHONYGESTURE.LIST' | translate }}
               </p>
             </a>
             <a routerLink="symphony-gesture-new-form">
               <p>
-                  New Symphony Gesture  
+                {{ 'SYMPHONYGESTURE.NEW' | translate }} 
                 </p>
             </a>
             <a routerLink="symphony-gesture-card">
               <p>
-                  Search Symphony Gesture  
+                {{ 'SYMPHONYGESTURE.SEARCH' | translate }} 
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Symphony Instrument
+              {{ 'SYMPHONYINSTRUMENT.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="symphony-instrument">
               <p>
-                Symphony Instrument List
+                {{ 'SYMPHONYINSTRUMENT.LIST' | translate }}
               </p>
             </a>
             <a routerLink="symphony-instrument-new-form">
               <p>
-                  New Symphony Instrument  
+                {{ 'SYMPHONYINSTRUMENT.NEW' | translate }}  
                 </p>
             </a>
             <a routerLink="symphony-instrument-card">
               <p>
-                  Search Symphony Instrument  
+                {{ 'SYMPHONYINSTRUMENT.SEARCH' | translate }}   
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Gesture
+              {{ 'GESTURE.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="gesture">
               <p>
-                Gesture List
+                {{ 'GESTURE.LIST' | translate }}
               </p>
             </a>
             <a routerLink="gesture-new-form">
               <p>
-                  New Gesture   
+                {{ 'GESTURE.NEW' | translate }}   
                 </p>
             </a>
             <a routerLink="gesture-card">
               <p>
-                  Search Gesture   
+                {{ 'GESTURE.SEARCH' | translate }}    
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Instrument
+              {{ 'INSTRUMENT.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="instrument">
               <p>
-                Instrument List
+                {{ 'INSTRUMENT.LIST' | translate }}
               </p>
             </a>
             <a routerLink="instrument-new-form">
               <p>
-                  New Instrument   
+                {{ 'INSTRUMENT.NEW' | translate }}   
                 </p>
             </a>
             <a routerLink="instrument-card">
               <p>
-                  Search Instrument   
+                {{ 'INSTRUMENT.SEARCH' | translate }}    
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              User Statistic
+              {{ 'USERSTATISTIC.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="user-statistic">
               <p>
-                User Statistic List
+                {{ 'USERSTATISTIC.LIST' | translate }}
               </p>
             </a>
             <a routerLink="user-statistic-new-form">
               <p>
-                  New User Statistic   
+                {{ 'USERSTATISTIC.NEW' | translate }}   
                 </p>
             </a>
             <a routerLink="user-statistic-card">
               <p>
-                  Search User Statistic   
+                {{ 'USERSTATISTIC.SEARCH' | translate }}   
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              User Unlockable
+              {{ 'USERUNLOCKABLE.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="user-unlockable">
               <p>
-                User Unlockable List
+                {{ 'USERUNLOCKABLE.LIST' | translate }}
               </p>
             </a>
             <a routerLink="user-unlockable-new-form">
               <p>
-                  New User Unlockable  
+                {{ 'USERUNLOCKABLE.NEW' | translate }} 
                 </p>
             </a>
             <a routerLink="user-unlockable-card">
               <p>
-                  Search User Unlockable  
+                {{ 'USERUNLOCKABLE.SEARCH' | translate }}   
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              User
+              {{ 'USER.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="user">
               <p>
-                User List
+                {{ 'USER.LIST' | translate }}
               </p>
             </a>
             <a routerLink="user-new-form">
               <p>
-                  New User   
+                {{ 'USER.NEW' | translate }}   
                 </p>
             </a>
             <a routerLink="user-card">
               <p>
-                  Search User   
+                {{ 'USER.SEARCH' | translate }}  
               </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Concert
+              {{ 'CONCERT.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="concert">
               <p>
-                Concert List
+                {{ 'CONCERT.LIST' | translate }}
               </p>
             </a>
             <a routerLink="concert-new-form">
               <p>
-                  New Concert   
+                {{ 'CONCERT.NEW' | translate }}   
                 </p>
             </a>
             <a routerLink="concert-card">
               <p>
-                  Search Concert   
+                {{ 'CONCERT.NEW' | translate }}   
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Rank
+              {{ 'RANK.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="rank">
               <p>
-                Rank List
+                {{ 'RANK.LIST' | translate }}
               </p>
             </a>
             <a routerLink="rank-new-form">
               <p>
-                  New Rank   
+                {{ 'RANK.NEW' | translate }}   
                 </p>
             </a>
             <a routerLink="rank-card">
               <p>
-                  Search Rank   
+                {{ 'RANK.SEARCH' | translate }}   
                 </p>
             </a>  
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              User Rank
+              {{ 'USERRANK.NAME' | translate }}
             </mat-panel-title>
           </mat-expansion-panel-header>
       
             <a routerLink="user-rank">
               <p>
-                User Rank List
+                {{ 'USERRANK.LIST' | translate }}
               </p>
             </a>
             <a routerLink="user-rank-new-form">
               <p>
-                  New User Rank   
+                {{ 'USERRANK.NEW' | translate }}  
                 </p>
             </a>
             <a routerLink="user-rank-card">
               <p>
-                  Search User Rank   
+                {{ 'USERRANK.SEARCH' | translate }}   
                 </p>
             </a>  
         </mat-expansion-panel>

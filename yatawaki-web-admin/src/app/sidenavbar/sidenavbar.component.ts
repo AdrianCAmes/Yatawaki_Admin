@@ -3,6 +3,7 @@ import {MatAccordion} from '@angular/material/expansion';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../service/token-storage.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sidenavbar',
@@ -12,13 +13,21 @@ import { TokenStorageService } from '../service/token-storage.service';
 export class SidenavbarComponent implements OnInit {
 
   showFiller = false;
+  langs: string[] = [];
+  lang2: any;
 
   @ViewChild(MatAccordion)
   accordion: MatAccordion = new MatAccordion;
 
-  constructor(private storageService: TokenStorageService, private router: Router) { }
+  constructor(private storageService: TokenStorageService, private router: Router, private translate: TranslateService) { 
+    translate.setDefaultLang('en');
+    translate.use('en');
+    translate.addLangs(['en','es'])
+    this.langs = translate.getLangs();
+  }
 
   ngOnInit(): void {
+    this.lang2 = localStorage.getItem('lang') || 'en';
   }
 
   logout(){
@@ -28,5 +37,10 @@ export class SidenavbarComponent implements OnInit {
       console.log(this.router.url);
       window.location.reload();
     });
+  }
+
+  changeLang(lang:string){
+    this.translate.use(lang)
+    console.log(lang)
   }
 }
