@@ -20,14 +20,14 @@ export class SidenavbarComponent implements OnInit {
   accordion: MatAccordion = new MatAccordion;
 
   constructor(private storageService: TokenStorageService, private router: Router, private translate: TranslateService) { 
-    translate.setDefaultLang('en');
-    translate.use('en');
-    translate.addLangs(['en','es'])
+    translate.setDefaultLang('English');
+    translate.use('English');
+    translate.addLangs(['English','Español'])
     this.langs = translate.getLangs();
   }
 
   ngOnInit(): void {
-    this.lang2 = localStorage.getItem('lang') || 'en';
+    this.lang2 = localStorage.getItem('lang') || 'English';
   }
 
   logout(){

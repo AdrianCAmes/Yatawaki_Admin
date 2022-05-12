@@ -5,7 +5,7 @@
   <div class="row g-2">
     <div class="d-grid col-md gap-3">
       <form class="form-floating" (ngSubmit)="searchSymphonyGestureById()">
-        <label for="id">Enter ID:</label>
+        <label for="id">{{ 'ENTER' | translate }}:</label>
         <input
           type="number"
           class="form-control"
@@ -16,7 +16,7 @@
           placeholder="Search Symphony Gesture by Id"
         />
         <div class="col-2 mx-auto p-2">
-          <button type="submit" class="btn btn-outline-success">Search</button>
+          <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
         </div>
         <div class="card mx-auto" style="width: 18rem"  *ngIf="show">
           <mat-card class="example-card">
@@ -32,7 +32,7 @@
                 </div>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button mat-button (click)="showChangeForm()">Update</button>
+              <button mat-button mat-button (click)="showChangeForm()">{{ 'UPDATE' | translate }}</button>
               <button mat-button
               mwlConfirmationPopover
               [popoverMessage]="popoverMessage"
@@ -40,7 +40,7 @@
               (confirm)="deleteSymphony(symphonyGesture)"
               (cancel)="cancelClicked = true"
               class="btn btn-outline-danger"
-              >Delete</button>
+              >{{ 'DELETE' | translate }}</button>
             </mat-card-actions>
           </mat-card>
         </div>
