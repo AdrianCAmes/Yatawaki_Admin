@@ -3,94 +3,125 @@
         "NAME": "Compositor",
         "LIST": "Lista de Compositores",
         "NEW": "Nuevo Compositor",
-        "SEARCH": "Buscar Compositor"
+        "SEARCH": "Buscar Compositor",
+        "UPDATE": "Actualización de Compositor",
+        "REGISTER": "Registro de Compositor"
     },
 
     "AVATAR":{
         "NAME": "Avatar",
         "LIST": "Lista de Avatares",
         "NEW": "Nuevo Avatar",
-        "SEARCH": "Buscar Avatar"
+        "SEARCH": "Buscar Avatar",
+        "UPDATE": "Actualización de Avatar",
+        "REGISTER": "Registro de Avatar"
+        
     },
 
     "ACHIEVEMENT":{
         "NAME": "Logro",
         "LIST": "Lista de Logros",
         "NEW": "Nuevo Logro",
-        "SEARCH": "Buscar Logro"
+        "SEARCH": "Buscar Logro",
+        "UPDATE": "Actualización de Logro",
+        "REGISTER": "Registro de Logro"
     },
     
     "UNLOCKABLE":{
         "NAME": "Desbloqueable",
         "LIST": "Lista de Desbloqueables",
         "NEW": "Nuevo Desbloqueable",
-        "SEARCH": "Buscar Desbloqueable"
+        "SEARCH": "Buscar Desbloqueable",
+        "UPDATE": "Actualización de Desbloqueable",
+        "REGISTER": "Registro de Desbloqueable"
     },
     "SYMPHONY":{
         "NAME": "Sinfonía",
         "LIST": "Lista de sinfonías",
         "NEW": "Nueva Sinfonía",
-        "SEARCH": "Buscar Sinfonías"
+        "SEARCH": "Buscar Sinfonías",
+        "UPDATE": "Actualización de Sinfonías",
+        "REGISTER": "Registro de Sinfonía"
     },
     "SYMPHONYGESTURE":{
-        "NAME": "Gesto Sinfónico",
-        "LIST": "Lista de Gestos Sinfonicos",
-        "NEW": "Gesto Sinfónico Compositor",
-        "SEARCH": "Buscar Gesto Sinfónico"
+        "NAME": "Gesto de Sinfonía",
+        "LIST": "Lista de Gesto de Sinfonía",
+        "NEW": "Nuevo Gesto de Sinfonía",
+        "SEARCH": "Buscar Gesto de Sinfonía",
+        "UPDATE": "Actualización de Gesto de Sinfonía",
+        "REGISTER": "Registro de Gesto de Sinfonía"
     }, 
     "SYMPHONYINSTRUMENT":{
-        "NAME": "Instrumento Sinfonico",
-        "LIST": "Lista de Instrumentos Sinfonicos",
-        "NEW": "Nuevo Instrumento Sinfonico",
-        "SEARCH": "Buscar Instrumento Sinfonico"
+        "NAME": "Instrumento de Sinfonía",
+        "LIST": "Lista de Instrumento de Sinfonía",
+        "NEW": "Nuevo Instrumento de Sinfonía",
+        "SEARCH": "Buscar Instrumento de Sinfonía",
+        "UPDATE": "Actualización de Instrumento de Sinfonía",
+        "REGISTER": "Registro de Instrumento de Sinfonía"
     }, 
     "GESTURE":{
         "NAME": "Gesto",
         "LIST": "Lista de Gestos",
         "NEW": "Nuevo Gesto",
-        "SEARCH": "Buscar Gesto"
+        "SEARCH": "Buscar Gesto",
+        "UPDATE": "Actualización de Gesto",
+        "REGISTER": "Registro de Gesto"
     }, 
     "INSTRUMENT":{
         "NAME": "Instrumento",
         "LIST": "Lista de Instrumentos",
         "NEW": "Nuevo Instrumento",
-        "SEARCH": "Buscar Instrumento"
+        "SEARCH": "Buscar Instrumento",
+        "UPDATE": "Actualización de Instrumento",
+        "REGISTER": "Registro de Instrumento"
     }, 
     "USERSTATISTIC":{
         "NAME": "Estadística del Usuario",
         "LIST": "Lista de Estadística de los Usuarios",
         "NEW": "Nueva Estadística del Usuario",
-        "SEARCH": "Buscar Estadística del Usuario"
+        "SEARCH": "Buscar Estadística del Usuario",
+        "UPDATE": "Actualización de Estadística de Usuario",
+        "REGISTER": "Registro de Estadística del Usuario"
     }, 
     "USERUNLOCKABLE":{
         "NAME": "Usuario Desbloqueable",
         "LIST": "Lista de Usuarios Desbloqueables",
         "NEW": "Nuevo Usuario Desbloqueable",
-        "SEARCH": "Buscar Usuario Desbloqueable"
+        "SEARCH": "Buscar Usuario Desbloqueable",
+        "UPDATE": "Actualización de Usuario Desbloqueable",
+        "REGISTER": "Registro de Usuario Desbloqueable"
     },
     "USER":{
         "NAME": "Usuario",
         "LIST": "Lista de Usuarios",
         "NEW": "Nuevo Usuario",
-        "SEARCH": "Buscar Usuario"
+        "SEARCH": "Buscar Usuario",
+        "UPDATE": "Actualización de Usuario",
+        "REGISTER": "Registro de Usuario"
     },
     "CONCERT":{
         "NAME": "Concierto",
         "LIST": "Lista de Conciertos",
         "NEW": "Nuevo Concierto",
-        "SEARCH": "Buscar Concierto"
+        "SEARCH": "Buscar Concierto",
+        "UPDATE": "Actualización de Concierto",
+        "REGISTER": "Registro de Concierto"
     },
     "RANK":{
         "NAME": "Rango",
         "LIST": "Lista de Rangos",
         "NEW": "Nuevo Rango",
-        "SEARCH": "Buscar v"
+        "SEARCH": "Buscar Rango",
+        "UPDATE": "Actualización de Rango",
+        "REGISTER": "Registro de Rango"
     },
     "USERRANK":{
         "NAME": "Rango de Usuario",
         "LIST": "Lista de Rangos de Usuarios",
         "NEW": "Nuevo Rango de Usuario",
-        "SEARCH": "Buscar Rango de Usuario"
+        "SEARCH": "Buscar Rango de Usuario",
+        "UPDATE": "Actualización de Rango de Usuario",
+        "REGISTER": "Registro de Rango de Usuario"
     },
 
     "NAME": "Nombre",
@@ -140,5 +171,12 @@
     "USERID": "Id de usuario",
     "RANKID": "Id de rango",
     "ENDDATE": "Fecha final",
-    "CURRENTEXPERIENCE": "Experiencia actual"
+    "CURRENTEXPERIENCE": "Experiencia actual",
+    "LONGDESCRIPTION": "Descripción larga",
+    "SHORTDESCRIPTION": "Descripción corta",
+    "SEARCH": "Buscar",
+    "SAVE": "Guardar",
+    "UPDATE": "Actualizar",
+    "DELETE": "Eliminar",
+    "ENTER":"Ingresar ID"
 }

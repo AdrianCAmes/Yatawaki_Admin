@@ -1,12 +1,12 @@
 <br />
-<h2 class="text-center text-uppercase">Registro de Symphony Gesture</h2>
+<h2 class="text-center text-uppercase">{{ 'SYMPHONYGESTURE.REGISTER' | translate }}</h2>
 <br />
 <div class="container">
   <div class="row">
     <form (ngSubmit)="insertSymphonyGesture()" class="center">
       <!--*************** ATTRIBUTE 2 ***************-->
       <div class="form-group mb-3 row">
-        <label for="idGesture" class="col-sm-5 col-form-label"> Gesture : </label>
+        <label for="idGesture" class="col-sm-5 col-form-label"> {{ 'GESTURE.NAME' | translate }} : </label>
         <div class="col-sm-10">
           <select class="form-control" id="idGesture"  name="idGesture" [(ngModel)]="symphonyGesture.idGesture">
             <option *ngFor="let gesture of gestures" value="{{gesture.idGesture}}">{{gesture.name}}</option>
@@ -16,7 +16,7 @@
       <!--*************** END ATTRIBUTE 2 ***************-->
       <!--*************** ATTRIBUTE 3 ***************-->
       <div class="form-group mb-3 row">
-        <label for="idUnlockable" class="col-sm-5 col-form-label"> Symphony : </label>
+        <label for="idUnlockable" class="col-sm-5 col-form-label"> {{ 'SYMPHONY.NAME' | translate }} : </label>
         <div class="col-sm-10">
           <select class="form-control" id="idUnlockable"  name="idUnlockable" [(ngModel)]="symphonyGesture.idSymphony">
             <option *ngFor="let symphony of symphonies" value="{{symphony.idUnlockable}}">{{symphony.name}}</option>
@@ -27,7 +27,7 @@
       <!--*************** ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
         <label for="level" class="col-sm-5 col-form-label">
-          Beginning Time :
+          {{ 'BEGININGTIME' | translate }} :
         </label>
         <div class="col-sm-10">
           <input
@@ -50,7 +50,7 @@
       <!--*************** ATTRIBUTE 5 ***************-->
       <div class="form-group mb-3 row">
         <label for="level" class="col-sm-5 col-form-label">
-          Ending Time :
+          {{ 'ENDTIME' | translate }} :
         </label>
         <div class="col-sm-10">
           <input
@@ -72,7 +72,7 @@
       <!--*************** END ATTRIBUTE 5 ***************-->
       <!--*************** BUTTON ***************-->
       <div class="d-grid col-4 mx-auto">
-        <button type="submit" class="btn btn-outline-success">Save</button>
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
       </div>
       <!--*************** END BUTTON ***************-->
     </form>

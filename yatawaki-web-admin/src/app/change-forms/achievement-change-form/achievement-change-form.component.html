@@ -1,5 +1,5 @@
 <br />
-<h2 class="text-center text-uppercase">Actualización de Achievement</h2>
+<h2 class="text-center text-uppercase">{{ 'ACHIEVEMENT.UPDATE' | translate }}</h2>
 <br />
 <div class="container">
   <div class="row center">
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group mb-3 row">
           <label for="achievementName" class="col-sm-5 col-form-label">
-            Achievement Name :
+            {{ 'NAME' | translate }} :
           </label>
           <div class="col-sm-10">
             <input
@@ -47,7 +47,7 @@
         <!--*************** ATTRIBUTE 2 ***************-->
         <div class="form-group mb-3 row">
           <label for="description" class="col-sm-5 col-form-label">
-            Achievement Description :
+            {{ 'DESCRIPTION' | translate }} :
           </label>
           <div class="col-sm-10">
             <input
@@ -69,7 +69,7 @@
         <!--*************** ATTRIBUTE 3 ***************-->
         <div class="form-group mb-3 row">
           <label for="rareness" class="col-sm-5 col-form-label">
-            Achievement Rareness :
+            {{ 'RARENESS' | translate }} :
           </label>
           <div class="col-sm-10">
             <select class="form-control" id="rareness"  name="rareness" [(ngModel)]="achievement.rareness">
@@ -84,7 +84,7 @@
         <!--*************** END ATTRIBUTE 3 ***************-->
         <!--*************** ATTRIBUTE 4 ***************-->
         <div class="form-group mb-3 row">
-          <label for="unlockerType" class="col-sm-5 col-form-label"> Unlocker Type : </label>
+          <label for="unlockerType" class="col-sm-5 col-form-label"> {{ 'UNLOCKERTYPE' | translate }} : </label>
           <div class="col-sm-10">
             <select class="form-control" id="unlockerType"  name="unlockerType" [(ngModel)]="achievement.unlockerType">
               <option *ngFor="let unlockerType of unlockerTypes" value="{{unlockerType.value}}">{{unlockerType.description}}</option>
@@ -99,7 +99,7 @@
         <!--*************** ATTRIBUTE 5 ***************-->
         <div class="form-group mb-3 row">
           <label for="unlockerValue" class="col-sm-5 col-form-label">
-            Achievement Unlocker Value :
+            {{ 'UNLOCKERVALUE' | translate }} :
           </label>
           <div class="col-sm-10">
             <input
@@ -121,7 +121,7 @@
         <!--*************** ATTRIBUTE 6 ***************-->
         <div class="form-group mb-3 row">
           <label for="coinsCost" class="col-sm-5 col-form-label">
-            Achievement Coins Cost :
+            {{ 'COINSCOST' | translate }}  :
           </label>
           <div class="col-sm-10">
             <input
@@ -143,7 +143,7 @@
         <!--*************** ATTRIBUTE 7 ***************-->
         <div class="form-group mb-3 row">
           <label for="icon" class="col-sm-5 col-form-label">
-            Achievement Icon :
+            {{ 'ICON' | translate }} :
           </label>
           <div class="col-sm-10">
             <input
@@ -164,7 +164,7 @@
         <!--*************** END ATTRIBUTE 7 ***************-->
         <!--*************** ATTRIBUTE 8 ***************-->
         <div class="form-group mb-3 row">
-          <label for="status" class="col-sm-5 col-form-label"> Status : </label>
+          <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
           <div class="col-sm-10">
             <select class="form-control" id="status"  name="status" [(ngModel)]="achievement.status">
               <option *ngFor="let status of statuses" value="{{status.description}}">{{status.description}}</option>
@@ -181,7 +181,7 @@
       </div>
       <!--*************** BUTTON ***************-->
       <div class="d-grid col-4 mx-auto">
-        <button type="submit" class="btn btn-outline-success">Save</button>
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
       </div>
       <!--*************** END BUTTON ***************-->
     </form>

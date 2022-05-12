@@ -16,29 +16,30 @@ export class LoginFormComponent implements OnInit {
   constructor(private authService: AuthService, private tokenService: TokenStorageService, private router:Router) { }
 
   ngOnInit(): void {
+
   }
 
-  login(loginForm: NgForm){
-    this.authService.login2(loginForm.value).subscribe(
+  async login(loginForm: NgForm){
+    await this.authService.login2(loginForm.value).subscribe(
       (response:any) =>{
         console.log(response.isAuthenticated);
         console.log(response.jwt);
         this.tokenService.setToken(response.jwt);
         this.flag = response.isAuthenticated;
         console.log(this.flag)
+        if(this.flag==true){
+          return this.router.navigate(['sidenavbar']).then(()=>
+          {
+            console.log(this.router.url);
+            window.location.reload();
+          })
+        }else{
+          return;
+        }
       },
       (error)=>{
         console.log(error);
       }
     );
-    if(this.flag==true){
-      return this.router.navigate(['sidenavbar']).then(()=>
-      {
-        console.log(this.router.url);
-        window.location.reload();
-      })
-    }else{
-      return;
-    }
   }
 }

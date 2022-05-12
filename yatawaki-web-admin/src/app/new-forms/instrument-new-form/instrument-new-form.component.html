@@ -1,5 +1,5 @@
 <br />
-<h2 class="text-center text-uppercase">Registro de Instrument</h2>
+<h2 class="text-center text-uppercase">{{ 'INSTRUMENT.REGISTER' | translate }}</h2>
 <br />
 <div class="container">
   <div class="row">
@@ -7,7 +7,7 @@
       <!--*************** ATTRIBUTE 2 ***************-->
       <div class="form-group mb-3 row">
         <label for="name" class="col-sm-5 col-form-label">
-          Name :
+          {{ 'NAME' | translate }} :
         </label>
         <div class="col-sm-10">
           <input
@@ -29,7 +29,7 @@
       <!--*************** ATTRIBUTE 3 ***************-->
       <div class="form-group mb-3 row">
         <label for="ldescription" class="col-sm-5 col-form-label">
-          Long Description :
+          {{ 'LONGDESCRIPTION' | translate }} :
         </label>
         <div class="col-sm-10">
           <input
@@ -51,7 +51,7 @@
       <!--*************** END ATTRIBUTE 3 ***************-->
       <div class="form-group mb-3 row">
         <label for="shortdescription" class="col-sm-5 col-form-label">
-          Short Description :
+          {{ 'SHORTDESCRIPTION' | translate }} :
         </label>
         <div class="col-sm-10">
           <input
@@ -73,7 +73,7 @@
       <!--*************** ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
         <label for="type" class="col-sm-5 col-form-label">
-          Type :
+          {{ 'TYPE' | translate }} :
         </label>
         <div class="col-sm-10">
           <input
@@ -94,7 +94,7 @@
       </div>
       <!--*************** END ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
-        <label for="status" class="col-sm-5 col-form-label"> Status : </label>
+        <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
         <div class="col-sm-10">
           <select class="form-control" id="status"  name="status" [(ngModel)]="instrument.status">
             <option [value]="0" hidden selected>Activo</option>
@@ -109,7 +109,7 @@
       <!--*************** END ATTRIBUTE 9 ***************-->
       <div class="form-group mb-3 row">
         <label for="icon" class="col-sm-5 col-form-label">
-          Icon :
+          {{ 'ICON' | translate }} :
         </label>
         <div class="col-sm-10">
           <input
@@ -132,7 +132,7 @@
       <!--*************** END ATTRIBUTE 9 ***************-->
       <!--*************** BUTTON ***************-->
       <div class="d-grid col-4 mx-auto">
-        <button type="submit" class="btn btn-outline-success">Save</button>
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
       </div>
       <!--*************** END BUTTON ***************-->
     </form>
