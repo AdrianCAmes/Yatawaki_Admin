@@ -30,7 +30,9 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
     this.symphonyGesService.getSymphonGestureyById(this.id).subscribe(
       (datos) => {
         console.log(datos);
-        this.symphonyGesture = datos
+        this.symphonyGesture = datos;
+        this.symphonyGesture.idSymphony = datos.symphony.idUnlockable;
+        this.symphonyGesture.idGesture = datos.gesture.idGesture;
       }
     );
 

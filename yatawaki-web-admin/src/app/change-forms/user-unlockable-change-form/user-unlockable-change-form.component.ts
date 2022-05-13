@@ -28,6 +28,8 @@ export class UserUnlockableChangeFormComponent implements OnInit {
       (datos) => {
         console.log(datos);
         this.userUnlockable = datos
+        this.userUnlockable.idUser = datos.user.idUser;
+        this.userUnlockable.idUnlockable = datos.unlockable.idUnlockable;
       }
     );
 

@@ -37,7 +37,9 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
     this.symphonyInsService.getSymphonInstrumentyById(this.id).subscribe(
       (datos) => {
         console.log(datos);
-        this.symphonyInstrument = datos
+        this.symphonyInstrument = datos;
+        this.symphonyInstrument.idSymphony = datos.symphony.idUnlockable;
+        this.symphonyInstrument.idInstrument = datos.instrument.idInstrument;
       }
     );
 

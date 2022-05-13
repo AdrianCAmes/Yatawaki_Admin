@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConcertUpdate } from 'src/app/models/update/ConcertUpdate';
 import { Concert } from 'src/app/models/concert';
+import { UserService } from 'src/app/service/user.service';
+import { SymphonyService } from 'src/app/service/symphony.service';
 import { ConcertService } from 'src/app/service/concert.service';
 
 @Component({
@@ -14,9 +16,11 @@ export class ConcertChangeFormComponent implements OnInit {
   id: number = 0;
   concert: ConcertUpdate = new ConcertUpdate();
   statuses: any[] = [];
+  symphonies: any[] = [];
+  users: any[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute,
-    private concertService: ConcertService) { }
+    private concertService: ConcertService, private userService: UserService, private symphonyService: SymphonyService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -24,12 +28,27 @@ export class ConcertChangeFormComponent implements OnInit {
       (datos) => {
         console.log(datos);
         this.concert = datos;
+        this.concert.idUser = datos.user.idUser;
+        this.concert.idSymphony = datos.symphony.idUnlockable;
       }
     );
     this.concertService.getConcertStatus().subscribe(
       datos => {
         console.log(datos)
         this.statuses = datos;
+      }
+    );
+    this.symphonyService.getSymphonies().subscribe(
+      data => {
+        console.log(data);
+        this.symphonies = data
+      }
+    );
+    
+    this.userService.getUsers().subscribe(
+      data => {
+        console.log(data);
+        this.users = data
       }
     );
   }

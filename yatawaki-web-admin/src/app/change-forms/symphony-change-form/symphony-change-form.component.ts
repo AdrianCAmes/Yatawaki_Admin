@@ -30,6 +30,7 @@ export class SymphonyChangeFormComponent implements OnInit {
       (datos) => {
         console.log(datos);
         this.symphony = datos;
+        this.symphony.idComposer = datos.composer.idComposer
       }
     );
 
@@ -187,6 +188,16 @@ export class SymphonyChangeFormComponent implements OnInit {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
       this.symphony.initialBpm = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputUnlockerValue(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.unlockerValue = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;

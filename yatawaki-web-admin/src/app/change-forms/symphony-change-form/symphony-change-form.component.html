@@ -112,6 +112,10 @@
               [(ngModel)]="symphony.unlockerValue"
             />
           </div>
+          <div class="form-check form-switch col-sm-2 center">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC15" (change)="nullInputUnlockerValue('unlockerValue', 'flexSwitchCheckDefaultC15')">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            </div>
         </div>
         <!--*************** END ATTRIBUTE 5 ***************-->
         <!--*************** ATTRIBUTE 6 ***************-->
@@ -183,10 +187,6 @@
                 <option *ngFor="let composer of composers" value="{{composer.idComposer}}">{{composer.name}}</option>
               </select>
             </div>
-            <div class="form-check form-switch col-sm-2 center">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC20" (change)="nullInputComposer('idComposer', 'flexSwitchCheckDefaultC20')">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
-              </div>
           </div>
           <!--*************** END ATTRIBUTE 9 ***************-->
           <div class="form-group mb-3 row">
