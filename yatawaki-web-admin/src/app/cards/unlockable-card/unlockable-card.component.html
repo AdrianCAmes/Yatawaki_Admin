@@ -1,10 +1,11 @@
 <br />
-<h2 class="text-center text-uppercase">Search Unlockables</h2>
+<h2 class="text-center text-uppercase">{{ 'UNLOCKABLE.SEARCH' | translate }} </h2>
 <br />
 <div class="container">
   <div class="row g-2">
     <div class="d-grid col-md gap-3">
       <form class="form-floating" (ngSubmit)="searchUnlockableById()">
+        <label for="id">{{ 'ENTER' | translate }}:</label>
         <input
           type="number"
           class="form-control"
@@ -15,7 +16,7 @@
           placeholder="Search Unlockable by Id"
         />
         <div class="col-2 mx-auto p-2">
-          <button type="submit" class="btn btn-outline-success">Search</button>
+          <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
         </div>
         <div class="card mx-auto" style="width: 18rem" *ngIf="show">
           <mat-card class="example-card">
@@ -39,7 +40,7 @@
               (confirm)="deleteUnlockable(unlockable)"
               (cancel)="cancelClicked = true"
               class="btn btn-outline-danger"
-              >Delete</button>
+              >{{ 'DELETE' | translate }}</button>
             </mat-card-actions>
           </mat-card>
         </div>

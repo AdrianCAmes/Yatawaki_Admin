@@ -40,6 +40,6 @@ export class UserComponent implements OnInit {
   }
 
   changeUser(user: User) {
-    this.router.navigate(['user-change-form', user.idUser]);
+    this.router.navigate(['sidenavbar/user-change-form', user.idUser]);
   }
 }

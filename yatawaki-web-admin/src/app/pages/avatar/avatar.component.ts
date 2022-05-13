@@ -41,7 +41,7 @@ export class AvatarComponent implements OnInit {
   }
 
   changeAvatar(avatar: Avatar) {
-    this.router.navigate(['avatar-change-form', avatar.idUnlockable]);
+    this.router.navigate(['sidenavbar/avatar-change-form', avatar.idUnlockable]);
   }
 
 

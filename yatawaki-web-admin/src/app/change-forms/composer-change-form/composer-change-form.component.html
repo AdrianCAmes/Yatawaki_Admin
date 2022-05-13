@@ -1,5 +1,5 @@
 <br />
-<h2 class="text-center text-uppercase">Actualización de Composer</h2>
+<h2 class="text-center text-uppercase">{{ 'COMPOSER.UPDATE' | translate }}</h2>
 <br />
 <div class="container">
   <div class="row center">
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group mb-3 row">
           <label for="name" class="col-sm-5 col-form-label">
-            Composer Name :
+            {{ 'NAME' | translate }} :
           </label>
           <div class="col-sm-10">
             <input
@@ -47,7 +47,7 @@
         <!--*************** ATTRIBUTE 2 ***************-->
         <div class="form-group mb-3 row">
             <label for="birthDate" class="col-sm-5 col-form-label">
-              Composer Birth Date :
+              {{ 'BIRTHDATE' | translate }} :
             </label>
             <div class="col-sm-8">
               <input
@@ -74,7 +74,7 @@
         <!--*************** ATTRIBUTE 3 ***************-->
         <div class="form-group mb-3 row">
             <label for="deathDate" class="col-sm-5 col-form-label">
-              Composer Death Date :
+              {{ 'DEATHDATE' | translate }} :
             </label>
             <div class="col-sm-8">
               <input
@@ -109,7 +109,7 @@
         <!--*************** END ATTRIBUTE 7 ***************-->
         <!--*************** ATTRIBUTE 8 ***************-->
         <div class="form-group mb-3 row">
-          <label for="status" class="col-sm-5 col-form-label"> Status : </label>
+          <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
           <div class="col-sm-10">
             <select class="form-control" id="status"  name="status" [(ngModel)]="composer.status">
               <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
@@ -127,7 +127,7 @@
       </div>
       <!--*************** BUTTON ***************-->
       <div class="d-grid col-4 mx-auto">
-        <button type="submit" class="btn btn-outline-success">Save</button>
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
       </div>
       <!--*************** END BUTTON ***************-->
     </form>

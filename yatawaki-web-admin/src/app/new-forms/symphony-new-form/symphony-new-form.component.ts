@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Symphony } from 'src/app/models/symphony';
+import { SymphonyCreate } from 'src/app/models/create/SymphonyCreate';
 import { SymphonyService } from 'src/app/service/symphony.service';
+import { ComposerService } from 'src/app/service/composer.service';
 import { UnlockableService } from 'src/app/service/unlockable.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-symphony-new-form',
@@ -11,23 +13,32 @@ import { UnlockableService } from 'src/app/service/unlockable.service';
 export class SymphonyNewFormComponent implements OnInit {
 
 
-  symphony: Symphony = new Symphony();
-  statuses: any[] = [];
+  symphony: SymphonyCreate = new SymphonyCreate();
+  composers: any[] = [];
   unlockerTypes: any[] = [];
+  rarenesss: any[] = [];
 
-  constructor(private symphonyService: SymphonyService, private unlockableService: UnlockableService) { }
+  constructor(private router: Router, private symphonyService: SymphonyService, private unlockableService: UnlockableService, private composerService: ComposerService) { }
 
   ngOnInit(): void {
-    this.unlockableService.getUnlockableStatus().subscribe(
-      datos => {
-        console.log(datos)
-        this.statuses = datos;
+    this.composerService.getComposers().subscribe(
+      data => {
+        console.log(data);
+        this.composers = data
       }
     );
+    
     this.unlockableService.getUnlockerTypes().subscribe(
       datos => {
         console.log(datos)
         this.unlockerTypes = datos;
+      }
+    );
+
+    this.unlockableService.getUnlockerRareness().subscribe(
+      datos => {
+        console.log(datos)
+        this.rarenesss = datos;
       }
     );
   }
@@ -52,7 +63,6 @@ export class SymphonyNewFormComponent implements OnInit {
     }
   }
 
-    
   nullInputUnlockerType(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -87,17 +97,6 @@ export class SymphonyNewFormComponent implements OnInit {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
       this.symphony.icon = null;
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
-    } else {
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
-    }
-  }
-
-  
-  nullInputStatus(elementId: string, chbox: string) {
-    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.symphony.status = 0;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
@@ -154,14 +153,28 @@ export class SymphonyNewFormComponent implements OnInit {
     }
   }
 
+  nullInputUnlockerValue(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.unlockerValue = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
   
   insertSymphony() {
     this.symphonyService.createSymphony(this.symphony).subscribe(
       (datos) => console.log(datos)
       //(error) => console.log(error)
     );
-    this.symphony = new Symphony();
-    //this.router.navigate(['ListCustomer']);
+    this.symphony = new SymphonyCreate();
+    return this.router.navigate(['sidenavbar/symphony']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

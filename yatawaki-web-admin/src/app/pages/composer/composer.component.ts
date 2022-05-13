@@ -40,7 +40,7 @@ export class ComposerComponent implements OnInit {
   }
 
   changeComposer(composers: Composer) {
-    this.router.navigate(['composer-change-form', composers.idComposer]);
+    this.router.navigate(['sidenavbar/composer-change-form', composers.idComposer]);
   }
 
 }

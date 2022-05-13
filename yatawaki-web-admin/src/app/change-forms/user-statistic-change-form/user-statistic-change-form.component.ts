@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserStatistic } from 'src/app/models/user-statistic';
 import { UserStatisticService } from 'src/app/service/user-statistic.service';
 
@@ -14,7 +14,7 @@ export class UserStatisticChangeFormComponent implements OnInit {
   userStatistic: UserStatistic = new UserStatistic();
   statuses: any[] = [];
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router, private route: ActivatedRoute,
     private userStatisticService: UserStatisticService) { }
 
   ngOnInit(): void {
@@ -91,6 +91,11 @@ export class UserStatisticChangeFormComponent implements OnInit {
       }
     );
     this.userStatistic = new UserStatistic();
+    return this.router.navigate(['sidenavbar/user-statistic']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 

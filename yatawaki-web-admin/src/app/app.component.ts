@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 //import { TokenStorageService } from './service/token-storage.service';
 
 @Component({
@@ -9,9 +10,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'yatawaki-web-admin';
 
-  constructor() { }
-  ngOnInit(): void {
 
+  constructor(private router: Router) { }
+  ngOnInit(): void {
   }
 
+  isHomeRoute() {
+    return this.router.url==='/login';
+  }
 }

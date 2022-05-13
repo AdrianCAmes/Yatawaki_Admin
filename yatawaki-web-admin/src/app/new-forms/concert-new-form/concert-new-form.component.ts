@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Concert } from 'src/app/models/concert';
+import { ConcertCreate } from 'src/app/models/create/ConcertCreate';
+import { UserService } from 'src/app/service/user.service';
+import { SymphonyService } from 'src/app/service/symphony.service';
 import { ConcertService } from 'src/app/service/concert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-concert-new-form',
@@ -10,76 +13,38 @@ import { ConcertService } from 'src/app/service/concert.service';
 export class ConcertNewFormComponent implements OnInit {
 
 
-  concert: Concert = new Concert();
-  statuses: any[] = [];
+  concert: ConcertCreate = new ConcertCreate();
+  symphonies: any[] = [];
+  users: any[] = [];
 
-  constructor(private concertService: ConcertService) { }
+  constructor(private router: Router, private concertService: ConcertService, private userService: UserService, private symphonyService: SymphonyService) { }
 
   ngOnInit(): void {
-    this.concertService.getConcertStatus().subscribe(
-      datos => {
-        console.log(datos)
-        this.statuses = datos;
+    this.symphonyService.getSymphonies().subscribe(
+      data => {
+        console.log(data);
+        this.symphonies = data
       }
     );
-  }
-
-  nullInputPlayedDate(elementId: string, chbox: string) {
-    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.concert.playedDate = null;
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
-    } else {
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
-    }
-  }
-
-  nullInputStatus(elementId: string, chbox: string) {
-    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.concert.status = null;
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
-    } else {
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
-    }
-  }
-
-  nullInputPoints(elementId: string, chbox: string) {
-    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.concert.points = null;
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
-    } else {
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
-    }
-  }
-
-  nullInputAccuracyRate(elementId: string, chbox: string) {
-    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.concert.accuracyRate = null;
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
-    } else {
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
-    }
-  }
-
-  nullInputGesturesCompleted(elementId: string, chbox: string) {
-    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
-      (<HTMLInputElement>document.getElementById(elementId)).value = "";
-      this.concert.gesturesCompleted = null;
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
-    } else {
-      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
-    }
+    
+    this.userService.getUsers().subscribe(
+      data => {
+        console.log(data);
+        this.users = data
+      }
+    );
   }
 
   insertConcert() {
     this.concertService.createConcert(this.concert).subscribe(
       (datos) => console.log(datos)
     );
-    this.concert = new Concert();
-    //this.router.navigate(['ListCustomer']);
+    this.concert = new ConcertCreate();
+    return this.router.navigate(['concert']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

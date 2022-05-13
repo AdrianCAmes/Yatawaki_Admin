@@ -15,6 +15,7 @@ export class AchievementChangeFormComponent implements OnInit {
   achievement: Achievement = new Achievement();
   statuses: any[] = [];
   unlockerTypes: any[] = [];
+  rarenesss: any[]=[];
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -40,6 +41,13 @@ export class AchievementChangeFormComponent implements OnInit {
         this.unlockerTypes = datos;
       }
     );
+    
+    this.unlockableService.getUnlockerRareness().subscribe(
+      datos => {
+        console.log(datos)
+        this.rarenesss = datos;
+      }
+    )
   }
 
   nullInputName(elementId: string, chbox: string) {
@@ -115,6 +123,16 @@ export class AchievementChangeFormComponent implements OnInit {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+  
+  nullInputUnlockerValue(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.achievement.unlockerValue = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
 
   changeAchievement() {
     this.achievementService.changeAchievement(this.achievement).subscribe(
@@ -124,6 +142,11 @@ export class AchievementChangeFormComponent implements OnInit {
       }
     );
     this.achievement = new Achievement();
+    return this.router.navigate(['sidenavbar/achievement']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

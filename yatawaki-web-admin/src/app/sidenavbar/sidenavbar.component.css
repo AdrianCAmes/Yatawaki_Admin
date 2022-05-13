@@ -12,11 +12,27 @@
   
 .example-sidenav {
     padding: 20px;
-    background:#E7962E;
+    background:grey;
 }
 
 mat-toolbar {
-    background:#E7962E;
+    font-family: 'Kubots ExtLt';
+    color: white;
+    font-size: 56px;
+    font-style: normal;
+    background:black;
+}
+
+.flexExpand {
+    flex: 1 1 auto;
+}
+
+.sep{
+    width: 90px;
+}
+.custom-select {
+    font-family: 'Macondo', cursive;
+    width: 95px;
 }
 
 mat-expansion-panel {
@@ -54,4 +70,13 @@ align-items: center;
 
 .example-headers-align .mat-form-field + .mat-form-field {
 margin-left: 8px;
+}
+
+@font-face {
+    font-family: 'Kubots ExtLt';
+    src: url('../../assets/Kubots-ExtraLight.woff2') format('woff2'),
+        url('../../assets/Kubots-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
 }

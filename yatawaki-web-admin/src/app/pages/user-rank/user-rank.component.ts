@@ -39,7 +39,7 @@ export class UserRankComponent implements OnInit {
   }
 
   changeUserRank(userRank: UserRank) {
-    this.router.navigate(['user-rank-change-form', userRank.idUserRank]);
+    this.router.navigate(['sidenavbar/user-rank-change-form', userRank.idUserRank]);
   }
 
 }

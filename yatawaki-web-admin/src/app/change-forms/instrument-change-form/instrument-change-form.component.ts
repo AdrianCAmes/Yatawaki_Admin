@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Instrument } from 'src/app/models/instrument';
 import { InstrumentService } from 'src/app/service/instrument.service';
 
@@ -14,7 +14,7 @@ export class InstrumentChangeFormComponent implements OnInit {
   instrument: Instrument = new Instrument();
   statuses: any[] = [];
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router, private route: ActivatedRoute,
     private instrumentService: InstrumentService) { }
 
   ngOnInit(): void {
@@ -103,6 +103,11 @@ export class InstrumentChangeFormComponent implements OnInit {
       }
     );
     this.instrument = new Instrument();
+    return this.router.navigate(['sidenavbar/instrument']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 

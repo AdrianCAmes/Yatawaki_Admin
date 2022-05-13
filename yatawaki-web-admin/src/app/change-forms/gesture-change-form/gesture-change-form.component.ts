@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Gesture } from 'src/app/models/gesture';
 import { GestureService } from 'src/app/service/gesture.service';
 
@@ -14,7 +14,7 @@ export class GestureChangeFormComponent implements OnInit {
   gesture: Gesture = new Gesture();
   statuses: any[] = [];
 
-  constructor(private route: ActivatedRoute,
+  constructor(private router: Router, private route: ActivatedRoute,
     private gestureService: GestureService) { }
 
   ngOnInit(): void {
@@ -71,6 +71,11 @@ export class GestureChangeFormComponent implements OnInit {
       }
     );
     this.gesture = new Gesture();
+    return this.router.navigate(['sidenavbar/gesture']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

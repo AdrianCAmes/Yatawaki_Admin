@@ -38,7 +38,7 @@ export class UnlockableComponent implements OnInit {
   }
 
   changeUnlockable(unlockable: Unlockable) {
-    this.router.navigate(['composer-change-form', unlockable.idUnlockable]);
+    this.router.navigate(['sidenavbar/composer-change-form', unlockable.idUnlockable]);
   }
 
 }

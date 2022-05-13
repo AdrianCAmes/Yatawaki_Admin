@@ -1,5 +1,5 @@
 <br />
-<h2 class="text-center text-uppercase">Actualización de User Statistic</h2>
+<h2 class="text-center text-uppercase">{{ 'USERSTATISTIC.UPDATE' | translate }}</h2>
 <br />
 <div class="container">
   <div class="row">
@@ -25,7 +25,7 @@
       <!--*************** ATTRIBUTE 2 ***************-->
       <div class="form-group mb-3 row">
         <label for="triviasPlayed" class="col-sm-5 col-form-label">
-          Trivias Played :
+          {{ 'TRIVIASPLAYED' | translate }}:
         </label>
         <div class="col-sm-10">
           <input
@@ -47,7 +47,7 @@
       <!--*************** ATTRIBUTE 3 ***************-->
       <div class="form-group mb-3 row">
         <label for="triviasWon" class="col-sm-5 col-form-label">
-          Trivias Won :
+          {{ 'TRIVIASWON' | translate }}:
         </label>
         <div class="col-sm-10">
           <input
@@ -69,7 +69,7 @@
       <!--*************** END ATTRIBUTE 3 ***************-->
       <div class="form-group mb-3 row">
         <label for="concertsOrchestrated" class="col-sm-5 col-form-label">
-          Concerts Orchestrated :
+          {{ 'CONCERTSORCHESTRATED' | translate }}:
         </label>
         <div class="col-sm-10">
           <input
@@ -91,7 +91,7 @@
       <!--*************** ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
         <label for="orchestrationAccuracy" class="col-sm-5 col-form-label">
-        Orchestration Accuracy :
+          {{ 'ORCHESTRATORACCURACY' | translate }}:
         </label>
         <div class="col-sm-10">
           <input
@@ -112,7 +112,7 @@
       </div>
       <!--*************** END ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
-        <label for="status" class="col-sm-5 col-form-label"> Status : </label>
+        <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
         <div class="col-sm-10">
           <select class="form-control" id="status"  name="status" [(ngModel)]="userStatistic.status">
             <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
@@ -129,7 +129,7 @@
       <!--*************** END ATTRIBUTE 9 ***************-->
       <!--*************** BUTTON ***************-->
       <div class="d-grid col-4 mx-auto">
-        <button type="submit" class="btn btn-outline-success">Save</button>
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
       </div>
       <!--*************** END BUTTON ***************-->
     </form>

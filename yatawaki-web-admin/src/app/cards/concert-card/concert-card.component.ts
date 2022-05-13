@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Concert } from 'src/app/models/concert';
+import { ConcertUpdate } from 'src/app/models/update/ConcertUpdate';
 import { ConcertService } from 'src/app/service/concert.service';
+import { UserService } from 'src/app/service/user.service';
+import { SymphonyService } from 'src/app/service/symphony.service';
 
 @Component({
   selector: 'app-concert-card',
@@ -10,9 +13,11 @@ import { ConcertService } from 'src/app/service/concert.service';
 })
 export class ConcertCardComponent implements OnInit {
 
-  concert: Concert = new Concert();
+  concert: ConcertUpdate = new ConcertUpdate();
   concerts: Concert[] = [];
   statuses: any[] = [];
+  symphonies: any[] = [];
+  users: any[] = [];
 
   id: number = 0;
 
@@ -25,13 +30,27 @@ export class ConcertCardComponent implements OnInit {
   public confirmClicked:boolean = false;
   public cancelClicked:boolean = false;
 
-  constructor(private concertService: ConcertService, private router: Router) { }
+  constructor(private concertService: ConcertService, private router: Router, private userService: UserService, private symphonyService: SymphonyService) { }
 
   ngOnInit(): void {
     this.concertService.getConcertStatus().subscribe(
       datos => {
         console.log(datos)
         this.statuses = datos;
+      }
+    );
+
+    this.symphonyService.getSymphonies().subscribe(
+      data => {
+        console.log(data);
+        this.symphonies = data
+      }
+    );
+    
+    this.userService.getUsers().subscribe(
+      data => {
+        console.log(data);
+        this.users = data
       }
     );
   }
@@ -112,10 +131,10 @@ export class ConcertCardComponent implements OnInit {
         console.log(datos);
       }
     );
-    this.concert = new Concert();
+    this.concert = new ConcertUpdate();
   }
 
-  deleteConcert(concert: Concert) {
+  deleteConcert(concert: ConcertUpdate) {
     this.concertService.deleteConcert(concert.idConcert).subscribe((data) => {
       this.loadDataConcerts();
     });

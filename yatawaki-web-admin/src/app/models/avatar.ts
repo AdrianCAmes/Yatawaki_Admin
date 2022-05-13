@@ -5,7 +5,7 @@ export class Avatar {
     description: Nullable<string>;
     rareness: Nullable<string>;
     unlockerType: Nullable<string>;
-    unlockerValue: number;
+    unlockerValue: Nullable<number>;
     coinsCost: Nullable<number>;
     icon: Nullable<string>;
     status: Nullable<number>;

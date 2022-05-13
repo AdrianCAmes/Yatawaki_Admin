@@ -45,7 +45,7 @@ export class AchievementComponent implements OnInit {
   }
 
   changeAchievement(achievement: Achievement) {
-    this.router.navigate(['achievement-change-form', achievement.idUnlockable]);
+    this.router.navigate(['sidenavbar/achievement-change-form', achievement.idUnlockable]);
   }
 
 

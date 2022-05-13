@@ -1,5 +1,5 @@
 <br />
-<h2 class="text-center text-uppercase">Registro de User</h2>
+<h2 class="text-center text-uppercase">{{ 'USER.REGISTER' | translate }}</h2>
 <br />
 <div class="container">
   <div class="row">
@@ -7,7 +7,7 @@
       <!--*************** ATTRIBUTE 2 ***************-->
       <div class="form-group mb-3 row">
         <label for="nickname" class="col-sm-5 col-form-label">
-          Nickname :
+          {{ 'NICKNAME' | translate }} :
         </label>
         <div class="col-sm-10">
           <input
@@ -29,7 +29,7 @@
       <!--*************** ATTRIBUTE 3 ***************-->
       <div class="form-group mb-3 row">
         <label for="password" class="col-sm-5 col-form-label">
-          Password :
+          {{ 'PASSWORD' | translate }}:
         </label>
         <div class="col-sm-10">
           <input
@@ -51,7 +51,7 @@
       <!--*************** END ATTRIBUTE 3 ***************-->
       <div class="form-group mb-3 row">
         <label for="firstname" class="col-sm-5 col-form-label">
-          First Name :
+          {{ 'FIRSTNAME' | translate }} :
         </label>
         <div class="col-sm-10">
           <input
@@ -73,7 +73,7 @@
       <!--*************** ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
         <label for="lastname" class="col-sm-5 col-form-label">
-        Last Name :
+          {{ 'LASTNAME' | translate }}:
         </label>
         <div class="col-sm-10">
           <input
@@ -95,7 +95,7 @@
       <!--*************** END ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
         <label for="mail" class="col-sm-5 col-form-label">
-        Mail :
+          {{ 'MAIL' | translate }} :
         </label>
         <div class="col-sm-10">
           <input
@@ -117,7 +117,7 @@
       <!--*************** END ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
         <label for="birthDate" class="col-sm-5 col-form-label">
-        Birth Date :
+          {{ 'BIRTHDATE' | translate }} :
         </label>
         <div class="col-sm-8">
             <input
@@ -144,7 +144,7 @@
       <!--*************** END ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
         <label for="coinsOwned" class="col-sm-5 col-form-label">
-        Coins Owned :
+          {{ 'COINSOWNED' | translate }}:
         </label>
         <div class="col-sm-10">
           <input
@@ -165,7 +165,7 @@
       </div>
       <!--*************** END ATTRIBUTE 4 ***************-->
       <div class="form-group mb-3 row">
-        <label for="status" class="col-sm-5 col-form-label"> Status : </label>
+        <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }}: </label>
         <div class="col-sm-10">
           <select class="form-control" id="status"  name="status" [(ngModel)]="user.status">
             <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
@@ -178,7 +178,7 @@
       </div>
       <!--*************** END ATTRIBUTE 9 ***************-->
       <div class="form-group mb-3 row">
-        <label for="role" class="col-sm-5 col-form-label"> Role : </label>
+        <label for="role" class="col-sm-5 col-form-label">{{ 'ROLE' | translate }}: </label>
         <div class="col-sm-10">
           <select class="form-control" id="role"  name="role" [(ngModel)]="user.role">
             <option *ngFor="let role of roles" value="{{role.value}}">{{role.description}}</option>
@@ -194,7 +194,7 @@
       <!--*************** END ATTRIBUTE 9 ***************-->
       <!--*************** BUTTON ***************-->
       <div class="d-grid col-4 mx-auto">
-        <button type="submit" class="btn btn-outline-success">Save</button>
+        <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
       </div>
       <!--*************** END BUTTON ***************-->
     </form>

@@ -23,7 +23,7 @@ export class UnlockableService {
   }
 
   getUnlockerRareness(): Observable<any>{
-    return this.http.get<any>(this.apiURL + '/unlocker-types');
+    return this.http.get<any>(this.apiURL + '/rareness');
   }
 
   getUnlockableById(id: number): Observable<any> {

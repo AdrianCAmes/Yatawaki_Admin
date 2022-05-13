@@ -16,6 +16,7 @@ export class AvatarChangeFormComponent implements OnInit {
   statuses: any[] = [];
   unlockerTypes: any[] = [];
   valor:string = '';
+  rarenesss: any[] = [];
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -41,6 +42,12 @@ export class AvatarChangeFormComponent implements OnInit {
         this.unlockerTypes = datos;
       }
     );
+    this.unlockableService.getUnlockerRareness().subscribe(
+      datos => {
+        console.log(datos)
+        this.rarenesss = datos;
+      }
+    )
   }
 
   nullInputName(elementId: string, chbox: string) {
@@ -125,6 +132,16 @@ export class AvatarChangeFormComponent implements OnInit {
     }
   }
 
+  nullInputUnlockerValue(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.unlockerValue = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
   changeAvatar() {
     this.avatarService.changeAvatar(this.avatar).subscribe(
       (datos) => {
@@ -133,6 +150,11 @@ export class AvatarChangeFormComponent implements OnInit {
       }
     );
     this.avatar = new Avatar();
+    return this.router.navigate(['sidenavbar/avatar']).then(()=>
+    {
+      console.log(this.router.url);
+      window.location.reload();
+    })
   }
 
 }

@@ -39,7 +39,7 @@ export class GestureComponent implements OnInit {
   }
 
   changeGesture(gesture: Gesture) {
-    this.router.navigate(['gesture-change-form', gesture.idGesture]);
+    this.router.navigate(['sidenavbar/gesture-change-form', gesture.idGesture]);
   }
 
 }

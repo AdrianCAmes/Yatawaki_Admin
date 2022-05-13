@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Symphony } from 'src/app/models/symphony';
+import { SymphonyUpdate } from 'src/app/models/update/SymphonyUpdate';
 import { SymphonyService } from 'src/app/service/symphony.service';
 import { UnlockableService } from 'src/app/service/unlockable.service';
+import { ComposerService } from 'src/app/service/composer.service';
 
 @Component({
   selector: 'app-symphony-card',
@@ -11,10 +13,12 @@ import { UnlockableService } from 'src/app/service/unlockable.service';
 })
 export class SymphonyCardComponent implements OnInit {
 
-  symphony: Symphony = new Symphony();
+  symphony: SymphonyUpdate = new SymphonyUpdate();
   symphonies: Symphony[] = [];
   statuses: any[] = [];
   unlockerTypes: any[] = [];
+  rarenesss: any[] = [];
+  composers: any[] = [];
 
   id: number = 0;
 
@@ -29,7 +33,7 @@ export class SymphonyCardComponent implements OnInit {
 
 
   constructor(private symphonyService: SymphonyService, private router: Router,
-    private unlockableService: UnlockableService) { }
+    private unlockableService: UnlockableService, private composerService: ComposerService) { }
 
   ngOnInit(): void {
     this.unlockableService.getUnlockableStatus().subscribe(
@@ -44,6 +48,18 @@ export class SymphonyCardComponent implements OnInit {
         this.unlockerTypes = datos;
       }
     );
+    this.composerService.getComposers().subscribe(
+      data => {
+        console.log(data);
+        this.composers = data
+      }
+    );
+    this.unlockableService.getUnlockerRareness().subscribe(
+      datos => {
+        console.log(datos)
+        this.rarenesss = datos;
+      }
+    )
   }
 
   searchSymphonyById() {
@@ -188,16 +204,26 @@ export class SymphonyCardComponent implements OnInit {
     }
   }
 
+  nullInputUnlockerValue(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.symphony.unlockerValue = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
   changeSymphony(){
     this.symphonyService.changeSymphony(this.symphony).subscribe(
       datos => {
         console.log(datos);
       }
     );
-    this.symphony = new Symphony();
+    this.symphony = new SymphonyUpdate();
   }
 
-  deleteSymphony(symphony: Symphony) {
+  deleteSymphony(symphony: SymphonyUpdate) {
     this.symphonyService.deleteSymphony(symphony.idUnlockable).subscribe((data) => {
       this.loadDataSymphonies();
     });

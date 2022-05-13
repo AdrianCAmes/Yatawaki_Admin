@@ -15,6 +15,7 @@ export class AchievementCardComponent implements OnInit {
   achievements: Achievement[] = [];
   statuses: any[] = [];
   unlockerTypes: any[] = [];
+  rarenesss: any[]=[];
 
   id: number = 0;
 
@@ -44,6 +45,13 @@ export class AchievementCardComponent implements OnInit {
         this.unlockerTypes = datos;
       }
     );
+
+    this.unlockableService.getUnlockerRareness().subscribe(
+      datos => {
+        console.log(datos)
+        this.rarenesss = datos;
+      }
+    )
   }
 
   nullInputName(elementId: string, chbox: string) {
@@ -114,6 +122,16 @@ export class AchievementCardComponent implements OnInit {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
       this.achievement.unlockerType = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputUnlockerValue(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.achievement.unlockerValue = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
