@@ -20,7 +20,7 @@
           <td>{{ userUnlockable.unlockable.name }}</td>
           <td>{{ userUnlockable.unlockedDate }}</td>
           <td>{{ userUnlockable.status }}</td>
-          <td>
+          <td class="buttons" align="center">
             <div class="d-grid gap-2 d-md-block">
               <button 
                 type="submit"
@@ -29,7 +29,7 @@
                 placement="left"
                 (confirm)="deleteUser(userUnlockable)"
                 (cancel)="cancelClicked = true"
-                class="btn btn-outline-danger col-md-5 justify-content-center align-items-center floatL maxW48"
+                class="btn btn-outline-danger col-md-5 justify-content-center align-items-center"
                 data-toggle="popover" title="Delete"
               >
               <mat-icon>clear</mat-icon>
@@ -37,7 +37,7 @@
               <button
                 type="submit"
                 (click)="changeUser(userUnlockable)"
-                class="btn btn-outline-success col-md-5 justify-content-center align-items-center floatR maxW48"
+                class="btn btn-outline-success col-md-5 justify-content-center align-items-center floatR"
                 data-toggle="popover" title="Update"
                 >
                 <mat-icon>create</mat-icon>

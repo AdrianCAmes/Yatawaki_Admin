@@ -50,47 +50,47 @@
               <div *ngIf="composer">
                 <!--*************** ATTRIBUTE 1 ***************-->
                 <div class="form-group mb-3 row">
-                    <label for="id" class="col-sm-5 col-form-label">
-                      Id :
-                    </label>
-                    <div class="col-sm-10">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="id"
-                        name="id"
-                        placeholder="id"
-                        required
-                        [(ngModel)]="composer.idComposer"
-                        disabled
-                      />
-                    </div>
-                </div>
-                <div class="form-group mb-3 row">
-                  <label for="composerName" class="col-sm-5 col-form-label">
-                    Composer Name :
+                  <label for="id" class="col-sm-5 col-form-label">
+                    Id :
                   </label>
                   <div class="col-sm-10">
                     <input
                       type="text"
                       class="form-control"
-                      id="nameC"
-                      name="name"
-                      placeholder="Composer Name"
+                      id="id"
+                      name="id"
+                      placeholder="id"
                       required
-                      [(ngModel)]="composer.name"
+                      [(ngModel)]="composer.idComposer"
+                      disabled
                     />
                   </div>
-                  <div class="form-check form-switch col-sm-2 center">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('nameC', 'flexSwitchCheckDefaultC')">
-                      <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
-                  </div>
+              </div>
+              <div class="form-group mb-3 row">
+                <label for="name" class="col-sm-5 col-form-label">
+                  {{ 'NAME' | translate }} :
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Composer Name"
+                    required
+                    [(ngModel)]="composer.name"
+                  />
                 </div>
-                <!--*************** END ATTRIBUTE 1 ***************-->
-                <!--*************** ATTRIBUTE 2 ***************-->
-                <div class="form-group mb-3 row">
+                <div class="form-check form-switch col-sm-2 center">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('name', 'flexSwitchCheckDefaultC')">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                </div>
+              </div>
+              <!--*************** END ATTRIBUTE 1 ***************-->
+              <!--*************** ATTRIBUTE 2 ***************-->
+              <div class="form-group mb-3 row">
                   <label for="birthDate" class="col-sm-5 col-form-label">
-                    Composer Birth Date :
+                    {{ 'BIRTHDATE' | translate }} :
                   </label>
                   <div class="col-sm-8">
                     <input
@@ -113,11 +113,11 @@
                       <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
                   </div>
                 </div>
-                <!--*************** END ATTRIBUTE 2 ***************-->
-                <!--*************** ATTRIBUTE 3 ***************-->
-                <div class="form-group mb-3 row">
+              <!--*************** END ATTRIBUTE 2 ***************-->
+              <!--*************** ATTRIBUTE 3 ***************-->
+              <div class="form-group mb-3 row">
                   <label for="deathDate" class="col-sm-5 col-form-label">
-                    Composer Death Date :
+                    {{ 'DEATHDATE' | translate }} :
                   </label>
                   <div class="col-sm-8">
                     <input
@@ -140,34 +140,33 @@
                       <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
                   </div>
                 </div>
-                <!--*************** END ATTRIBUTE 3 ***************-->
-                <!--*************** END ATTRIBUTE 4 ***************-->
-                <!--*************** ATTRIBUTE 5 ***************-->
-                <!--*************** END ATTRIBUTE 5 ***************-->
-                <!--*************** ATTRIBUTE 6 ***************-->
-                <!--*************** END ATTRIBUTE 6 ***************-->
-                <!--*************** ATTRIBUTE 7 ***************-->
-                <!--*************** END ATTRIBUTE 7 ***************-->
-                <!--*************** ATTRIBUTE 8 ***************-->
-                <div class="form-group mb-3 row">
-                  <label for="status" class="col-sm-5 col-form-label"> Status : </label>
-                  <div class="col-sm-10">
-                    <select class="form-control" id="status"  name="status" [(ngModel)]="composer.status">
-                      <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
-                    </select>
-                  </div>
-                  <div class="form-check form-switch col-sm-2 center">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
-                      <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
-                  </div>
+              <!--*************** END ATTRIBUTE 3 ***************-->
+              <!--*************** ATTRIBUTE 4 ***************-->
+              <!--*************** END ATTRIBUTE 4 ***************-->
+              <!--*************** ATTRIBUTE 5 ***************-->
+      
+              <!--*************** END ATTRIBUTE 5 ***************-->
+              <!--*************** ATTRIBUTE 6 ***************-->
+              <!--*************** END ATTRIBUTE 6 ***************-->
+              <!--*************** ATTRIBUTE 7 ***************-->
+              <!--*************** END ATTRIBUTE 7 ***************-->
+              <!--*************** ATTRIBUTE 8 ***************-->
+              <div class="form-group mb-3 row">
+                <label for="status" class="col-sm-5 col-form-label"> {{ 'STATUS' | translate }} : </label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="status"  name="status" [(ngModel)]="composer.status">
+                    <option *ngFor="let status of statuses" value="{{status.value}}">{{status.description}}</option>
+                  </select>
                 </div>
-                <!--*************** END ATTRIBUTE 8 ***************-->
-                <!--*************** ATTRIBUTE 9 ***************-->
-                <!--*************** END ATTRIBUTE 9 ***************-->
+                <div class="form-check form-switch col-sm-2 center">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                </div>
+              </div>
               </div>
               <!--*************** BUTTON ***************-->
               <div class="d-grid col-4 mx-auto">
-                <button type="submit" class="btn btn-outline-success">Save</button>
+                <button type="submit" class="btn btn-outline-success">{{ 'SAVE' | translate }}</button>
               </div>
               <!--*************** END BUTTON ***************-->
             </form>

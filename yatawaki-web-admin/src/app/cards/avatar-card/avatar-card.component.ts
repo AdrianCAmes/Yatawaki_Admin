@@ -19,6 +19,7 @@ export class AvatarCardComponent implements OnInit {
   avatars: Avatar[] = [];
   statuses: any[] = [];
   unlockerTypes: any[] = [];
+  rarenesss: any[] = [];
 
   id: number = 0;
 
@@ -48,6 +49,12 @@ export class AvatarCardComponent implements OnInit {
         this.unlockerTypes = datos;
       }
     );
+    this.unlockableService.getUnlockerRareness().subscribe(
+      datos => {
+        console.log(datos)
+        this.rarenesss = datos;
+      }
+    )
   }
 
   searchAvatarById() {
@@ -152,6 +159,16 @@ export class AvatarCardComponent implements OnInit {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
       this.avatar.unlockerType = null;
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
+    } else {
+      (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
+    }
+  }
+
+  nullInputUnlockerValue(elementId: string, chbox: string) {
+    if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
+      (<HTMLInputElement>document.getElementById(elementId)).value = "";
+      this.avatar.unlockerValue = null;
       (<HTMLInputElement>document.getElementById(elementId)).disabled = true;
     } else {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
