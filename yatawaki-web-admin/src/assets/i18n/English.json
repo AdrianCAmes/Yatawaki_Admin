@@ -177,5 +177,6 @@
     "SAVE": "Save",
     "UPDATE": "Update",
     "DELETE": "Delete",
-    "ENTER":"Enter ID"
+    "ENTER": "Enter ID",
+    "LOGOUT": "Logout"
 }

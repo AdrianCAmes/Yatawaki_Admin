@@ -29,7 +29,8 @@ mat-toolbar {
     width: 90px;
 }
 .custom-select {
-    width: 86px;
+    font-family: 'Macondo', cursive;
+    width: 95px;
 }
 
 mat-expansion-panel {

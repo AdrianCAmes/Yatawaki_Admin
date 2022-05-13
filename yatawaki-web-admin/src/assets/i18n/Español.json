@@ -178,5 +178,6 @@
     "SAVE": "Guardar",
     "UPDATE": "Actualizar",
     "DELETE": "Eliminar",
-    "ENTER":"Ingresar ID"
+    "ENTER":"Ingresar ID",
+    "LOGOUT": "Cerrar Sesión"
 }

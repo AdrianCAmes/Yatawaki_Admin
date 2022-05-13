@@ -5,7 +5,7 @@ Yatawaki
   <option *ngFor="let lang of langs" [value]="lang">{{lang}}</option>
 </select>
 <span class="sep"></span>
-<button mat-raised-button color="warn" (click)="logout()">Logout</button>
+<button mat-raised-button color="warn" (click)="logout()">{{ 'LOGOUT' | translate }}</button>
 </mat-toolbar>
     
 <mat-drawer-container class="example-container" autosize>
