@@ -6,8 +6,8 @@
     <thead>
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">{{ 'USERID' | translate }}</th>
-        <th scope="col">{{ 'RANKID' | translate }}</th>
+        <th scope="col">{{ 'USER.NAME' | translate }}</th>
+        <th scope="col">{{ 'RANK.NAME' | translate }}</th>
         <th scope="col">{{ 'STARTDATE' | translate }}</th>
         <th scope="col">{{ 'ENDDATE' | translate }}</th>
         <th scope="col">{{ 'CURRENTEXPERIENCE' | translate }}</th>
@@ -18,8 +18,8 @@
       <ng-container *ngFor="let userRank of userRanks">
         <tr>
           <th scope="row">{{ userRank.idUserRank }}</th>
-          <td>{{ userRank.user.idUser }}</td>
-          <td>{{ userRank.rank.idRank }}</td>
+          <td>{{ userRank.user.nickname }}</td>
+          <td>{{ userRank.rank.name }}</td>
           <td>{{ userRank.startDate }}</td>
           <td>{{ userRank.endDate }}</td>
           <td>{{ userRank.currentExperience }}</td>
