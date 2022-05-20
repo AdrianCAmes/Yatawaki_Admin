@@ -15,7 +15,7 @@
             class="form-control"
             id="name"
             name="name"
-            placeholder="name"
+            placeholder="{{ 'EXAMPLE.NAME' | translate }} "
             required
             [(ngModel)]="avatar.name"
           />
@@ -37,7 +37,7 @@
             class="form-control"
             id="description"
             name="description"
-            placeholder="description"
+            placeholder="{{ 'EXAMPLE.DESCRIPTION' | translate }}"
             required
             [(ngModel)]="avatar.description"
           />
@@ -87,7 +87,7 @@
             class="form-control"
             id="unlockerValue"
             name="unlockerValue"
-            placeholder="unlockerValue"
+            placeholder="{{ 'EXAMPLE.UNLOCKERVALUE' | translate }}"
             required
             [(ngModel)]="avatar.unlockerValue"
           />
@@ -109,7 +109,7 @@
             class="form-control"
             id="coinsCost"
             name="coinsCost"
-            placeholder="coinsCost"
+            placeholder="{{ 'EXAMPLE.COINSCOST' | translate }}"
             required
             [(ngModel)]="avatar.coinsCost"
           />
@@ -129,7 +129,7 @@
             class="form-control"
             id="icon"
             name="icon"
-            placeholder="Icono"
+            placeholder="{{ 'EXAMPLE.ICON' | translate }}"
             required
             [(ngModel)]="avatar.icon"
           />
@@ -166,7 +166,7 @@
             class="form-control"
             id="enhancedFeaturesJson"
             name="enhancedFeaturesJson"
-            placeholder="Enhanced Features"
+            placeholder="{{ 'EXAMPLE.ENHANCEDFEATURE' | translate }}"
             required
             [(ngModel)]="avatar.enhancedFeaturesJson"
           />

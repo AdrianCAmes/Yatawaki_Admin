@@ -13,6 +13,7 @@ export class InstrumentChangeFormComponent implements OnInit {
   id: number = 0;
   instrument: Instrument = new Instrument();
   statuses: any[] = [];
+  evidencia: any
 
   constructor(private router: Router, private route: ActivatedRoute,
     private instrumentService: InstrumentService) { }
@@ -99,6 +100,7 @@ export class InstrumentChangeFormComponent implements OnInit {
     this.instrumentService.changeInstrument(this.instrument).subscribe(
       (datos) => {
         console.log(datos);
+        this.evidencia = datos
         //this.router.navigate(['ListCustomer']);
       }
     );

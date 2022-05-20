@@ -14,6 +14,7 @@ export class ComposerNewFormComponent implements OnInit {
   
   composer: Composer = new Composer();
   statuses: any[] = [];
+  evidencia: any
 
   constructor(private router: Router, private composerService: ComposerService, private unlockableService: UnlockableService) { }
 
@@ -71,7 +72,10 @@ export class ComposerNewFormComponent implements OnInit {
       this.composer.name = null;
     }
     this.composerService.createComposer(this.composer).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
       //(error) => console.log(error)
     );
     this.composer = new Composer();

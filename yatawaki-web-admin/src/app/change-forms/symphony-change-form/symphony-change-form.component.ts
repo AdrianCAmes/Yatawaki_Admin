@@ -19,6 +19,7 @@ export class SymphonyChangeFormComponent implements OnInit {
   unlockerTypes: any[] = [];
   rarenesss: any[] = [];
   composers: any[] = [];
+  evidencia: any
 
   constructor(private composerService: ComposerService, private route: ActivatedRoute,
     private router: Router,
@@ -208,6 +209,7 @@ export class SymphonyChangeFormComponent implements OnInit {
     this.symphonyService.changeSymphony(this.symphony).subscribe(
       (datos) => {
         console.log(datos);
+        this.evidencia = datos
         //this.router.navigate(['ListCustomer']);
       }
     );

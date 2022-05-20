@@ -12,6 +12,7 @@ export class InstrumentNewFormComponent implements OnInit {
 
   instrument: Instrument = new Instrument();
   statuses: any[] = [];
+  evidencia: any
 
   constructor(private router: Router, private instrumentService: InstrumentService) { }
 
@@ -89,7 +90,10 @@ export class InstrumentNewFormComponent implements OnInit {
   
   insertInstrument() {
     this.instrumentService.createInstrument(this.instrument).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.instrument = new Instrument();
     return this.router.navigate(['sidenavbar/instrument']).then(()=>

@@ -15,6 +15,7 @@ export class UserRankNewFormComponent implements OnInit {
   userRank: UserRankCreate = new UserRankCreate();
   users: any[] = [];
   ranks: any[] =[];
+  evidencia: any
 
   constructor(private router: Router, private userRankService: UserRankService, private userService: UserService, private rankService: RankService) { }
 
@@ -37,7 +38,10 @@ export class UserRankNewFormComponent implements OnInit {
 
   insertUserRank() {
     this.userRankService.createUserRank(this.userRank).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.userRank = new UserRankCreate();
     return this.router.navigate(['sidenavbar/user-rank']).then(()=>

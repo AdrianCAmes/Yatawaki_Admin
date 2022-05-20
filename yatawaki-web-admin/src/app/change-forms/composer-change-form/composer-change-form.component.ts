@@ -15,6 +15,7 @@ export class ComposerChangeFormComponent implements OnInit {
   composer: Composer = new Composer();
   statuses: any[] = [];
   unlockerTypes: any[] = [];
+  evidencia: any;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -85,6 +86,7 @@ export class ComposerChangeFormComponent implements OnInit {
     this.composerService.changeComposer(this.composer).subscribe(
       (datos) => {
         console.log(datos);
+        this.evidencia = datos;
         //this.router.navigate(['ListCustomer']);
       }
     );

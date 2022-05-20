@@ -7,7 +7,7 @@
       <form class="form-floating" (ngSubmit)="searchUserRankById()">
         <label for="id">{{ 'ENTER' | translate }}:</label>
         <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="id"
-          placeholder="Search User Rank by Id" />
+          placeholder="{{ 'ENTER' | translate }}" />
         <div class="col-2 mx-auto p-2">
           <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
         </div>
@@ -108,7 +108,7 @@
                   </label>
                   <div class="col-sm-10">
                     <input matInput type="currentExperience" class="form-control" id="currentExperience"
-                      name="currentExperience" placeholder="currentExperience" required
+                      name="currentExperience" placeholder="{{ 'EXAMPLE.CURRENTEXPERIENCE' | translate }}" required
                       [(ngModel)]="userRank.currentExperience" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">

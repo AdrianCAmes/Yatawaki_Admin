@@ -7,7 +7,7 @@
       <form class="form-floating" (ngSubmit)="searchInstrumentById()">
         <label for="id">{{ 'ENTER' | translate }}:</label>
         <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="id"
-          placeholder="Search Instruments by Id" />
+          placeholder="{{ 'ENTER' | translate }}" />
         <div class="col-2 mx-auto p-2">
           <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
         </div>
@@ -51,7 +51,7 @@
                     {{ 'NAME' | translate }} :
                   </label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="name" required
+                    <input type="text" class="form-control" id="name" name="name" placeholder="{{ 'EXAMPLE.NAME' | translate }}" required
                       [(ngModel)]="instrument.name" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
@@ -68,7 +68,7 @@
                   </label>
                   <div class="col-sm-10">
                     <input matInput type="ldescription" class="form-control" id="ldescription" name="ldescription"
-                      placeholder="long description" required [(ngModel)]="instrument.longDescription" />
+                      placeholder="{{ 'EXAMPLE.LONGDESCRIPTION' | translate }}" required [(ngModel)]="instrument.longDescription" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2"
@@ -83,7 +83,7 @@
                   </label>
                   <div class="col-sm-10">
                     <input matInput type="shortdescription" class="form-control" id="shortdescription"
-                      name="shortdescription" placeholder="short description" required
+                      name="shortdescription" placeholder="{{ 'EXAMPLE.SHORTDESCRIPTION' | translate }}" required
                       [(ngModel)]="instrument.shortDescription" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
@@ -98,7 +98,7 @@
                     {{ 'TYPE' | translate }} :
                   </label>
                   <div class="col-sm-10">
-                    <input matInput type="type" class="form-control" id="type" name="type" placeholder="type" required
+                    <input matInput type="type" class="form-control" id="type" name="type" placeholder="{{ 'EXAMPLE.TYPE' | translate }}" required
                       [(ngModel)]="instrument.type" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
@@ -127,7 +127,7 @@
                     {{ 'ICON' | translate }} :
                   </label>
                   <div class="col-sm-10">
-                    <input matInput type="icon" class="form-control" id="icon" name="icon" placeholder="icon" required
+                    <input matInput type="icon" class="form-control" id="icon" name="icon" placeholder="{{ 'EXAMPLE.ICON' | translate }}" required
                       [(ngModel)]="instrument.icon" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">

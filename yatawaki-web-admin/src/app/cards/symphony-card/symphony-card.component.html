@@ -13,7 +13,7 @@
           name="id"
           required
           [(ngModel)]="id"
-          placeholder="Search Symphony by Id"
+          placeholder="{{ 'ENTER' | translate }}"
         />
         <div class="col-2 mx-auto p-2">
           <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
@@ -77,7 +77,7 @@
                     class="form-control"
                     id="nameC"
                     name="name"
-                    placeholder="Symphony Name"
+                    placeholder="{{ 'EXAMPLE.NAME' | translate }}"
                     required
                     [(ngModel)]="symphony.name"
                   />
@@ -99,7 +99,7 @@
                     class="form-control"
                     id="descriptionC"
                     name="description"
-                    placeholder="description"
+                    placeholder="{{ 'EXAMPLE.DESCRIPTION' | translate }}"
                     required
                     [(ngModel)]="symphony.description"
                   />
@@ -151,7 +151,7 @@
                     class="form-control"
                     id="unlockerValue"
                     name="unlockerValue"
-                    placeholder="Symphony Unlocker Value"
+                    placeholder="{{ 'EXAMPLE.UNLOCKERVALUE' | translate }}"
                     required
                     [(ngModel)]="symphony.unlockerValue"
                   />
@@ -173,7 +173,7 @@
                     class="form-control"
                     id="coinsCost"
                     name="coinsCost"
-                    placeholder="Symphony Coins Cost"
+                    placeholder="{{ 'EXAMPLE.COINSCOST' | translate }}"
                     required
                     [(ngModel)]="symphony.coinsCost"
                   />
@@ -195,7 +195,7 @@
                     class="form-control"
                     id="iconC"
                     name="icon"
-                    placeholder="Symphony Icon"
+                    placeholder="{{ 'EXAMPLE.ICON' | translate }}"
                     required
                     [(ngModel)]="symphony.icon"
                   />
@@ -241,7 +241,7 @@
                       class="form-control"
                       id="year"
                       name="year"
-                      placeholder="Year"
+                      placeholder="{{ 'EXAMPLE.YEAR' | translate }}"
                       required
                       [(ngModel)]="symphony.year"
                     />
@@ -260,7 +260,7 @@
                       class="form-control"
                       id="duration"
                       name="duration"
-                      placeholder="Duration"
+                      placeholder="{{ 'EXAMPLE.DURATION' | translate }}"
                       required
                       [(ngModel)]="symphony.duration"
                     />
@@ -279,7 +279,7 @@
                       class="form-control"
                       id="type"
                       name="type"
-                      placeholder="Type"
+                      placeholder="{{ 'EXAMPLE.TYPE' | translate }}"
                       required
                       [(ngModel)]="symphony.type"
                     />
@@ -298,7 +298,7 @@
                       class="form-control"
                       id="previewTrack"
                       name="previewTrack"
-                      placeholder="Preview Track"
+                      placeholder="{{ 'EXAMPLE.PREVIEWTRACK' | translate }}"
                       required
                       [(ngModel)]="symphony.previewTrack"
                     />
@@ -317,7 +317,7 @@
                       class="form-control"
                       id="initialBpm"
                       name="initialBpm"
-                      placeholder="Initial Bpm"
+                      placeholder="{{ 'EXAMPLE.INITIALBPM' | translate }}"
                       required
                       [(ngModel)]="symphony.initialBpm"
                     />

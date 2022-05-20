@@ -15,6 +15,7 @@ export class UserUnlockableNewFormComponent implements OnInit {
   userUnlockable: UserUnlockableCreate = new UserUnlockableCreate();
   users: any[] = [];
   unlockables: any[] = []
+  evidencia: any
 
   constructor(private router: Router, private userService: UserService, private unlockableService: UnlockableService, private userUnlockService: UserUnlockableService ) { }
 
@@ -57,7 +58,10 @@ export class UserUnlockableNewFormComponent implements OnInit {
   insertUserUnlockable() {
     console.log(this.userUnlockable);
     this.userUnlockService.createUserUnlockable(this.userUnlockable).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.userUnlockable = new UserUnlockableCreate();
     return this.router.navigate(['sidenavbar/user-unlockable']).then(()=>

@@ -33,7 +33,7 @@
             class="form-control"
             id="name"
             name="name"
-            placeholder="name"
+            placeholder="{{ 'EXAMPLE.NAME' | translate }}"
             required
             [(ngModel)]="instrument.name"
           />
@@ -56,7 +56,7 @@
             class="form-control"
             id="ldescription"
             name="ldescription"
-            placeholder="long description"
+            placeholder="{{ 'EXAMPLE.LONGDESCRIPTION' | translate }}"
             required
             [(ngModel)]="instrument.longDescription"
           />
@@ -78,7 +78,7 @@
             class="form-control"
             id="shortdescription"
             name="shortdescription"
-            placeholder="short description"
+            placeholder="{{ 'EXAMPLE.SHORTDESCRIPTION' | translate }}"
             required
             [(ngModel)]="instrument.shortDescription"
           />
@@ -100,7 +100,7 @@
             class="form-control"
             id="type"
             name="type"
-            placeholder="type"
+            placeholder="{{ 'EXAMPLE.TYPE' | translate }}"
             required
             [(ngModel)]="instrument.type"
           />
@@ -135,7 +135,7 @@
             class="form-control"
             id="icon"
             name="icon"
-            placeholder="icon"
+            placeholder="{{ 'EXAMPLE.ICON' | translate }}"
             required
             [(ngModel)]="instrument.icon"
           />

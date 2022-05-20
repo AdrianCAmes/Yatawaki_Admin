@@ -18,6 +18,7 @@ export class UserRankChangeFormComponent implements OnInit {
   statuses: any[] = [];
   users: any[] = [];
   ranks: any[] =[];
+  evidencia: any
 
   constructor(private router: Router, private route: ActivatedRoute,
     private userRankService: UserRankService, private userService: UserService, private rankService: RankService) { }
@@ -94,6 +95,7 @@ export class UserRankChangeFormComponent implements OnInit {
     this.userRankService.changeUserRank(this.userRank).subscribe(
       (datos) => {
         console.log(datos);
+        this.evidencia = datos
         //this.router.navigate(['ListCustomer']);
       }
     );

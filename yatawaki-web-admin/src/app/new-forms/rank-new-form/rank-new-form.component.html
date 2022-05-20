@@ -15,7 +15,7 @@
             class="form-control"
             id="name"
             name="name"
-            placeholder="name"
+            placeholder="{{ 'EXAMPLE.NAME' | translate }} "
             required
             [(ngModel)]="rank.name"
           />
@@ -38,7 +38,7 @@
             class="form-control"
             id="level"
             name="level"
-            placeholder="level"
+            placeholder="{{ 'EXAMPLE.LEVEL' | translate }}"
             required
             [(ngModel)]="rank.level"
           />
@@ -60,7 +60,7 @@
             class="form-control"
             id="maxExperience"
             name="maxExperience"
-            placeholder="maxExperience"
+            placeholder="{{ 'EXAMPLE.MAXEXPERIENCE' | translate }}"
             required
             [(ngModel)]="rank.maxExperience"
           />

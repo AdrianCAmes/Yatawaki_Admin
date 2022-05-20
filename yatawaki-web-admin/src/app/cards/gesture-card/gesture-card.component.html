@@ -13,7 +13,7 @@
           name="id"
           required
           [(ngModel)]="id"
-          placeholder="Search Gestures by Id"
+          placeholder="{{ 'ENTER' | translate }}"
         />
         <div class="col-2 mx-auto p-2">
           <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
@@ -74,7 +74,7 @@
                         class="form-control"
                         id="name"
                         name="name"
-                        placeholder="name"
+                        placeholder="{{ 'EXAMPLE.NAME' | translate }}"
                         required
                         [(ngModel)]="gesture.name"
                       />
@@ -97,7 +97,7 @@
                         class="form-control"
                         id="description"
                         name="description"
-                        placeholder="description"
+                        placeholder="{{ 'EXAMPLE.DESCRIPTION' | translate }}"
                         required
                         [(ngModel)]="gesture.description"
                       />

@@ -16,6 +16,7 @@ export class ConcertNewFormComponent implements OnInit {
   concert: ConcertCreate = new ConcertCreate();
   symphonies: any[] = [];
   users: any[] = [];
+  evidencia: any
 
   constructor(private router: Router, private concertService: ConcertService, private userService: UserService, private symphonyService: SymphonyService) { }
 
@@ -37,10 +38,13 @@ export class ConcertNewFormComponent implements OnInit {
 
   insertConcert() {
     this.concertService.createConcert(this.concert).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.concert = new ConcertCreate();
-    return this.router.navigate(['concert']).then(()=>
+    return this.router.navigate(['sidenavbar/concert']).then(()=>
     {
       console.log(this.router.url);
       window.location.reload();

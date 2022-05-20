@@ -15,6 +15,7 @@ export class SymphonyInstrumentNewFormComponent implements OnInit {
   symphonyInstrument: SymphonyInstrumentCreate = new SymphonyInstrumentCreate();
   symphonies: any[] = [];
   instruments: any[] = []
+  evidencia: any
 
   constructor(private router: Router, private symphonyService: SymphonyService, private instrumentService: InstrumentService, private symphonyInsService: SymphonyInstrumentService) { }
 
@@ -78,7 +79,10 @@ export class SymphonyInstrumentNewFormComponent implements OnInit {
   insertSymphonyInstrument() {
     console.log(this.symphonyInstrument);
     this.symphonyInsService.createSymphonyInstrument(this.symphonyInstrument).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.symphonyInstrument = new SymphonyInstrumentCreate();
     return this.router.navigate(['sidenavbar/symphony-instrument']).then(()=>

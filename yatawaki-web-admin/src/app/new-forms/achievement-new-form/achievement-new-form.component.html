@@ -15,7 +15,7 @@
             class="form-control"
             id="nameC"
             name="name"
-            placeholder="name"
+            placeholder="{{ 'EXAMPLE.NAME' | translate }} "
             required
             [(ngModel)]="achievement.name"
           />
@@ -37,7 +37,7 @@
             class="form-control"
             id="descriptionC"
             name="description"
-            placeholder="description"
+            placeholder="{{ 'EXAMPLE.DESCRIPTION' | translate }} "
             required
             [(ngModel)]="achievement.description"
           />
@@ -87,7 +87,7 @@
             class="form-control"
             id="unlockerValue"
             name="unlockerValue"
-            placeholder="unlockerValue"
+            placeholder="{{ 'EXAMPLE.UNLOCKERVALUE' | translate }}"
             required
             [(ngModel)]="achievement.unlockerValue"
           />
@@ -109,7 +109,7 @@
             class="form-control"
             id="coinsCost"
             name="coinsCost"
-            placeholder="coinsCost"
+            placeholder="{{ 'EXAMPLE.COINSCOST' | translate }}"
             required
             [(ngModel)]="achievement.coinsCost"
           />
@@ -129,7 +129,7 @@
             class="form-control"
             id="iconC"
             name="icon"
-            placeholder="Icono"
+            placeholder="{{ 'EXAMPLE.ICON' | translate }}"
             required
             [(ngModel)]="achievement.icon"
           />

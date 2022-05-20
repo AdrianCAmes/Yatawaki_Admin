@@ -14,6 +14,7 @@ export class UserChangeFormComponent implements OnInit {
   user: User = new User();
   statuses: any[] = [];
   roles: any[] = [];
+  evidencia: any;
 
   constructor(private router: Router, private route: ActivatedRoute,
     private userService: UserService) { }
@@ -135,6 +136,7 @@ export class UserChangeFormComponent implements OnInit {
     this.userService.changeUser(this.user).subscribe(
       (datos) => {
         console.log(datos);
+        this.evidencia = datos;
         //this.router.navigate(['ListCustomer']);
       }
     );

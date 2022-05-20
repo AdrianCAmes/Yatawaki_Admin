@@ -12,6 +12,7 @@ export class UserStatisticNewFormComponent implements OnInit {
 
   userStatistic: UserStatistic = new UserStatistic();
   statuses: any[] = [];
+  evidencia: any
 
   constructor(private router: Router, private userStatisticService: UserStatisticService) { }
 
@@ -76,7 +77,10 @@ export class UserStatisticNewFormComponent implements OnInit {
 
   insertUserStatistic() {
     this.userStatisticService.createUserStatistic(this.userStatistic).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.userStatistic = new UserStatistic();
     return this.router.navigate(['sidenavbar/user-statistic']).then(()=>

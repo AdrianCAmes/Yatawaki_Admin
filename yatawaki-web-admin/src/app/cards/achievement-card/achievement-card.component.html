@@ -13,7 +13,7 @@
           name="id"
           required
           [(ngModel)]="id"
-          placeholder="Search Achievement by Id"
+          placeholder="{{ 'ENTER' | translate }}"
         />
         <div class="col-2 mx-auto p-2">
           <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
@@ -76,7 +76,7 @@
                     class="form-control"
                     id="nameC"
                     name="name"
-                    placeholder="Achievement Name"
+                    placeholder="{{ 'EXAMPLE.NAME' | translate }}"
                     required
                     [(ngModel)]="achievement.name"
                   />
@@ -98,7 +98,7 @@
                     class="form-control"
                     id="descriptionC"
                     name="description"
-                    placeholder="description"
+                    placeholder="{{ 'EXAMPLE.DESCRIPTION' | translate }}"
                     required
                     [(ngModel)]="achievement.description"
                   />
@@ -150,7 +150,7 @@
                     class="form-control"
                     id="unlockerValue"
                     name="unlockerValue"
-                    placeholder="Achievement Unlocker Value"
+                    placeholder="{{ 'EXAMPLE.UNLOCKERVALUE' | translate }}"
                     required
                     [(ngModel)]="achievement.unlockerValue"
                   />
@@ -172,7 +172,7 @@
                     class="form-control"
                     id="coinsCost"
                     name="coinsCost"
-                    placeholder="Achievement Coins Cost"
+                    placeholder="{{ 'EXAMPLE.COINSCOST' | translate }}"
                     required
                     [(ngModel)]="achievement.coinsCost"
                   />
@@ -194,7 +194,7 @@
                     class="form-control"
                     id="iconC"
                     name="icon"
-                    placeholder="Achievement Icon"
+                    placeholder="{{ 'EXAMPLE.ICON' | translate }}"
                     required
                     [(ngModel)]="achievement.icon"
                   />

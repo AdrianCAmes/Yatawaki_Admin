@@ -20,6 +20,7 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
   idSymphony:any;
   symphonyDefault:any = '';
   rarenesss: any[] = [];
+  evidencia: any
 
   constructor(private route: ActivatedRoute, private router: Router, private unlockableService: UnlockableService, private symphonyService: SymphonyService, private gestureService: GestureService, private symphonyGesService: SymphonyGestureService) { }
 
@@ -126,7 +127,10 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
 
   changeSymphonyGesture() {
     this.symphonyGesService.changeSymphonyGesture(this.symphonyGesture).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.symphonyGesture = new SymphonyGestureUpdate();
     //this.router.navigate(['ListCustomer']);

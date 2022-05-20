@@ -12,6 +12,7 @@ export class GestureNewFormComponent implements OnInit {
 
   gesture: Gesture = new Gesture();
   statuses: any[] = [];
+  evidencia: any
 
   constructor(private router: Router, private gestureService: GestureService) { }
 
@@ -56,7 +57,10 @@ export class GestureNewFormComponent implements OnInit {
 
   insertGesture() {
     this.gestureService.createGesture(this.gesture).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.gesture = new Gesture();
     return this.router.navigate(['sidenavbar/gesture']).then(()=>
