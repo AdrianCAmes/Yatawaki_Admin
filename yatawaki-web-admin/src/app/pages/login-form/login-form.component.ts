@@ -12,6 +12,8 @@ import { TokenStorageService } from 'src/app/service/token-storage.service';
 export class LoginFormComponent implements OnInit {
 
   flag: boolean = false;
+  e: boolean = false;
+  public popoverMessage:string = 'Datos de incio de sesión incorrecto'
 
   constructor(private authService: AuthService, private tokenService: TokenStorageService, private router:Router) { }
 
@@ -33,13 +35,14 @@ export class LoginFormComponent implements OnInit {
             console.log(this.router.url);
             window.location.reload();
           })
-        }else{
+        }
+        else{
           return;
         }
       },
-      (error)=>{
-        console.log(error);
-      }
     );
+    if(this.flag==false){
+      this.e = true;
+    }
   }
 }

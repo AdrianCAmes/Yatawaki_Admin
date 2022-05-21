@@ -206,6 +206,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
+    HttpClient,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

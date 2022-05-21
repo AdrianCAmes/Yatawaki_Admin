@@ -13,6 +13,7 @@ export class UserStatisticChangeFormComponent implements OnInit {
   id: number = 0;
   userStatistic: UserStatistic = new UserStatistic();
   statuses: any[] = [];
+  evidencia: any;
 
   constructor(private router: Router, private route: ActivatedRoute,
     private userStatisticService: UserStatisticService) { }
@@ -87,6 +88,7 @@ export class UserStatisticChangeFormComponent implements OnInit {
     this.userStatisticService.changeUserStatistic(this.userStatistic).subscribe(
       (datos) => {
         console.log(datos);
+        this.evidencia = datos
         //this.router.navigate(['ListCustomer']);
       }
     );

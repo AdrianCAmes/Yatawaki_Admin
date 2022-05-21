@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Avatar } from 'src/app/models/avatar';
 import { AvatarService } from 'src/app/service/avatar.service';
 import { UnlockableService } from 'src/app/service/unlockable.service';
@@ -16,6 +16,7 @@ export class AvatarNewFormComponent implements OnInit {
   statuses: any[] = [];
   unlockerTypes: any[] = [];
   rarenesss: any[] = [];
+  evidencia: any
   //formulario: FormGroup;
 
   constructor(private router: Router, private avatarService: AvatarService, private unlockableService: UnlockableService) { }
@@ -60,7 +61,7 @@ export class AvatarNewFormComponent implements OnInit {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
-  
+
   nullInputIcon(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -90,7 +91,7 @@ export class AvatarNewFormComponent implements OnInit {
     }
   }
 
-  
+
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -101,7 +102,7 @@ export class AvatarNewFormComponent implements OnInit {
     }
   }
 
-    
+
   nullInputRareness(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -112,7 +113,7 @@ export class AvatarNewFormComponent implements OnInit {
     }
   }
 
-    
+
   nullInputUnlockerType(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -136,12 +137,14 @@ export class AvatarNewFormComponent implements OnInit {
 
   insertAvatar() {
     this.avatarService.createAvatar(this.avatar).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
       //(error) => console.log(error)
     );
     this.avatar = new Avatar();
-    return this.router.navigate(['sidenavbar/avatar']).then(()=>
-    {
+    return this.router.navigate(['sidenavbar/avatar']).then(() => {
       console.log(this.router.url);
       window.location.reload();
     })

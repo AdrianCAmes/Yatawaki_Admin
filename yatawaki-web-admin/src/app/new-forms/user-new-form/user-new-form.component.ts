@@ -13,6 +13,7 @@ export class UserNewFormComponent implements OnInit {
   user: User = new User();
   statuses: any[] = [];
   roles: any[] = [];
+  evidencia: any
 
   constructor(private router: Router, private userService: UserService) { }
 
@@ -123,7 +124,10 @@ export class UserNewFormComponent implements OnInit {
 
   insertUser() {
     this.userService.createUser(this.user).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.user = new User();
     return this.router.navigate(['sidenavbar/user']).then(()=>

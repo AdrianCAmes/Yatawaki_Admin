@@ -13,6 +13,7 @@ export class GestureChangeFormComponent implements OnInit {
   id: number = 0;
   gesture: Gesture = new Gesture();
   statuses: any[] = [];
+  evidencia: any
 
   constructor(private router: Router, private route: ActivatedRoute,
     private gestureService: GestureService) { }
@@ -67,6 +68,7 @@ export class GestureChangeFormComponent implements OnInit {
     this.gestureService.changeGesture(this.gesture).subscribe(
       (datos) => {
         console.log(datos);
+        this.evidencia = datos
         //this.router.navigate(['ListCustomer']);
       }
     );

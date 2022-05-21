@@ -33,14 +33,14 @@
             class="form-control"
             id="name"
             name="name"
-            placeholder="name"
+            placeholder="{{ 'EXAMPLE.NAME' | translate }}"
             required
             [(ngModel)]="instrument.name"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('name', 'flexSwitchCheckDefaultC')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
         </div>
       </div>
       <!--*************** END ATTRIBUTE 2 ***************-->
@@ -56,14 +56,14 @@
             class="form-control"
             id="ldescription"
             name="ldescription"
-            placeholder="long description"
+            placeholder="{{ 'EXAMPLE.LONGDESCRIPTION' | translate }}"
             required
             [(ngModel)]="instrument.longDescription"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputLongDescription('ldescription', 'flexSwitchCheckDefaultC2')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 3 ***************-->
@@ -78,14 +78,14 @@
             class="form-control"
             id="shortdescription"
             name="shortdescription"
-            placeholder="short description"
+            placeholder="{{ 'EXAMPLE.SHORTDESCRIPTION' | translate }}"
             required
             [(ngModel)]="instrument.shortDescription"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputShortDescription('shortdescription', 'flexSwitchCheckDefaultC3')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** ATTRIBUTE 4 ***************-->
@@ -100,14 +100,14 @@
             class="form-control"
             id="type"
             name="type"
-            placeholder="type"
+            placeholder="{{ 'EXAMPLE.TYPE' | translate }}"
             required
             [(ngModel)]="instrument.type"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputType('type', 'flexSwitchCheckDefaultC4')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 4 ***************-->
@@ -120,7 +120,7 @@
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC5" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC5')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 9 ***************-->
@@ -135,14 +135,14 @@
             class="form-control"
             id="icon"
             name="icon"
-            placeholder="icon"
+            placeholder="{{ 'EXAMPLE.ICON' | translate }}"
             required
             [(ngModel)]="instrument.icon"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC6" (change)="nullInputIcon('icon', 'flexSwitchCheckDefaultC6')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
     </div>

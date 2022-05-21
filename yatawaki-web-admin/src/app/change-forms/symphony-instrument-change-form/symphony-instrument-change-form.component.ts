@@ -18,6 +18,7 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
   symphonies: any[] = [];
   instruments: any[] = [];
   statuses: any[] = [];
+  evidencia:any
 
   show:boolean = false;
   showUpdate:boolean = false;
@@ -116,7 +117,10 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
 
   changeSymphonyInstrument() {
     this.symphonyInsService.changeSymphonyInstrument(this.symphonyInstrument).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.symphonyInstrument = new SymphonyInstrumentUpdate();
     //this.router.navigate(['ListCustomer']);

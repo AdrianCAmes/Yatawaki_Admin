@@ -18,6 +18,7 @@ export class ConcertChangeFormComponent implements OnInit {
   statuses: any[] = [];
   symphonies: any[] = [];
   users: any[] = [];
+  evidencia: any;
 
   constructor(private router: Router, private route: ActivatedRoute,
     private concertService: ConcertService, private userService: UserService, private symphonyService: SymphonyService) { }
@@ -107,6 +108,7 @@ export class ConcertChangeFormComponent implements OnInit {
     this.concertService.changeConcert(this.concert).subscribe(
       (datos) => {
         console.log(datos);
+        this.evidencia = datos;
         //this.router.navigate(['ListCustomer']);
       }
     );

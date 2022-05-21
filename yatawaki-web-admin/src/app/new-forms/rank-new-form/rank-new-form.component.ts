@@ -14,6 +14,7 @@ export class RankNewFormComponent implements OnInit {
 
   rank: Rank = new Rank();
   statuses: any[] = [];
+  evidencia: any
 
   constructor(private router: Router, private rankService: RankService) { }
 
@@ -68,7 +69,10 @@ export class RankNewFormComponent implements OnInit {
 
   insertRank() {
     this.rankService.createRank(this.rank).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     console.log(this.rank);
     this.rank = new Rank();

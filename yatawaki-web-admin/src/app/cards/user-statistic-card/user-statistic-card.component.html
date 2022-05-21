@@ -7,7 +7,7 @@
       <form class="form-floating" (ngSubmit)="searchUserStatisticById()">
         <label for="id">{{ 'ENTER' | translate }}:</label>
         <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="id"
-          placeholder="Search User Statistic by Id" />
+          placeholder="{{ 'ENTER' | translate }}" />
         <div class="col-2 mx-auto p-2">
           <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
         </div>
@@ -26,7 +26,8 @@
             </mat-card-content>
             <mat-card-actions>
               <button mat-button mat-button (click)="showChangeForm()">{{ 'UPDATE' | translate }}</button>
-              <button mat-button mwlConfirmationPopover [popoverMessage]="popoverMessage" placement="right"
+              <button mat-button mwlConfirmationPopover [popoverMessage]=" 'POPOVER' | translate " placement="right"
+                [confirmText]=" 'CONFIRM' | translate " [cancelText]=" 'CANCEL' | translate "
                 (confirm)="deleteUserStatistic(userStatistic)" (cancel)="cancelClicked = true"
                 class="btn btn-outline-danger">{{ 'DELETE' | translate }}</button>
             </mat-card-actions>
@@ -52,12 +53,13 @@
                   </label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="triviasPlayed" name="triviasPlayed"
-                      placeholder="triviasPlayed" required [(ngModel)]="userStatistic.triviasPlayed" />
+                      placeholder="{{ 'EXAMPLE.TRIVIASPLAYED' | translate }}" required
+                      [(ngModel)]="userStatistic.triviasPlayed" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC"
                       (change)="nullInputTriviasPlayed('triviasPlayed', 'flexSwitchCheckDefaultC')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** END ATTRIBUTE 2 ***************-->
@@ -68,12 +70,13 @@
                   </label>
                   <div class="col-sm-10">
                     <input matInput type="triviasWon" class="form-control" id="triviasWon" name="triviasWon"
-                      placeholder="triviasWon" required [(ngModel)]="userStatistic.triviasWon" />
+                      placeholder="{{ 'EXAMPLE.TRIVIASWON' | translate }}" required
+                      [(ngModel)]="userStatistic.triviasWon" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2"
                       (change)="nullInputTriviasWon('triviasWon', 'flexSwitchCheckDefaultC2')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** END ATTRIBUTE 3 ***************-->
@@ -83,13 +86,13 @@
                   </label>
                   <div class="col-sm-10">
                     <input matInput type="concertsOrchestrated" class="form-control" id="concertsOrchestrated"
-                      name="concertsOrchestrated" placeholder="concertsOrchestrated" required
-                      [(ngModel)]="userStatistic.concertsOrchestrated" />
+                      name="concertsOrchestrated" placeholder="{{ 'EXAMPLE.CONCERTSORCHESTRATED' | translate }}"
+                      required [(ngModel)]="userStatistic.concertsOrchestrated" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3"
                       (change)="nullInputConcertsOrchestrated('concertsOrchestrated', 'flexSwitchCheckDefaultC3')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** ATTRIBUTE 4 ***************-->
@@ -99,13 +102,13 @@
                   </label>
                   <div class="col-sm-10">
                     <input matInput type="orchestrationAccuracy" class="form-control" id="orchestrationAccuracy"
-                      name="orchestrationAccuracy" placeholder="orchestrationAccuracy" required
-                      [(ngModel)]="userStatistic.orchestrationAccuracy" />
+                      name="orchestrationAccuracy" placeholder="{{ 'EXAMPLE.ORCHESTRATORACCURACY' | translate }}"
+                      required [(ngModel)]="userStatistic.orchestrationAccuracy" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4"
                       (change)="nullInputOrchestrationAccuracy('orchestrationAccuracy', 'flexSwitchCheckDefaultC4')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** END ATTRIBUTE 4 ***************-->
@@ -119,7 +122,7 @@
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC5"
                       (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC5')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
               </div>

@@ -15,6 +15,7 @@ export class SymphonyGestureNewFormComponent implements OnInit {
   symphonyGesture: SymphonyGestureCreate = new SymphonyGestureCreate();
   symphonies: any[] = [];
   gestures: any[] = []
+  evidencia: any
 
   constructor(private router: Router, private symphonyService: SymphonyService, private gestureService: GestureService, private symphonyGesService: SymphonyGestureService) { }
 
@@ -78,7 +79,10 @@ export class SymphonyGestureNewFormComponent implements OnInit {
 
   insertSymphonyGesture() {
     this.symphonyGesService.createSymphonyGesture(this.symphonyGesture).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
     );
     this.symphonyGesture = new SymphonyGestureCreate();
     return this.router.navigate(['sidenavbar/symphony-gesture']).then(()=>

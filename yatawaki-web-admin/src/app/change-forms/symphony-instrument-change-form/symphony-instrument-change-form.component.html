@@ -33,14 +33,14 @@
               class="form-control"
               id="track"
               name="track"
-              placeholder="Track"
+              placeholder="{{ 'EXAMPLE.TRACK' | translate }}"
               required
               [(ngModel)]="symphonyInstrument.track"
             />
           </div>
           <div class="form-check form-switch col-sm-2 center">
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputTrack('track', 'flexSwitchCheckDefaultC')">
-              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
         </div>
         <!--*************** END ATTRIBUTE 1 ***************-->
@@ -55,14 +55,14 @@
                 class="form-control"
                 id="position"
                 name="position"
-                placeholder="Position"
+                placeholder="{{ 'EXAMPLE.POSITION' | translate }}"
                 required
                 [(ngModel)]="symphonyInstrument.position"
               />
             </div>
             <div class="form-check form-switch col-sm-2 center">
               <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputPosition('position', 'flexSwitchCheckDefaultC2')">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
             </div>
           </div>
         <!--*************** END ATTRIBUTE 2 ***************-->
@@ -96,7 +96,7 @@
           </div>
           <div class="form-check form-switch col-sm-2 center">
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
-              <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
         </div>
         <!--*************** END ATTRIBUTE 6 ***************-->

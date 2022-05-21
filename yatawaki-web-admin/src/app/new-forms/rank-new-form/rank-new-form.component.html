@@ -15,14 +15,14 @@
             class="form-control"
             id="name"
             name="name"
-            placeholder="name"
+            placeholder="{{ 'EXAMPLE.NAME' | translate }} "
             required
             [(ngModel)]="rank.name"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('name', 'flexSwitchCheckDefaultC')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 2 ***************-->
@@ -38,14 +38,14 @@
             class="form-control"
             id="level"
             name="level"
-            placeholder="level"
+            placeholder="{{ 'EXAMPLE.LEVEL' | translate }}"
             required
             [(ngModel)]="rank.level"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputLevel('level', 'flexSwitchCheckDefaultC2')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 3 ***************-->
@@ -60,14 +60,14 @@
             class="form-control"
             id="maxExperience"
             name="maxExperience"
-            placeholder="maxExperience"
+            placeholder="{{ 'EXAMPLE.MAXEXPERIENCE' | translate }}"
             required
             [(ngModel)]="rank.maxExperience"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputMaxExperience('maxExperience', 'flexSwitchCheckDefaultC3')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** ATTRIBUTE 4 ***************-->
@@ -81,7 +81,7 @@
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC4')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 9 ***************-->

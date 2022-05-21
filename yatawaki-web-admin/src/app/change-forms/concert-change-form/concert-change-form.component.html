@@ -56,7 +56,7 @@
           </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputPlayedDate('playedDate', 'flexSwitchCheckDefaultC')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 3 ***************-->
@@ -70,7 +70,7 @@
             </div>
             <div class="form-check form-switch col-sm-2 center">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC2')">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                 </div>
             </div>
             <div class="form-group mb-3 row">
@@ -93,14 +93,14 @@
             class="form-control"
             id="points"
             name="points"
-            placeholder="points"
+            placeholder="{{ 'EXAMPLE.POINTS' | translate }}"
             required
             [(ngModel)]="concert.points"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputPoints('points', 'flexSwitchCheckDefaultC3')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 4 ***************-->
@@ -115,14 +115,14 @@
             class="form-control"
             id="accuracyRate"
             name="accuracyRate"
-            placeholder="accuracyRate"
+            placeholder="{{ 'EXAMPLE.ACCURACYRATE' | translate }}"
             required
             [(ngModel)]="concert.accuracyRate"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4" (change)="nullInputAccuracyRate('accuracyRate', 'flexSwitchCheckDefaultC4')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 4 ***************-->
@@ -137,14 +137,14 @@
             class="form-control"
             id="gesturesCompleted"
             name="gesturesCompleted"
-            placeholder="gesturesCompleted"
+            placeholder="{{ 'EXAMPLE.GESTURECOMPLETED' | translate }}"
             required
             [(ngModel)]="concert.gesturesCompleted"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC5" (change)="nullInputGesturesCompleted('gesturesCompleted', 'flexSwitchCheckDefaultC5')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
     </div>

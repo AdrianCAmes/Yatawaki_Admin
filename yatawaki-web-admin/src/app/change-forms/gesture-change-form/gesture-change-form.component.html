@@ -33,14 +33,14 @@
             class="form-control"
             id="name"
             name="name"
-            placeholder="name"
+            placeholder="{{ 'EXAMPLE.NAME' | translate }}"
             required
             [(ngModel)]="gesture.name"
           />
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC" (change)="nullInputName('name', 'flexSwitchCheckDefaultC')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 2 ***************-->
@@ -56,7 +56,7 @@
             class="form-control"
             id="description"
             name="description"
-            placeholder="description"
+            placeholder="{{ 'EXAMPLE.DESCRIPTION' | translate }}"
             required
             [(ngModel)]="gesture.description"
           />
@@ -64,7 +64,7 @@
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2" (change)="nullInputDescription('description', 'flexSwitchCheckDefaultC2')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
       <!--*************** END ATTRIBUTE 3 ***************-->
@@ -79,7 +79,7 @@
         </div>
         <div class="form-check form-switch col-sm-2 center">
           <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3" (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC3')">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+            <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
           </div>
       </div>
     </div>

@@ -15,6 +15,7 @@ export class AchievementNewFormComponent implements OnInit {
   statuses: any[] = [];
   unlockerTypes: any[] = [];
   rarenesss: any[] = [];
+  evidencia: any;
 
   constructor(private router: Router, private achievementService: AchievementService, private unlockableService: UnlockableService) { }
 
@@ -125,7 +126,7 @@ export class AchievementNewFormComponent implements OnInit {
 
   insertAchievement() {
     this.achievementService.createAchievement(this.achievement).subscribe(
-      (datos) => console.log(datos)
+      (datos) => this.evidencia = datos
       //(error) => console.log(error)
     );
     this.achievement = new Achievement();

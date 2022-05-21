@@ -21,7 +21,7 @@ export class AchievementComponent implements OnInit {
   constructor(private achievementService: AchievementService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.achievementService.getAchievements().subscribe(response => {
+    this.achievementService.getAchievements().subscribe((response) => {
       console.log(response)
       this.achievements = response;
     });
@@ -35,6 +35,7 @@ export class AchievementComponent implements OnInit {
 
   deleteAchievement(achievement: Achievement) {
     this.achievementService.deleteAchievement(achievement.idUnlockable).subscribe((data) => {
+      console.log(data);
       this.loadDataAchievements();
     });
   }

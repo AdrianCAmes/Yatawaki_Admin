@@ -16,10 +16,11 @@ export class AchievementChangeFormComponent implements OnInit {
   statuses: any[] = [];
   unlockerTypes: any[] = [];
   rarenesss: any[]=[];
+  evidencia: any;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private achievementService: AchievementService, private unlockableService: UnlockableService) { }
+    public achievementService: AchievementService, private unlockableService: UnlockableService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -137,7 +138,8 @@ export class AchievementChangeFormComponent implements OnInit {
   changeAchievement() {
     this.achievementService.changeAchievement(this.achievement).subscribe(
       (datos) => {
-        console.log(datos);
+        this.evidencia = datos
+        console.log(this.evidencia);
         //this.router.navigate(['ListCustomer']);
       }
     );

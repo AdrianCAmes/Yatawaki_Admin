@@ -17,6 +17,7 @@ export class UserUnlockableChangeFormComponent implements OnInit {
   users: any[] = [];
   unlockables: any[] = []
   statuses: any[] = [];
+  evidencia: any
 
   constructor(private route: ActivatedRoute, private router: Router, private unlockableService: UnlockableService, private userService: UserService, private userUnlockService: UserUnlockableService) { }
 
@@ -96,12 +97,14 @@ export class UserUnlockableChangeFormComponent implements OnInit {
 
   changeUserUnlockable() {
     this.userUnlockService.changeUserUnlockable(this.userUnlockable).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos);
+        this.evidencia = datos
+      }
     );
     this.userUnlockable = new UserUnlockableUpdate();
     //this.router.navigate(['ListCustomer']);
-    return this.router.navigate(['sidenavbar/user-unlockable']).then(()=>
-    {
+    return this.router.navigate(['sidenavbar/user-unlockable']).then(() => {
       console.log(this.router.url);
       window.location.reload();
     })

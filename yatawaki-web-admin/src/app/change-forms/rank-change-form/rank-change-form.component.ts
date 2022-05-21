@@ -13,6 +13,7 @@ export class RankChangeFormComponent implements OnInit {
   id: number = 0;
   rank: Rank = new Rank();
   statuses: any[] = [];
+  evidencia: any;
 
   constructor(private router: Router, private route: ActivatedRoute,
     private rankService: RankService) { }
@@ -77,6 +78,7 @@ export class RankChangeFormComponent implements OnInit {
     this.rankService.changeRank(this.rank).subscribe(
       (datos) => {
         console.log(datos);
+        this.evidencia = datos
         //this.router.navigate(['ListCustomer']);
       }
     );

@@ -7,7 +7,7 @@
       <form class="form-floating" (ngSubmit)="searchUserById()">
         <label for="id">{{ 'ENTER' | translate }}:</label>
         <input type="number" class="form-control" id="id" name="id" required [(ngModel)]="id"
-          placeholder="Search User by Id" />
+          placeholder="{{ 'ENTER' | translate }}" />
         <div class="col-2 mx-auto p-2">
           <button type="submit" class="btn btn-outline-success">{{ 'SEARCH' | translate }}</button>
         </div>
@@ -26,7 +26,8 @@
             </mat-card-content>
             <mat-card-actions>
               <button mat-button mat-button (click)="showChangeForm()">{{ 'UPDATE' | translate }}</button>
-              <button mat-button mwlConfirmationPopover [popoverMessage]="popoverMessage" placement="right"
+              <button mat-button mwlConfirmationPopover [popoverMessage]=" 'POPOVER' | translate " placement="right"
+                [confirmText]=" 'CONFIRM' | translate " [cancelText]=" 'CANCEL' | translate "
                 (confirm)="deleteUser(user)" (cancel)="cancelClicked = true" class="btn btn-outline-danger">{{ 'DELETE'
                 | translate }}</button>
             </mat-card-actions>
@@ -51,13 +52,13 @@
                     {{ 'NICKNAME' | translate }} :
                   </label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nickname" name="nickname" placeholder="nickname"
-                      required [(ngModel)]="user.nickname" />
+                    <input type="text" class="form-control" id="nickname" name="nickname"
+                      placeholder="{{ 'EXAMPLE.NICKNAME' | translate }}" required [(ngModel)]="user.nickname" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC"
                       (change)="nullInputNickname('nickname', 'flexSwitchCheckDefaultC')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** END ATTRIBUTE 2 ***************-->
@@ -68,12 +69,12 @@
                   </label>
                   <div class="col-sm-10">
                     <input matInput type="password" class="form-control" id="password" name="password"
-                      placeholder="password" required [(ngModel)]="user.password" />
+                      placeholder="{{ 'EXAMPLE.PASSWORD' | translate }}" required [(ngModel)]="user.password" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC2"
                       (change)="nullInputPassword('password', 'flexSwitchCheckDefaultC2')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** END ATTRIBUTE 3 ***************-->
@@ -83,12 +84,12 @@
                   </label>
                   <div class="col-sm-10">
                     <input matInput type="firstname" class="form-control" id="firstname" name="firstname"
-                      placeholder="firstname" required [(ngModel)]="user.firstname" />
+                      placeholder="{{ 'EXAMPLE.FIRSTNAME' | translate }}" required [(ngModel)]="user.firstname" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC3"
                       (change)="nullInputFirstName('firstname', 'flexSwitchCheckDefaultC3')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** ATTRIBUTE 4 ***************-->
@@ -98,12 +99,12 @@
                   </label>
                   <div class="col-sm-10">
                     <input matInput type="lastname" class="form-control" id="lastname" name="lastname"
-                      placeholder="lastname" required [(ngModel)]="user.lastname" />
+                      placeholder="{{ 'EXAMPLE.LASTNAME' | translate }}" required [(ngModel)]="user.lastname" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC4"
                       (change)="nullInputLastName('lastname', 'flexSwitchCheckDefaultC4')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** END ATTRIBUTE 4 ***************-->
@@ -112,13 +113,13 @@
                     {{ 'MAIL' | translate }} :
                   </label>
                   <div class="col-sm-10">
-                    <input matInput type="mail" class="form-control" id="mail" name="mail" placeholder="mail" required
-                      [(ngModel)]="user.mail" />
+                    <input matInput type="mail" class="form-control" id="mail" name="mail"
+                      placeholder="{{ 'EXAMPLE.MAIL' | translate }}" required [(ngModel)]="user.mail" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC5"
                       (change)="nullInputMail('mail', 'flexSwitchCheckDefaultC5')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** END ATTRIBUTE 4 ***************-->
@@ -137,7 +138,7 @@
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC6"
                       (change)="nullInputBirthDate('birthDate', 'flexSwitchCheckDefaultC6')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** END ATTRIBUTE 4 ***************-->
@@ -147,12 +148,12 @@
                   </label>
                   <div class="col-sm-10">
                     <input matInput type="coinsOwned" class="form-control" id="coinsOwned" name="coinsOwned"
-                      placeholder="coinsOwned" required [(ngModel)]="user.coinsOwned" />
+                      placeholder="{{ 'EXAMPLE.COINSOWNED' | translate }}" required [(ngModel)]="user.coinsOwned" />
                   </div>
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC7"
                       (change)="nullInputCoinsOwned('coinsOwned', 'flexSwitchCheckDefaultC7')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** END ATTRIBUTE 4 ***************-->
@@ -166,7 +167,7 @@
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC8"
                       (change)="nullInputStatus('status', 'flexSwitchCheckDefaultC8')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
                 <!--*************** END ATTRIBUTE 9 ***************-->
@@ -180,7 +181,7 @@
                   <div class="form-check form-switch col-sm-2 center">
                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultC9"
                       (change)="nullInputRole('role', 'flexSwitchCheckDefaultC9')">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Null</label>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ 'NULL'| translate }}</label>
                   </div>
                 </div>
               </div>

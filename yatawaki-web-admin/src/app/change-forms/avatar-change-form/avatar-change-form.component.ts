@@ -17,6 +17,7 @@ export class AvatarChangeFormComponent implements OnInit {
   unlockerTypes: any[] = [];
   valor:string = '';
   rarenesss: any[] = [];
+  evidencia: any;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -146,6 +147,7 @@ export class AvatarChangeFormComponent implements OnInit {
     this.avatarService.changeAvatar(this.avatar).subscribe(
       (datos) => {
         console.log(datos);
+        this.evidencia = datos;
         //this.router.navigate(['ListCustomer']);
       }
     );

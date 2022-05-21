@@ -17,6 +17,7 @@ export class SymphonyNewFormComponent implements OnInit {
   composers: any[] = [];
   unlockerTypes: any[] = [];
   rarenesss: any[] = [];
+  evidencia: any
 
   constructor(private router: Router, private symphonyService: SymphonyService, private unlockableService: UnlockableService, private composerService: ComposerService) { }
 
@@ -166,7 +167,10 @@ export class SymphonyNewFormComponent implements OnInit {
   
   insertSymphony() {
     this.symphonyService.createSymphony(this.symphony).subscribe(
-      (datos) => console.log(datos)
+      (datos) => {
+        console.log(datos)
+        this.evidencia = datos
+      }
       //(error) => console.log(error)
     );
     this.symphony = new SymphonyCreate();
