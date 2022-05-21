@@ -216,5 +216,9 @@
         "CURRENTEXPERIENCE": "Ej. 5000",
         "LONGDESCRIPTION": "Ej. Buena descripción",
         "SHORTDESCRIPTION": "Ej. Buena"
-    }
+    },
+    "NULL": "Nulo",
+    "CONFIRM": "Confirmar",
+    "CANCEL": "Cancelar",
+    "POPOVER": "¿Seguro que quieres eliminar este elemento?"
 }

@@ -211,5 +211,9 @@
         "CURRENTEXPERIENCE": "Ex. 5000",
         "LONGDESCRIPTION": "Ex. Good description",
         "SHORTDESCRIPTION": "Ex. Good"
-    }
+    },
+    "NULL": "Null",
+    "CONFIRM": "Confirm",
+    "CANCEL": "Cancel",
+    "POPOVER": "Are you sure you want to delete this item?"
 }
