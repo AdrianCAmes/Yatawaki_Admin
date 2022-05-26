@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BASE_URL } from '../commons/BaseUrl';
 
 
 @Injectable({
@@ -8,33 +9,33 @@ import { Observable } from 'rxjs';
 })
 export class ConcertService {
 
-  apiURL: string = "http://localhost:8081/api/v1/concert"
+  apiURL: string = "api/v1/concert"
 
   constructor(private http: HttpClient) { }
 
   getConcerts(): Observable<any> {
-    return this.http.get<any>(this.apiURL);
+    return this.http.get<any>(BASE_URL+this.apiURL);
   }
 
   
   getConcertById(id: number): Observable<any> {
-    return this.http.get(`${this.apiURL}/${id}`);
+    return this.http.get(`${BASE_URL+this.apiURL}/${id}`);
   }
 
   createConcert(concert: Object): Observable<Object> {
-    return this.http.post(this.apiURL, concert);
+    return this.http.post(BASE_URL+this.apiURL, concert);
   }
 
   changeConcert(concert: Object): Observable<Object> {
-    return this.http.put(this.apiURL, concert);
+    return this.http.put(BASE_URL+this.apiURL, concert);
   }
 
   deleteConcert(id?: number): Observable<any> {
-    return this.http.delete(`${this.apiURL}/${id}`);
+    return this.http.delete(`${BASE_URL+this.apiURL}/${id}`);
   }
 
   getConcertStatus(): Observable<any>{
-    return this.http.get<any>(this.apiURL + '/status');
+    return this.http.get<any>(BASE_URL+this.apiURL + '/status');
   }
 
 }

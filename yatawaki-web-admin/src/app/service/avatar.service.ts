@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { retry } from 'rxjs/operators';
 import { Avatar } from '../models/avatar';
+import { BASE_URL } from '../commons/BaseUrl';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AvatarService implements ErrorHandler{
 
   constructor(private http: HttpClient) { }
 
-  apiURL: string = "http://localhost:8081/api/v1/avatar"
+  apiURL: string = "api/v1/avatar"
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -22,29 +23,29 @@ export class AvatarService implements ErrorHandler{
 
   getAvatars(): Observable<any> {
     //const url = 'http://localhost:8081/api/v1/avatar';
-    return this.http.get<any>(this.apiURL);
+    return this.http.get<any>(BASE_URL+this.apiURL);
   }
 
   
   getAvatarById(id: number): Observable<any> {
-    return this.http.get(`${this.apiURL}/${id}`);
+    return this.http.get(`${BASE_URL+this.apiURL}/${id}`);
   }
 
   createAvatar(avatar: Object): Observable<Object> {
     //const url = '/api/v1/avatar';
-    return this.http.post(this.apiURL, avatar);
+    return this.http.post(BASE_URL+this.apiURL, avatar);
   }
 
   updateAvatar(avatar: Object): Observable<Object> {
-    return this.http.patch(this.apiURL, avatar);
+    return this.http.patch(BASE_URL+this.apiURL, avatar);
   }
 
   changeAvatar(avatar: Object): Observable<Object> {
-    return this.http.put(this.apiURL, avatar);
+    return this.http.put(BASE_URL+this.apiURL, avatar);
   }
 
   deleteAvatar(id?: number): Observable<any> {
-    return this.http.delete(`${this.apiURL}/${id}`);
+    return this.http.delete(`${BASE_URL+this.apiURL}/${id}`);
   }
 
   handleError(error:any) {
