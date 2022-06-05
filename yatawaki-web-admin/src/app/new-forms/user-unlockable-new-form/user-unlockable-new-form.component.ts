@@ -15,10 +15,14 @@ export class UserUnlockableNewFormComponent implements OnInit {
   userUnlockable: UserUnlockableCreate = new UserUnlockableCreate();
   users: any[] = [];
   unlockables: any[] = []
-  evidencia: any
+  evidencia: any;
+  compWindow: any;
 
-  constructor(private router: Router, private userService: UserService, private unlockableService: UnlockableService, private userUnlockService: UserUnlockableService ) { }
+  constructor(private router: Router, private userService: UserService, private unlockableService: UnlockableService, private userUnlockService: UserUnlockableService ) { 
+    this.compWindow = window;
+  }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
 
     this.userService.getUsers().subscribe(
@@ -67,7 +71,7 @@ export class UserUnlockableNewFormComponent implements OnInit {
     return this.router.navigate(['sidenavbar/user-unlockable']).then(()=>
     {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 

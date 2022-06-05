@@ -34,6 +34,7 @@ import { SymphonyInstrumentCreate } from 'src/app/models/create/SymphonyInstrume
 import { SymphonyInstrumentService } from 'src/app/service/symphony-instrument.service';
 
 import { SymphonyInstrumentNewFormComponent } from './symphony-instrument-new-form.component';
+import { Router } from '@angular/router';
 
 class SymphonyInstrumentTestingService {
   createSymphonyInstrument(symphonyInstrument: Object): Observable<Object> {
@@ -81,6 +82,12 @@ class SymphonyInstrumentTestingService {
 describe('SymphonyInstrumentNewFormComponent', () => {
   let fixture: ComponentFixture<SymphonyInstrumentNewFormComponent>;
   let component: SymphonyInstrumentNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -130,6 +137,7 @@ describe('SymphonyInstrumentNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(SymphonyInstrumentNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -141,7 +149,10 @@ describe('SymphonyInstrumentNewFormComponent', () => {
       position: "Symphony Instrument",
     }
     component.symphonyInstrument = newSymphonyInstrument;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertSymphonyInstrument();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idSymphonyInstrument: 1,
       symphony: {

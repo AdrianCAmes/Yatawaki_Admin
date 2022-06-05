@@ -33,6 +33,7 @@ import { Achievement } from 'src/app/models/achievement';
 import { AchievementService } from 'src/app/service/achievement.service';
 
 import { AchievementCardComponent } from './achievement-card.component';
+import { AchievementComponent } from 'src/app/pages/achievement/achievement.component';
 
 class AchievementTestingService {
   getAchievementById(id: number): Observable<any> {
@@ -53,7 +54,8 @@ class AchievementTestingService {
 describe('AchievementCardComponent', () => {
   let fixture: ComponentFixture<AchievementCardComponent>;
   let component: AchievementCardComponent;
-
+  let service: AchievementService
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -92,6 +94,7 @@ describe('AchievementCardComponent', () => {
       ],
       declarations: [
         AchievementCardComponent,
+        AchievementComponent,
         SidenavbarComponent,
         TableComponent,],
       providers: [TranslateService,
@@ -100,6 +103,7 @@ describe('AchievementCardComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(AchievementCardComponent)
     component = fixture.componentInstance;
+    service = TestBed.get(AchievementService);
     fixture.detectChanges();
   });
 

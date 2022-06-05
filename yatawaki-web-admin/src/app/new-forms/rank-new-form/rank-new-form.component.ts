@@ -14,10 +14,12 @@ export class RankNewFormComponent implements OnInit {
 
   rank: Rank = new Rank();
   statuses: any[] = [];
-  evidencia: any
+  evidencia: any;
 
-  constructor(private router: Router, private rankService: RankService) { }
+  constructor(private router: Router, private rankService: RankService) { 
+  }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.rankService.getRankStatus().subscribe(
       datos => {
@@ -27,6 +29,7 @@ export class RankNewFormComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -37,6 +40,7 @@ export class RankNewFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputLevel(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -47,6 +51,7 @@ export class RankNewFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputMaxExperience(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -57,6 +62,7 @@ export class RankNewFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";

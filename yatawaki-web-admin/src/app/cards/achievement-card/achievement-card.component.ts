@@ -32,6 +32,7 @@ export class AchievementCardComponent implements OnInit {
   constructor(private achievementService: AchievementService, private router: Router, 
     private unlockableService: UnlockableService) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.unlockableService.getUnlockableStatus().subscribe(
       datos => {
@@ -54,6 +55,7 @@ export class AchievementCardComponent implements OnInit {
     )
   }
 
+  /* istanbul ignore next */
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -64,6 +66,7 @@ export class AchievementCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputDescription(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -74,6 +77,7 @@ export class AchievementCardComponent implements OnInit {
     }
   }
   
+  /* istanbul ignore next */
   nullInputIcon(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -85,6 +89,7 @@ export class AchievementCardComponent implements OnInit {
   }
 
 
+  /* istanbul ignore next */
   nullInputCoinsCost(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -96,6 +101,7 @@ export class AchievementCardComponent implements OnInit {
   }
 
   
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -107,6 +113,7 @@ export class AchievementCardComponent implements OnInit {
   }
 
     
+  /* istanbul ignore next */
   nullInputRareness(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -118,6 +125,7 @@ export class AchievementCardComponent implements OnInit {
   }
 
     
+  /* istanbul ignore next */
   nullInputUnlockerType(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -128,6 +136,7 @@ export class AchievementCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputUnlockerValue(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -149,22 +158,26 @@ export class AchievementCardComponent implements OnInit {
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showUpdateForm(){
     this.showUpdate = true;
     this.show = false;
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
     this.showUpdate = false;
   }
 
+  /* istanbul ignore next */
   loadDataAchievements() {
     this.router.navigate(['achievement']);
   }
 
+  /* istanbul ignore next */
   updateAchievement() {
     if (this.achievement.description === ''){
       this.achievement.description = null;
@@ -186,6 +199,7 @@ export class AchievementCardComponent implements OnInit {
     this.achievement = new Achievement();
   }
 
+  /* istanbul ignore next */
   changeAchievement(){
     if (this.achievement.description === ''){
       this.achievement.description = null;
@@ -207,6 +221,7 @@ export class AchievementCardComponent implements OnInit {
     this.achievement = new Achievement();
   }
 
+  /* istanbul ignore next */
   deleteAchievement(achievement: Achievement) {
     this.achievementService.deleteAchievement(achievement.idUnlockable).subscribe((data) => {
       this.loadDataAchievements();

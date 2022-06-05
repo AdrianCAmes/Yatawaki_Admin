@@ -17,10 +17,14 @@ export class UserUnlockableChangeFormComponent implements OnInit {
   users: any[] = [];
   unlockables: any[] = []
   statuses: any[] = [];
-  evidencia: any
+  evidencia: any;
+  compWindow: any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private unlockableService: UnlockableService, private userService: UserService, private userUnlockService: UserUnlockableService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private unlockableService: UnlockableService, private userService: UserService, private userUnlockService: UserUnlockableService) { 
+    this.compWindow = window;
+  }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
 
     this.id = this.route.snapshot.params['id'];
@@ -56,6 +60,7 @@ export class UserUnlockableChangeFormComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -66,6 +71,7 @@ export class UserUnlockableChangeFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputUnlockedDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -106,7 +112,7 @@ export class UserUnlockableChangeFormComponent implements OnInit {
     //this.router.navigate(['ListCustomer']);
     return this.router.navigate(['sidenavbar/user-unlockable']).then(() => {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 

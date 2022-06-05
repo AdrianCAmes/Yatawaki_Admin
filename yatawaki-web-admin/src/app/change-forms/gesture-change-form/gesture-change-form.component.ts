@@ -13,11 +13,15 @@ export class GestureChangeFormComponent implements OnInit {
   id: number = 0;
   gesture: Gesture = new Gesture();
   statuses: any[] = [];
-  evidencia: any
+  evidencia: any;
+  compWindow: any;
 
   constructor(private router: Router, private route: ActivatedRoute,
-    private gestureService: GestureService) { }
+    private gestureService: GestureService) {
+      this.compWindow = window;
+     }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.gestureService.getGestureById(this.id).subscribe(
@@ -34,6 +38,7 @@ export class GestureChangeFormComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -44,6 +49,7 @@ export class GestureChangeFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputDescription(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -54,6 +60,7 @@ export class GestureChangeFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -76,7 +83,7 @@ export class GestureChangeFormComponent implements OnInit {
     return this.router.navigate(['sidenavbar/gesture']).then(()=>
     {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 

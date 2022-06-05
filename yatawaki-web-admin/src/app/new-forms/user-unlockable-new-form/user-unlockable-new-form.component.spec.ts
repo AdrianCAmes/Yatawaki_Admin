@@ -81,7 +81,12 @@ class UserUnlockableTestingService {
 describe('UserUnlockableNewFormComponent', () => {
   let fixture: ComponentFixture<UserUnlockableNewFormComponent>;
   let component: UserUnlockableNewFormComponent;
-  let router: Router
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -131,7 +136,7 @@ describe('UserUnlockableNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(UserUnlockableNewFormComponent)
     component = fixture.componentInstance;
-    router = TestBed.get(Router)
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -141,7 +146,10 @@ describe('UserUnlockableNewFormComponent', () => {
       idUnlockable: 1
     }
     component.userUnlockable = newUserUnlockable;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertUserUnlockable();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUserUnlockable: 1,
       user: {

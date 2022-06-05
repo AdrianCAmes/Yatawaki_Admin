@@ -34,6 +34,7 @@ import { UserStatisticService } from 'src/app/service/user-statistic.service';
 import { UserStatisticComponent } from 'src/app/pages/user-statistic/user-statistic.component';
 
 import { UserStatisticChangeFormComponent } from './user-statistic-change-form.component';
+import { Router } from '@angular/router';
 
 class UserStatisticTestingService {
 
@@ -67,7 +68,13 @@ class UserStatisticTestingService {
 describe('UserStatisticChangeFormComponent', () => {
   let fixture: ComponentFixture<UserStatisticChangeFormComponent>;
   let component: UserStatisticChangeFormComponent;
-  let service: UserStatisticService
+  let service: UserStatisticService;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -119,6 +126,7 @@ describe('UserStatisticChangeFormComponent', () => {
     fixture = TestBed.createComponent(UserStatisticChangeFormComponent)
     component = fixture.componentInstance;
     service = TestBed.get(UserStatisticService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -135,7 +143,10 @@ describe('UserStatisticChangeFormComponent', () => {
     spyOn(service, 'getUserStatisticById').withArgs(component.id).and.returnValue(of(data));
     component.userStatistic.triviasPlayed = 2;
     component.userStatistic.triviasWon = 2;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.changeUserStatistic();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUserStatistics: 1,
       triviasPlayed: 2,

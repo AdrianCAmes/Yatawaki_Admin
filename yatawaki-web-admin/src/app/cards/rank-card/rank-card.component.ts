@@ -28,6 +28,7 @@ export class RankCardComponent implements OnInit {
 
   constructor(private rankService: RankService, private router: Router) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.rankService.getRankStatus().subscribe(
       datos => {
@@ -37,6 +38,7 @@ export class RankCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -47,6 +49,7 @@ export class RankCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputLevel(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -57,6 +60,7 @@ export class RankCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputMaxExperience(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -67,6 +71,7 @@ export class RankCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -87,16 +92,19 @@ export class RankCardComponent implements OnInit {
   }
 
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
   }
 
+  /* istanbul ignore next */
   loadDataRanks() {
     this.router.navigate(['rank']);
   }
 
 
+  /* istanbul ignore next */
   changeRank(){
     this.rankService.changeRank(this.rank).subscribe(
       datos => {
@@ -106,6 +114,7 @@ export class RankCardComponent implements OnInit {
     this.rank = new Rank();
   }
 
+  /* istanbul ignore next */
   deleteRank(rank: Rank) {
     this.rankService.deleteRank(rank.idRank).subscribe((data) => {
       this.loadDataRanks();

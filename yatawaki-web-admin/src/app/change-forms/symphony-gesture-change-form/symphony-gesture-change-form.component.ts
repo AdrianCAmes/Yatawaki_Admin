@@ -20,10 +20,14 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
   idSymphony:any;
   symphonyDefault:any = '';
   rarenesss: any[] = [];
-  evidencia: any
+  evidencia: any;
+  compWindow: any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private unlockableService: UnlockableService, private symphonyService: SymphonyService, private gestureService: GestureService, private symphonyGesService: SymphonyGestureService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private unlockableService: UnlockableService, private symphonyService: SymphonyService, private gestureService: GestureService, private symphonyGesService: SymphonyGestureService) {
+    this.compWindow = window;
+   }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
 
     this.id = this.route.snapshot.params['id'];
@@ -75,6 +79,7 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
 
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -85,6 +90,7 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputBeginningTime(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -95,6 +101,7 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputEndingTime(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -137,7 +144,7 @@ export class SymphonyGestureChangeFormComponent implements OnInit {
     return this.router.navigate(['sidenavbar/symphony-gesture']).then(()=>
     {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 

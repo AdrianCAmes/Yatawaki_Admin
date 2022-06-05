@@ -11,16 +11,20 @@ import { TokenStorageService } from 'src/app/service/token-storage.service';
 })
 export class LoginFormComponent implements OnInit {
 
+  /* istanbul ignore next */
   flag: boolean = false;
   e: boolean = false;
   public popoverMessage:string = 'Datos de incio de sesión incorrecto'
 
+  /* istanbul ignore next */
   constructor(private authService: AuthService, private tokenService: TokenStorageService, private router:Router) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
 
   }
 
+  /* istanbul ignore next */
   async login(loginForm: NgForm){
     await this.authService.login2(loginForm.value).subscribe(
       (response:any) =>{

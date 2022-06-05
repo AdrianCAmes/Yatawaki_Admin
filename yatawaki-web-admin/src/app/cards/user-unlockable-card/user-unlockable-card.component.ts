@@ -30,6 +30,7 @@ export class UserUnlockableCardComponent implements OnInit {
 
   constructor(private router: Router, private userUnlockService: UserUnlockableService, private unlockableService: UnlockableService, private userService: UserService) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
 
     this.unlockableService.getUnlockableStatus().subscribe(
@@ -54,6 +55,7 @@ export class UserUnlockableCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -64,6 +66,7 @@ export class UserUnlockableCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputUnlockedDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -84,22 +87,26 @@ export class UserUnlockableCardComponent implements OnInit {
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showUpdateForm(){
     this.showUpdate = true;
     this.show = false;
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
     this.showUpdate = false;
   }
 
+  /* istanbul ignore next */
   loadDataUserUnlockable() {
     this.router.navigate(['userUnlockable']);
   }
 
+  /* istanbul ignore next */
   changeUserUnlockable() {
     this.userUnlockService.changeUserUnlockable(this.userUnlockable).subscribe(
       (datos) => console.log(datos)
@@ -108,6 +115,7 @@ export class UserUnlockableCardComponent implements OnInit {
     //this.router.navigate(['ListCustomer']);
   }
 
+  /* istanbul ignore next */
   deleteUserUnlockable(userUnlockable: UserUnlockableUpdate) {
     this.userUnlockService.deleteUserUnlockable(userUnlockable.idUserUnlockable).subscribe((data) => {
       this.loadDataUserUnlockable();

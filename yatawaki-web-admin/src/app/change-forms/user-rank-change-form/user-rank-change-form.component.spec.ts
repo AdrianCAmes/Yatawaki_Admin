@@ -34,6 +34,7 @@ import { UserRankService } from 'src/app/service/user-rank.service';
 import { UserRankComponent } from 'src/app/pages/user-rank/user-rank.component';
 
 import { UserRankChangeFormComponent } from './user-rank-change-form.component';
+import { Router } from '@angular/router';
 
 class UserRankTestingService {
 
@@ -120,7 +121,13 @@ class UserRankTestingService {
 describe('UserRankChangeFormComponent', () => {
   let fixture: ComponentFixture<UserRankChangeFormComponent>;
   let component: UserRankChangeFormComponent;
-  let service: UserRankService
+  let service: UserRankService;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -172,6 +179,7 @@ describe('UserRankChangeFormComponent', () => {
     fixture = TestBed.createComponent(UserRankChangeFormComponent)
     component = fixture.componentInstance;
     service = TestBed.get(UserRankService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -215,7 +223,10 @@ describe('UserRankChangeFormComponent', () => {
     spyOn(service, 'getUserRankById').withArgs(component.id).and.returnValue(of(data));
     component.userRank.currentExperience = 2;
     component.userRank.status = 0;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.changeUserRank();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUserRank: 1,
       user: {

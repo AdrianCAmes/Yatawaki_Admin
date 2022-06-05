@@ -15,10 +15,14 @@ export class SymphonyInstrumentNewFormComponent implements OnInit {
   symphonyInstrument: SymphonyInstrumentCreate = new SymphonyInstrumentCreate();
   symphonies: any[] = [];
   instruments: any[] = []
-  evidencia: any
+  evidencia: any;
+  compWindow: any;
 
-  constructor(private router: Router, private symphonyService: SymphonyService, private instrumentService: InstrumentService, private symphonyInsService: SymphonyInstrumentService) { }
+  constructor(private router: Router, private symphonyService: SymphonyService, private instrumentService: InstrumentService, private symphonyInsService: SymphonyInstrumentService) { 
+    this.compWindow = window;
+  }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
 
     this.symphonyService.getSymphonies().subscribe(
@@ -37,6 +41,7 @@ export class SymphonyInstrumentNewFormComponent implements OnInit {
 
   }
 
+  /* istanbul ignore next */
   nullInputTrack(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -47,6 +52,7 @@ export class SymphonyInstrumentNewFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputPosition(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -88,7 +94,7 @@ export class SymphonyInstrumentNewFormComponent implements OnInit {
     return this.router.navigate(['sidenavbar/symphony-instrument']).then(()=>
     {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 
