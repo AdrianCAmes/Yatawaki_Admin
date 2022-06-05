@@ -18,6 +18,6 @@ jobs:
       - name: Tests Run
         run: |
           cd yatawaki-web-admin
-          npm install -g angular-cli
+          npm install
           npm run build
-          ng test --browsers ChromeHeadless
+          npm run test-headless
