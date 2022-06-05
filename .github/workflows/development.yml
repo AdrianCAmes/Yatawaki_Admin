@@ -3,7 +3,10 @@ name: Tests
 on:
   push:
     branches:
-      - main
+      - '**'
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   run-tests:
@@ -13,4 +16,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Tests Run
-        run: ng run --no-watch --code-coverage
+        run: |
+          cd yatawaki-web-admin
+          npm install
+          npm run build
+          npm run test:prod
