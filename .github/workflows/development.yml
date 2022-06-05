@@ -20,4 +20,5 @@ jobs:
       - name: Tests Run
         run: |
           cd yatawaki-web-admin
+          npm run build
           npm test
