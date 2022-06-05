@@ -33,6 +33,7 @@ import { UserRankCreate } from 'src/app/models/create/UserRankCreate';
 import { UserRankService } from 'src/app/service/user-rank.service';
 
 import { UserRankNewFormComponent } from './user-rank-new-form.component';
+import { Router } from '@angular/router';
 
 class UserRankTestingService {
   createUserRank(userRank: Object): Observable<Object> {
@@ -78,6 +79,12 @@ class UserRankTestingService {
 describe('UserRankNewFormComponent', () => {
   let fixture: ComponentFixture<UserRankNewFormComponent>;
   let component: UserRankNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -127,6 +134,7 @@ describe('UserRankNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(UserRankNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -136,7 +144,10 @@ describe('UserRankNewFormComponent', () => {
       idRank: 1,
     }
     component.userRank = newUserRank;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertUserRank();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUserRank: 1,
       user: {

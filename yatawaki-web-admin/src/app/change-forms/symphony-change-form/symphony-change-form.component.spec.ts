@@ -35,6 +35,7 @@ import { SymphonyService } from 'src/app/service/symphony.service';
 import { SymphonyComponent } from 'src/app/pages/symphony/symphony.component';
 
 import { SymphonyChangeFormComponent } from './symphony-change-form.component';
+import { Router } from '@angular/router';
 
 class SymphonyTestingService {
 
@@ -93,7 +94,13 @@ class SymphonyTestingService {
 describe('SymphonyChangeFormComponent', () => {
   let fixture: ComponentFixture<SymphonyChangeFormComponent>;
   let component: SymphonyChangeFormComponent;
-  let service: SymphonyService
+  let service: SymphonyService;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -145,6 +152,7 @@ describe('SymphonyChangeFormComponent', () => {
     fixture = TestBed.createComponent(SymphonyChangeFormComponent)
     component = fixture.componentInstance;
     service = TestBed.get(SymphonyService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -175,7 +183,10 @@ describe('SymphonyChangeFormComponent', () => {
     component.id = 1
     spyOn(service, 'getSymphonyById').withArgs(component.id).and.returnValue(of(data));
     component.symphony.name = "Symphony 1";
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.changeSymphony();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUnlockable: 1,
       name: "Symphony 1",

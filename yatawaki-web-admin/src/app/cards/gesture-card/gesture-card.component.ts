@@ -27,6 +27,7 @@ export class GestureCardComponent implements OnInit {
 
   constructor(private gestureService: GestureService, private router: Router) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.gestureService.getGestureStatus().subscribe(
       datos => {
@@ -36,6 +37,7 @@ export class GestureCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -46,6 +48,7 @@ export class GestureCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputDescription(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -56,6 +59,7 @@ export class GestureCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -76,16 +80,19 @@ export class GestureCardComponent implements OnInit {
   }
 
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
   }
 
+  /* istanbul ignore next */
   loadDataGestures() {
     this.router.navigate(['gesture']);
   }
 
 
+  /* istanbul ignore next */
   changeGesture(){
     this.gestureService.changeGesture(this.gesture).subscribe(
       datos => {
@@ -95,6 +102,7 @@ export class GestureCardComponent implements OnInit {
     this.gesture = new Gesture();
   }
 
+  /* istanbul ignore next */
   deleteGesture(gesture: Gesture) {
     this.gestureService.deleteGesture(gesture.idGesture).subscribe((data) => {
       this.loadDataGestures();

@@ -15,10 +15,14 @@ export class UserRankNewFormComponent implements OnInit {
   userRank: UserRankCreate = new UserRankCreate();
   users: any[] = [];
   ranks: any[] =[];
-  evidencia: any
+  evidencia: any;
+  compWindow: any;
 
-  constructor(private router: Router, private userRankService: UserRankService, private userService: UserService, private rankService: RankService) { }
+  constructor(private router: Router, private userRankService: UserRankService, private userService: UserService, private rankService: RankService) { 
+    this.compWindow = window;
+  }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
 
     this.userService.getUsers().subscribe(
@@ -47,7 +51,7 @@ export class UserRankNewFormComponent implements OnInit {
     return this.router.navigate(['sidenavbar/user-rank']).then(()=>
     {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 

@@ -36,6 +36,7 @@ export class AvatarCardComponent implements OnInit {
     private unlockableService: UnlockableService) { }
 
   
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.unlockableService.getUnlockableStatus().subscribe(
       datos => {
@@ -67,22 +68,26 @@ export class AvatarCardComponent implements OnInit {
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showUpdateForm(){
     this.showUpdate = true;
     this.show = false;
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
     this.showUpdate = false;
   }
 
+  /* istanbul ignore next */
   loadDataAvatars() {
     this.router.navigate(['avatar']);
   }
 
+  /* istanbul ignore next */
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -93,6 +98,7 @@ export class AvatarCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputDescription(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -103,6 +109,7 @@ export class AvatarCardComponent implements OnInit {
     }
   }
   
+  /* istanbul ignore next */
   nullInputIcon(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -112,6 +119,8 @@ export class AvatarCardComponent implements OnInit {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+
+  /* istanbul ignore next */
   nullInputEnhancedFeatures(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -122,6 +131,7 @@ export class AvatarCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputCoinsCost(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -133,6 +143,7 @@ export class AvatarCardComponent implements OnInit {
   }
 
   
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -144,6 +155,7 @@ export class AvatarCardComponent implements OnInit {
   }
 
     
+  /* istanbul ignore next */
   nullInputRareness(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -155,6 +167,7 @@ export class AvatarCardComponent implements OnInit {
   }
 
     
+  /* istanbul ignore next */
   nullInputUnlockerType(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -165,6 +178,7 @@ export class AvatarCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputUnlockerValue(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -176,6 +190,7 @@ export class AvatarCardComponent implements OnInit {
   }
 
 
+  /* istanbul ignore next */
   changeAvatar(){
     this.avatarService.changeAvatar(this.avatar).subscribe(
       datos => {
@@ -185,12 +200,14 @@ export class AvatarCardComponent implements OnInit {
     this.avatar = new Avatar();
   }
 
+  /* istanbul ignore next */
   deleteAvatar(avatar: Avatar) {
     this.avatarService.deleteAvatar(avatar.idUnlockable).subscribe((data) => {
       this.loadDataAvatars();
     });
   }
 
+  /* istanbul ignore next */
   openDialog() {
     const dialogRef = this.dialog.open(AvatarUpdateFormComponent);
 
@@ -199,6 +216,7 @@ export class AvatarCardComponent implements OnInit {
     });
   }
   
+  /* istanbul ignore next */
   toPngBlob(str:string){
     var hexStr = str.slice(2);
     var buf = new ArrayBuffer(hexStr.length/2);

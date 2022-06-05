@@ -28,6 +28,8 @@ export class ComposerCardComponent implements OnInit {
 
   constructor(private composerService: ComposerService, private router: Router, private unlockableService: UnlockableService) { }
 
+
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.unlockableService.getUnlockableStatus().subscribe(
       datos => {
@@ -37,6 +39,7 @@ export class ComposerCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -47,6 +50,7 @@ export class ComposerCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -57,6 +61,7 @@ export class ComposerCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputBirthDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -67,6 +72,7 @@ export class ComposerCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputDeathDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -87,23 +93,27 @@ export class ComposerCardComponent implements OnInit {
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showUpdateForm(){
     this.showUpdate = true;
     this.show = false;
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
     this.showUpdate = false;
   }
 
+  /* istanbul ignore next */
   loadDataComposers() {
     this.router.navigate(['composer']);
   }
 
 
+  /* istanbul ignore next */
   changeComposer(){
     this.composerService.changeComposer(this.composer).subscribe(
       datos => {
@@ -113,6 +123,7 @@ export class ComposerCardComponent implements OnInit {
     this.composer = new Composer();
   }
 
+  /* istanbul ignore next */
   deleteComposer(composer: Composer) {
     this.composerService.deleteComposer(composer.idComposer).subscribe((data) => {
       this.loadDataComposers();

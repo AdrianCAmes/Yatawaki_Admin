@@ -33,6 +33,7 @@ import { Avatar } from 'src/app/models/avatar';
 import { AvatarComponent } from 'src/app/pages/avatar/avatar.component';
 
 import { AvatarChangeFormComponent } from './avatar-change-form.component';
+import { Router } from '@angular/router';
 
 class AvatarTestingService {
 
@@ -59,7 +60,13 @@ describe('AvatarChangeFormComponent', () => {
   let fixture: ComponentFixture<AvatarChangeFormComponent>;
   let component: AvatarChangeFormComponent;
   let service: AvatarService
+  const myWindow = {
+    location: {
+      reload() { return 'something'; }
+    }
+  };
 
+  let router: Router;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -110,6 +117,7 @@ describe('AvatarChangeFormComponent', () => {
     fixture = TestBed.createComponent(AvatarChangeFormComponent)
     component = fixture.componentInstance;
     service = TestBed.get(AvatarService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -128,8 +136,11 @@ describe('AvatarChangeFormComponent', () => {
     }
     component.id = 1 
     spyOn(service, 'getAvatarById').withArgs(component.id).and.returnValue(of(data));
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.avatar.description = "Avatar prueba 2";
     component.changeAvatar();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUnlockable: 1,
       name: "Avatar 1",

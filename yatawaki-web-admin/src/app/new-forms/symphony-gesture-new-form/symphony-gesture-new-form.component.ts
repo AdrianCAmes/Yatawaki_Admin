@@ -14,11 +14,15 @@ export class SymphonyGestureNewFormComponent implements OnInit {
 
   symphonyGesture: SymphonyGestureCreate = new SymphonyGestureCreate();
   symphonies: any[] = [];
-  gestures: any[] = []
-  evidencia: any
+  gestures: any[] = [];
+  evidencia: any;
+  compWindow: any;
 
-  constructor(private router: Router, private symphonyService: SymphonyService, private gestureService: GestureService, private symphonyGesService: SymphonyGestureService) { }
+  constructor(private router: Router, private symphonyService: SymphonyService, private gestureService: GestureService, private symphonyGesService: SymphonyGestureService) { 
+    this.compWindow = window;
+  }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
 
     this.symphonyService.getSymphonies().subscribe(
@@ -37,6 +41,7 @@ export class SymphonyGestureNewFormComponent implements OnInit {
 
   }
 
+  /* istanbul ignore next */
   nullInputBeginningTime(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -47,6 +52,7 @@ export class SymphonyGestureNewFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputEndingTime(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -88,7 +94,7 @@ export class SymphonyGestureNewFormComponent implements OnInit {
     return this.router.navigate(['sidenavbar/symphony-gesture']).then(()=>
     {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 

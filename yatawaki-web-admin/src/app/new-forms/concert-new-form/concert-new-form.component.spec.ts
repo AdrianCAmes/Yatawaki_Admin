@@ -34,6 +34,7 @@ import { ConcertCreate } from 'src/app/models/create/ConcertCreate';
 import { ConcertService } from 'src/app/service/concert.service';
 
 import { ConcertNewFormComponent } from './concert-new-form.component';
+import { Router } from '@angular/router';
 
 class ConcertTestingService {
   createConcert(concert: Object): Observable<Object> {
@@ -95,6 +96,12 @@ class ConcertTestingService {
 describe('ConcertNewFormComponent', () => {
   let fixture: ComponentFixture<ConcertNewFormComponent>;
   let component: ConcertNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -144,6 +151,7 @@ describe('ConcertNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(ConcertNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -153,7 +161,10 @@ describe('ConcertNewFormComponent', () => {
       idUser: 1
     }
     component.concert = newAvatar;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertConcert();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idConcert: 1,
       symphony: {

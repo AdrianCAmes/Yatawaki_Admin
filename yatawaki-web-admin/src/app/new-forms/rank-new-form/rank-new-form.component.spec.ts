@@ -33,6 +33,7 @@ import { Rank } from 'src/app/models/ranks';
 import { RankService } from 'src/app/service/rank.service';
 
 import { RankNewFormComponent } from './rank-new-form.component';
+import { Router } from '@angular/router';
 
 class RankTestingService {
   createRank(rank: Object): Observable<Object> {
@@ -46,6 +47,12 @@ class RankTestingService {
 describe('RankNewFormComponent', () => {
   let fixture: ComponentFixture<RankNewFormComponent>;
   let component: RankNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -93,6 +100,7 @@ describe('RankNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(RankNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -104,7 +112,9 @@ describe('RankNewFormComponent', () => {
       maxExperience: 1,
       status: 1,}
     component.rank = newRank;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
     component.insertRank();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idRank: 1,
       name: "Rank",

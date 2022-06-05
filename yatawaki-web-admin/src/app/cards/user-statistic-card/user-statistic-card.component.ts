@@ -27,6 +27,7 @@ export class UserStatisticCardComponent implements OnInit {
 
   constructor(private userStatisticService: UserStatisticService, private router: Router) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.userStatisticService.getUserStatisticStatus().subscribe(
       datos => {
@@ -36,6 +37,7 @@ export class UserStatisticCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputTriviasPlayed(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -46,6 +48,7 @@ export class UserStatisticCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputTriviasWon(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -56,6 +59,7 @@ export class UserStatisticCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputConcertsOrchestrated(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -66,6 +70,7 @@ export class UserStatisticCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputOrchestrationAccuracy(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -76,6 +81,7 @@ export class UserStatisticCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -96,16 +102,19 @@ export class UserStatisticCardComponent implements OnInit {
   }
 
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
   }
 
+  /* istanbul ignore next */
   loadDataUserStatistics() {
     this.router.navigate(['user-statistic']);
   }
 
 
+  /* istanbul ignore next */
   changeUserStatistic(){
     this.userStatisticService.changeUserStatistic(this.userStatistic).subscribe(
       datos => {
@@ -115,6 +124,7 @@ export class UserStatisticCardComponent implements OnInit {
     this.userStatistic = new UserStatistic();
   }
 
+  /* istanbul ignore next */
   deleteUserStatistic(userStatistic: UserStatistic) {
     this.userStatisticService.deleteUserStatistic(userStatistic.idUserStatistics).subscribe((data) => {
       this.loadDataUserStatistics();

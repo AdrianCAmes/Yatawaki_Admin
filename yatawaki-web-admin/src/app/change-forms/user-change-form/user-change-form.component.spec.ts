@@ -34,6 +34,7 @@ import { UserService } from 'src/app/service/user.service';
 import { UserComponent } from 'src/app/pages/user/user.component';
 
 import { UserChangeFormComponent } from './user-change-form.component';
+import { Router } from '@angular/router';
 
 class UserTestingService {
 
@@ -95,7 +96,13 @@ class UserTestingService {
 describe('UserChangeFormComponent', () => {
   let fixture: ComponentFixture<UserChangeFormComponent>;
   let component: UserChangeFormComponent;
-  let service: UserService
+  let service: UserService;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -147,6 +154,7 @@ describe('UserChangeFormComponent', () => {
     fixture = TestBed.createComponent(UserChangeFormComponent)
     component = fixture.componentInstance;
     service = TestBed.get(UserService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -176,7 +184,10 @@ describe('UserChangeFormComponent', () => {
     spyOn(service, 'getUserById').withArgs(component.id).and.returnValue(of(data));
     component.user.nickname = "User 1";
     component.user.password = "User 1";
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.changeUser();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUser: 1,
       userStatistics: {

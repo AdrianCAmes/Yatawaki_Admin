@@ -27,6 +27,7 @@ export class InstrumentCardComponent implements OnInit {
 
   constructor(private instrumentService: InstrumentService, private router: Router) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.instrumentService.getInstrumentStatus().subscribe(
       datos => {
@@ -36,6 +37,7 @@ export class InstrumentCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -46,6 +48,7 @@ export class InstrumentCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputLongDescription(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -56,6 +59,7 @@ export class InstrumentCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputShortDescription(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -67,6 +71,7 @@ export class InstrumentCardComponent implements OnInit {
   }
 
   
+  /* istanbul ignore next */
   nullInputType(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -77,6 +82,7 @@ export class InstrumentCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -88,6 +94,7 @@ export class InstrumentCardComponent implements OnInit {
   }
 
   
+  /* istanbul ignore next */
   nullInputIcon(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -108,16 +115,19 @@ export class InstrumentCardComponent implements OnInit {
   }
 
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
   }
 
+  /* istanbul ignore next */
   loadDataInstruments() {
     this.router.navigate(['instrument']);
   }
 
 
+  /* istanbul ignore next */
   changeInstrument(){
     this.instrumentService.changeInstrument(this.instrument).subscribe(
       datos => {
@@ -127,6 +137,7 @@ export class InstrumentCardComponent implements OnInit {
     this.instrument = new Instrument();
   }
 
+  /* istanbul ignore next */
   deleteInstrument(instrument: Instrument) {
     this.instrumentService.deleteInstrument(instrument.idInstrument).subscribe((data) => {
       this.loadDataInstruments();

@@ -32,6 +32,7 @@ export class SymphonyInstrumentCardComponent implements OnInit {
   public cancelClicked:boolean = false;
   constructor(private router: Router, private symphonyInsService: SymphonyInstrumentService, private unlockableService: UnlockableService, private symphonyService: SymphonyService, private intrumentService: InstrumentService) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
 
     this.unlockableService.getUnlockableStatus().subscribe(
@@ -56,6 +57,7 @@ export class SymphonyInstrumentCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -66,6 +68,7 @@ export class SymphonyInstrumentCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputTrack(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -76,6 +79,7 @@ export class SymphonyInstrumentCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputPosition(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -86,6 +90,7 @@ export class SymphonyInstrumentCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   loadDataSymphonyInstrument() {
     this.router.navigate(['symphonyInstrument']);
   }
@@ -100,18 +105,21 @@ export class SymphonyInstrumentCardComponent implements OnInit {
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showUpdateForm(){
     this.showUpdate = true;
     this.show = false;
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
     this.showUpdate = false;
   }
 
+  /* istanbul ignore next */
   changeSymphonyInstrument() {
     this.symphonyInsService.changeSymphonyInstrument(this.symphonyInstrument).subscribe(
       (datos) => console.log(datos)
@@ -120,6 +128,7 @@ export class SymphonyInstrumentCardComponent implements OnInit {
     //this.router.navigate(['ListCustomer']);
   }
 
+  /* istanbul ignore next */
   deleteSymphony(symphonyIns: SymphonyInstrumentUpdate) {
     this.symphonyInsService.deleteSymphonyInstrument(symphonyIns.idSymphonyInstrument).subscribe((data) => {
       this.loadDataSymphonyInstrument();

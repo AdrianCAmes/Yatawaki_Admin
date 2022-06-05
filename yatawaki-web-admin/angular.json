@@ -94,6 +94,7 @@
             }
           },
           "options": {
+            "codeCoverageExclude": ["src/app/service/**", "src/app/sidenavbar/**", "src/app/table/**", "src/app/update-forms/**"],
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",

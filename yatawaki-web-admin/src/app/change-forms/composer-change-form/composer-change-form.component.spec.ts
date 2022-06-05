@@ -35,6 +35,7 @@ import { ComposerService } from 'src/app/service/composer.service';
 
 
 import { ComposerChangeFormComponent } from './composer-change-form.component';
+import { Router } from '@angular/router';
 
 class ComposerTestingService {
 
@@ -55,7 +56,13 @@ class ComposerTestingService {
 describe('ComposerChangeFormComponent', () => {
   let fixture: ComponentFixture<ComposerChangeFormComponent>;
   let component: ComposerChangeFormComponent;
-  let service: ComposerService
+  let service: ComposerService;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() {return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -107,6 +114,7 @@ describe('ComposerChangeFormComponent', () => {
     fixture = TestBed.createComponent(ComposerChangeFormComponent)
     component = fixture.componentInstance;
     service = TestBed.get(ComposerService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -121,7 +129,10 @@ describe('ComposerChangeFormComponent', () => {
     component.id = 1
     spyOn(service, 'getComposerById').withArgs(component.id).and.returnValue(of(data));
     component.composer.name = "Composer prueba 2";
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.changeComposer();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idComposer: 1,
       name: "Composer prueba 2",

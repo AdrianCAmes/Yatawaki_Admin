@@ -34,6 +34,7 @@ import { SymphonyGestureComponent } from 'src/app/pages/symphony-gesture/symphon
 import { SymphonyGestureService } from 'src/app/service/symphony-gesture.service';
 
 import { SymphonyGestureChangeFormComponent } from './symphony-gesture-change-form.component';
+import { Router } from '@angular/router';
 
 class ConcertTestingService {
 
@@ -116,7 +117,13 @@ class ConcertTestingService {
 describe('SymphonyGestureChangeFormComponent', () => {
   let fixture: ComponentFixture<SymphonyGestureChangeFormComponent>;
   let component: SymphonyGestureChangeFormComponent;
-  let service: SymphonyGestureService
+  let service: SymphonyGestureService;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -168,6 +175,7 @@ describe('SymphonyGestureChangeFormComponent', () => {
     fixture = TestBed.createComponent(SymphonyGestureChangeFormComponent)
     component = fixture.componentInstance;
     service = TestBed.get(SymphonyGestureService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -211,7 +219,10 @@ describe('SymphonyGestureChangeFormComponent', () => {
     spyOn(service, 'getSymphonGestureyById').withArgs(component.id).and.returnValue(of(data));
     component.symphonyGesture.beginningTime = 2;
     component.symphonyGesture.endingTime = 3;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.changeSymphonyGesture();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idSymphonyGesture: 1,
       gesture: {

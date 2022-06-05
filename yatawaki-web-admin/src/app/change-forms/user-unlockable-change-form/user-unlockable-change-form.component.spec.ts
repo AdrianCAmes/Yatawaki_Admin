@@ -34,6 +34,7 @@ import { UserUnlockableService } from 'src/app/service/user-unlockable.service';
 import { UserUnlockableComponent } from 'src/app/pages/user-unlockable/user-unlockable.component';
 
 import { UserUnlockableChangeFormComponent } from './user-unlockable-change-form.component';
+import { Router } from '@angular/router';
 
 class UserUnlockableTestingService {
 
@@ -120,7 +121,13 @@ class UserUnlockableTestingService {
 describe('UserUnlockableChangeFormComponent', () => {
   let fixture: ComponentFixture<UserUnlockableChangeFormComponent>;
   let component: UserUnlockableChangeFormComponent;
-  let service: UserUnlockableService
+  let service: UserUnlockableService;
+  let router: Router;
+  const myWindow = {
+    location: {
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -172,6 +179,7 @@ describe('UserUnlockableChangeFormComponent', () => {
     fixture = TestBed.createComponent(UserUnlockableChangeFormComponent)
     component = fixture.componentInstance;
     service = TestBed.get(UserUnlockableService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -217,7 +225,10 @@ describe('UserUnlockableChangeFormComponent', () => {
     spyOn(service, 'getUserUnlockableById').withArgs(component.id).and.returnValue(of(data));
     component.userUnlockable.unlockedDate = new Date('2023-10-07 02:20:00');
     component.userUnlockable.status = 0;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.changeUserUnlockable();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUserUnlockable: 1,
       user: {

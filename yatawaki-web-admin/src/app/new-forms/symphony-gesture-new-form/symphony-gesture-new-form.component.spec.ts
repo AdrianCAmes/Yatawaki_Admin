@@ -33,6 +33,7 @@ import { SymphonyGestureCreate } from 'src/app/models/create/SymphonyGestureCrea
 import { SymphonyGestureService } from 'src/app/service/symphony-gesture.service';
 
 import { SymphonyGestureNewFormComponent } from './symphony-gesture-new-form.component';
+import { Router } from '@angular/router';
 
 class SymphonyGestureTestingService {
   createSymphonyGesture(symphonyGesture: Object): Observable<Object> {
@@ -77,6 +78,12 @@ class SymphonyGestureTestingService {
 describe('SymphonyGestureNewFormComponent', () => {
   let fixture: ComponentFixture<SymphonyGestureNewFormComponent>;
   let component: SymphonyGestureNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -126,6 +133,7 @@ describe('SymphonyGestureNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(SymphonyGestureNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -137,7 +145,10 @@ describe('SymphonyGestureNewFormComponent', () => {
       endingTime: 2,
     }
     component.symphonyGesture = newSymphonyGesture;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertSymphonyGesture();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idSymphonyGesture: 1,
       gesture: {

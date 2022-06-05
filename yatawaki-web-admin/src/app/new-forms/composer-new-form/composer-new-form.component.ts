@@ -14,10 +14,14 @@ export class ComposerNewFormComponent implements OnInit {
   
   composer: Composer = new Composer();
   statuses: any[] = [];
-  evidencia: any
+  evidencia: any;
+  compWindow: any;
 
-  constructor(private router: Router, private composerService: ComposerService, private unlockableService: UnlockableService) { }
+  constructor(private router: Router, private composerService: ComposerService, private unlockableService: UnlockableService) { 
+    this.compWindow = window;
+  }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.unlockableService.getUnlockableStatus().subscribe(
       datos => {
@@ -27,6 +31,7 @@ export class ComposerNewFormComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -37,6 +42,7 @@ export class ComposerNewFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -46,7 +52,7 @@ export class ComposerNewFormComponent implements OnInit {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
-
+  /* istanbul ignore next */
   nullInputBirthDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -57,6 +63,7 @@ export class ComposerNewFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputDeathDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -82,7 +89,7 @@ export class ComposerNewFormComponent implements OnInit {
     return this.router.navigate(['sidenavbar/composer']).then(()=>
     {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 

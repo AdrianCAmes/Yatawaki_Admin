@@ -16,10 +16,14 @@ export class ConcertNewFormComponent implements OnInit {
   concert: ConcertCreate = new ConcertCreate();
   symphonies: any[] = [];
   users: any[] = [];
-  evidencia: any
+  evidencia: any;
+  compWindow: any;
 
-  constructor(private router: Router, private concertService: ConcertService, private userService: UserService, private symphonyService: SymphonyService) { }
+  constructor(private router: Router, private concertService: ConcertService, private userService: UserService, private symphonyService: SymphonyService) { 
+    this.compWindow = window;
+  }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.symphonyService.getSymphonies().subscribe(
       data => {
@@ -47,7 +51,7 @@ export class ConcertNewFormComponent implements OnInit {
     return this.router.navigate(['sidenavbar/concert']).then(()=>
     {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 
