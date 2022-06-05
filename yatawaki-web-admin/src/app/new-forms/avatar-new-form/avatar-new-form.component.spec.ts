@@ -50,7 +50,12 @@ class RouterStub {
 describe('AvatarNewFormComponent', () => {
   let fixture: ComponentFixture<AvatarNewFormComponent>;
   let component: AvatarNewFormComponent;
-  let router: Router
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -100,7 +105,7 @@ describe('AvatarNewFormComponent', () => {
       ]
     }).compileComponents();
     fixture = TestBed.createComponent(AvatarNewFormComponent)
-    router = TestBed.get(Router)
+    router = TestBed.inject(Router);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -119,7 +124,10 @@ describe('AvatarNewFormComponent', () => {
       enhancedFeaturesJson: "Prueba 1"
     }
     component.avatar = newAvatar;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertAvatar();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUnlockable: 1,
       name: "Avatar 1",

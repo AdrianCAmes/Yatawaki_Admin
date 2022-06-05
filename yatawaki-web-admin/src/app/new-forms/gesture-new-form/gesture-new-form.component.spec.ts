@@ -34,6 +34,7 @@ import { GestureService } from 'src/app/service/gesture.service';
 import { GestureComponent } from 'src/app/pages/gesture/gesture.component';
 
 import { GestureNewFormComponent } from './gesture-new-form.component';
+import { Router } from '@angular/router';
 
 class GestureTestingService {
   createGesture(gesture: Object): Observable<Object> {
@@ -48,6 +49,12 @@ class GestureTestingService {
 describe('GestureNewFormComponent', () => {
   let fixture: ComponentFixture<GestureNewFormComponent>;
   let component: GestureNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -95,6 +102,7 @@ describe('GestureNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(GestureNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -105,7 +113,10 @@ describe('GestureNewFormComponent', () => {
       description: "Gesture",
       status: 1,}
     component.gesture = newGesture;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertGesture();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idGesture: 1,
       name: "Gesture",

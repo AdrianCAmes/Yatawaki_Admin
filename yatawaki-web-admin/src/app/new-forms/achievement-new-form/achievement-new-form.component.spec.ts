@@ -32,6 +32,7 @@ import { Observable } from 'rxjs';
 import { AchievementNewFormComponent } from './achievement-new-form.component';
 import { of } from 'rxjs';
 import { Achievement } from 'src/app/models/achievement';
+import { Router } from '@angular/router';
 
 class AchievementTestingService {
   createAchievement(achievement: Object): Observable<Object> {
@@ -42,6 +43,12 @@ class AchievementTestingService {
 describe('AchievementNewFormComponent', () => {
   let fixture: ComponentFixture<AchievementNewFormComponent>;
   let component: AchievementNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -89,6 +96,7 @@ describe('AchievementNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(AchievementNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -104,7 +112,10 @@ describe('AchievementNewFormComponent', () => {
       icon: "icono",
       status: 1,}
     component.achievement = newAchievement;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertAchievement();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUnlockable: 1, 
       name: "Logro 1", 

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { SidenavbarComponent } from 'src/app/sidenavbar/sidenavbar.component';
 import { TableComponent } from 'src/app/table/table.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,7 +32,7 @@ import { of } from 'rxjs';
 import { Achievement } from 'src/app/models/achievement';
 
 import { AchievementChangeFormComponent } from './achievement-change-form.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AchievementComponent } from 'src/app/pages/achievement/achievement.component';
 class AchievementTestingService {
 
@@ -57,9 +57,16 @@ class AchievementTestingService {
 describe('AchievementChangeFormComponent', () => {
   let fixture: ComponentFixture<AchievementChangeFormComponent>;
   let component: AchievementChangeFormComponent;
-  let service: AchievementService
+  let service: AchievementService;
+  const myWindow = {
+    location: {
+      reload() { return 'something'; }
+    }
+  };
 
+  let router: Router;
   beforeEach(async () => {
+
     await TestBed.configureTestingModule({
       imports: [
         BrowserModule,
@@ -102,17 +109,21 @@ describe('AchievementChangeFormComponent', () => {
         TableComponent,],
       providers: [TranslateService,
         {
+
           provide: AchievementService,
           useClass: AchievementTestingService
-        }]
+        }
+      ]
     }).compileComponents();
     fixture = TestBed.createComponent(AchievementChangeFormComponent)
     component = fixture.componentInstance;
-    service = TestBed.get(AchievementService);
+    service = TestBed.inject(AchievementService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
-  it('Actualizar logro', () => {
+
+  it('Actualizar logro', (done) => {
     const data: Achievement = { 
       idUnlockable: 1, 
       name: "Logro 1", 
@@ -124,10 +135,13 @@ describe('AchievementChangeFormComponent', () => {
       icon: "icono",
       status: 1,
     }
-    component.id = 1 
-    spyOn(service, 'getAchievementById').withArgs(component.id).and.returnValue(of(data));
+    component.id = 1;
     component.achievement.description = "Logro prueba 2";
+    spyOn(service, 'getAchievementById').withArgs(component.id).and.returnValue(of(data))
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.changeAchievement();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({ 
       idUnlockable: 1, 
       name: "Logro 1", 
@@ -139,5 +153,6 @@ describe('AchievementChangeFormComponent', () => {
       icon: "icono",
       status: 1,
     });
+    done();
   });
 });

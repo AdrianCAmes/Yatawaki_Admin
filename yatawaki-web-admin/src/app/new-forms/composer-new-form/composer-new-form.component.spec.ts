@@ -34,6 +34,7 @@ import { ComposerService } from 'src/app/service/composer.service';
 import { ComposerComponent } from 'src/app/pages/composer/composer.component';
 
 import { ComposerNewFormComponent } from './composer-new-form.component';
+import { Router } from '@angular/router';
 
 class ComposerTestingService {
   createComposer(composer: Object): Observable<Object> {
@@ -44,6 +45,12 @@ class ComposerTestingService {
 describe('ComposerNewFormComponent', () => {
   let fixture: ComponentFixture<ComposerNewFormComponent>;
   let component: ComposerNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -91,6 +98,7 @@ describe('ComposerNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(ComposerNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -102,7 +110,10 @@ describe('ComposerNewFormComponent', () => {
       deathDate: new Date('2023-10-06 02:20:00'),
       status: 1}
     component.composer = newComposer;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertComposer();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idComposer: 1,
       name: "Composer 1",

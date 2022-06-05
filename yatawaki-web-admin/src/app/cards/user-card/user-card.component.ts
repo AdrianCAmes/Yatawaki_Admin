@@ -28,6 +28,7 @@ export class UserCardComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.userService.getUserStatus().subscribe(
       datos => {
@@ -43,6 +44,7 @@ export class UserCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputNickname(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -53,6 +55,7 @@ export class UserCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputPassword(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -63,6 +66,7 @@ export class UserCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputFirstName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -73,6 +77,7 @@ export class UserCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputLastName(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -83,6 +88,7 @@ export class UserCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputMail(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -93,6 +99,7 @@ export class UserCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputBirthDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -103,6 +110,7 @@ export class UserCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputCoinsOwned(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -113,6 +121,7 @@ export class UserCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -123,6 +132,7 @@ export class UserCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputRole(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -143,16 +153,19 @@ export class UserCardComponent implements OnInit {
   }
 
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
   }
 
+  /* istanbul ignore next */
   loadDataUsers() {
     this.router.navigate(['user']);
   }
 
 
+  /* istanbul ignore next */
   changeUser(){
     this.userService.changeUser(this.user).subscribe(
       datos => {
@@ -162,6 +175,7 @@ export class UserCardComponent implements OnInit {
     this.user = new User();
   }
 
+  /* istanbul ignore next */
   deleteUser(user: User) {
     this.userService.deleteUser(user.idUser).subscribe((data) => {
       this.loadDataUsers();

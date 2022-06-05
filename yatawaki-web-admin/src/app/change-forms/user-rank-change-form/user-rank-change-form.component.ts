@@ -18,11 +18,15 @@ export class UserRankChangeFormComponent implements OnInit {
   statuses: any[] = [];
   users: any[] = [];
   ranks: any[] =[];
-  evidencia: any
+  evidencia: any;
+  compWindow: any;
 
   constructor(private router: Router, private route: ActivatedRoute,
-    private userRankService: UserRankService, private userService: UserService, private rankService: RankService) { }
+    private userRankService: UserRankService, private userService: UserService, private rankService: RankService) { 
+      this.compWindow = window;
+    }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.userRankService.getUserRankById(this.id).subscribe(
@@ -54,6 +58,7 @@ export class UserRankChangeFormComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputStartDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -63,6 +68,8 @@ export class UserRankChangeFormComponent implements OnInit {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+
+  /* istanbul ignore next */
   nullInputEndDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -72,6 +79,8 @@ export class UserRankChangeFormComponent implements OnInit {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+
+  /* istanbul ignore next */
   nullInputCurrentExperience(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -81,6 +90,8 @@ export class UserRankChangeFormComponent implements OnInit {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -103,7 +114,7 @@ export class UserRankChangeFormComponent implements OnInit {
     return this.router.navigate(['sidenavbar/user-rank']).then(()=>
     {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 

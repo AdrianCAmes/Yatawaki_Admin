@@ -33,6 +33,7 @@ import { UserStatistic } from 'src/app/models/user-statistic';
 import { UserStatisticService } from 'src/app/service/user-statistic.service';
 
 import { UserStatisticNewFormComponent } from './user-statistic-new-form.component';
+import { Router } from '@angular/router';
 
 class UserStatisticTestingService {
   createUserStatistic(userStatistic: Object): Observable<Object> {
@@ -46,6 +47,12 @@ class UserStatisticTestingService {
 describe('UserStatisticNewFormComponent', () => {
   let fixture: ComponentFixture<UserStatisticNewFormComponent>;
   let component: UserStatisticNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -93,6 +100,7 @@ describe('UserStatisticNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(UserStatisticNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -105,7 +113,10 @@ describe('UserStatisticNewFormComponent', () => {
       orchestrationAccuracy: 1,
       status: 1,}
     component.userStatistic = newUserStatistic;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertUserStatistic();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUserStatistics: 1,
       triviasPlayed: 1,

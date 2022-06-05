@@ -33,6 +33,7 @@ export class SymphonyGestureCardComponent implements OnInit {
 
   constructor(private router: Router, private symphonyGesService: SymphonyGestureService, private unlockableService: UnlockableService, private symphonyService: SymphonyService, private gestureService: GestureService) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     
     this.unlockableService.getUnlockableStatus().subscribe(
@@ -57,6 +58,7 @@ export class SymphonyGestureCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -67,6 +69,7 @@ export class SymphonyGestureCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputBeginningTime(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -77,6 +80,7 @@ export class SymphonyGestureCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputEndingTime(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -97,22 +101,26 @@ export class SymphonyGestureCardComponent implements OnInit {
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showUpdateForm(){
     this.showUpdate = true;
     this.show = false;
     this.showChange = false;
   }
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
     this.showUpdate = false;
   }
 
+  /* istanbul ignore next */
   loadDataSymphonyGesture() {
     this.router.navigate(['symphonyGesture']);
   }
 
+  /* istanbul ignore next */
   changeSymphonyGesture() {
     this.symphonyGesService.changeSymphonyGesture(this.symphonyGesture).subscribe(
       (datos) => console.log(datos)
@@ -121,6 +129,7 @@ export class SymphonyGestureCardComponent implements OnInit {
     //this.router.navigate(['ListCustomer']);
   }
 
+  /* istanbul ignore next */
   deleteSymphony(symphonyGest: SymphonyGestureUpdate) {
     this.symphonyGesService.deleteSymphonyGesture(symphonyGest.idSymphonyGesture).subscribe((data) => {
       this.loadDataSymphonyGesture();

@@ -18,7 +18,8 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
   symphonies: any[] = [];
   instruments: any[] = [];
   statuses: any[] = [];
-  evidencia:any
+  evidencia:any;
+  compWindow: any;
 
   show:boolean = false;
   showUpdate:boolean = false;
@@ -29,8 +30,11 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
   public confirmClicked:boolean = false;
   public cancelClicked:boolean = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private unlockableService: UnlockableService, private symphonyService: SymphonyService, private instrumentService: InstrumentService, private symphonyInsService: SymphonyInstrumentService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private unlockableService: UnlockableService, private symphonyService: SymphonyService, private instrumentService: InstrumentService, private symphonyInsService: SymphonyInstrumentService) { 
+    this.compWindow = window;
+  }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
 
     this.id = this.route.snapshot.params['id'];
@@ -66,6 +70,7 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -76,6 +81,7 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputTrack(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -86,6 +92,7 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputPosition(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -127,7 +134,7 @@ export class SymphonyInstrumentChangeFormComponent implements OnInit {
     return this.router.navigate(['sidenavbar/symphony-instrument']).then(()=>
     {
       console.log(this.router.url);
-      window.location.reload();
+      this.compWindow.location.reload();
     })
   }
 

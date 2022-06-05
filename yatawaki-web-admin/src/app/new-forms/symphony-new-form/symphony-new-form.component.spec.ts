@@ -33,6 +33,7 @@ import { SymphonyCreate } from 'src/app/models/create/SymphonyCreate';
 import { SymphonyService } from 'src/app/service/symphony.service';
 
 import { SymphonyNewFormComponent } from './symphony-new-form.component';
+import { Router } from '@angular/router';
 
 class SymphonyTestingService {
   createSymphony(symphony: Object): Observable<Object> {
@@ -65,6 +66,12 @@ class SymphonyTestingService {
 describe('SymphonyNewFormComponent', () => {
   let fixture: ComponentFixture<SymphonyNewFormComponent>;
   let component: SymphonyNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -114,6 +121,7 @@ describe('SymphonyNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(SymphonyNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -134,7 +142,10 @@ describe('SymphonyNewFormComponent', () => {
       coinsCost: 1,
     }
     component.symphony = newSymphony;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertSymphony();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUnlockable: 1,
       name: "Symphony",

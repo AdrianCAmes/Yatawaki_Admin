@@ -33,6 +33,7 @@ import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
 
 import { UserNewFormComponent } from './user-new-form.component';
+import { Router } from '@angular/router';
 
 class UserTestingService {
   createUser(user: Object): Observable<Object> {
@@ -49,6 +50,12 @@ class UserTestingService {
 describe('UserNewFormComponent', () => {
   let fixture: ComponentFixture<UserNewFormComponent>;
   let component: UserNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() {return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -96,6 +103,7 @@ describe('UserNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(UserNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -121,7 +129,10 @@ describe('UserNewFormComponent', () => {
       role: "User",
       showTutorials: true}
     component.user = newUser;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertUser();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idUser: 1,
       userStatistics: {

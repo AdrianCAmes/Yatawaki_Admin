@@ -32,6 +32,7 @@ export class ConcertCardComponent implements OnInit {
 
   constructor(private concertService: ConcertService, private router: Router, private userService: UserService, private symphonyService: SymphonyService) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.concertService.getConcertStatus().subscribe(
       datos => {
@@ -55,6 +56,7 @@ export class ConcertCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputPlayedDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -65,6 +67,7 @@ export class ConcertCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -75,6 +78,7 @@ export class ConcertCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputPoints(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -85,6 +89,7 @@ export class ConcertCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputAccuracyRate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -95,6 +100,7 @@ export class ConcertCardComponent implements OnInit {
     }
   }
 
+  /* istanbul ignore next */
   nullInputGesturesCompleted(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -115,16 +121,19 @@ export class ConcertCardComponent implements OnInit {
   }
 
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
   }
 
+  /* istanbul ignore next */
   loadDataConcerts() {
     this.router.navigate(['concert']);
   }
 
 
+  /* istanbul ignore next */
   changeConcert(){
     this.concertService.changeConcert(this.concert).subscribe(
       datos => {
@@ -134,6 +143,7 @@ export class ConcertCardComponent implements OnInit {
     this.concert = new ConcertUpdate();
   }
 
+  /* istanbul ignore next */
   deleteConcert(concert: ConcertUpdate) {
     this.concertService.deleteConcert(concert.idConcert).subscribe((data) => {
       this.loadDataConcerts();

@@ -35,6 +35,8 @@ import { ConcertService } from 'src/app/service/concert.service';
 import { ConcertComponent } from 'src/app/pages/concert/concert.component';
 
 import { ConcertChangeFormComponent } from './concert-change-form.component';
+import { Router } from '@angular/router';
+import { ResourceLoader } from '@angular/compiler';
 
 class ConcertTestingService {
 
@@ -156,7 +158,13 @@ class ConcertTestingService {
 describe('ConcertChangeFormComponent', () => {
   let fixture: ComponentFixture<ConcertChangeFormComponent>;
   let component: ConcertChangeFormComponent;
-  let service: ConcertService
+  let service: ConcertService;
+  let router: Router;
+  const myWindow = {
+    location:{
+      reload() {return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -208,6 +216,7 @@ describe('ConcertChangeFormComponent', () => {
     fixture = TestBed.createComponent(ConcertChangeFormComponent)
     component = fixture.componentInstance;
     service = TestBed.get(ConcertService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -267,7 +276,10 @@ describe('ConcertChangeFormComponent', () => {
     component.id = 1
     spyOn(service, 'getConcertById').withArgs(component.id).and.returnValue(of(data));
     component.concert.points = 13;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.changeConcert();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idConcert: 1,
       symphony: {

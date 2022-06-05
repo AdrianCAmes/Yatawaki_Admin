@@ -11,15 +11,17 @@ import { ComposerService } from '../../service/composer.service'
 })
 export class ComposerComponent implements OnInit {
 
+  /* istanbul ignore next */
   composers = new Array<any>();
-
   public popoverTitle:string = 'Aviso'
   public popoverMessage:string = '¿Seguro que quiere eliminar este elemento?'
   public confirmClicked:boolean = false;
   public cancelClicked:boolean = false;
 
+  /* istanbul ignore next */
   constructor(private router: Router, private composerService: ComposerService) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.composerService.getComposers().subscribe(response => {
       console.log(response)
@@ -27,18 +29,21 @@ export class ComposerComponent implements OnInit {
     });
   }
 
+  /* istanbul ignore next */
   loadDataComposerss() {
     this.composerService
       .getComposers()
       .subscribe((composers) => (this.composers = composers));
   }
 
+  /* istanbul ignore next */
   deleteComposer(composers: Composer) {
     this.composerService.deleteComposer(composers.idComposer).subscribe((data) => {
       this.loadDataComposerss();
     });
   }
 
+  /* istanbul ignore next */
   changeComposer(composers: Composer) {
     this.router.navigate(['sidenavbar/composer-change-form', composers.idComposer]);
   }

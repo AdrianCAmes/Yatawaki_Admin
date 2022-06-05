@@ -34,6 +34,7 @@ import { InstrumentService } from 'src/app/service/instrument.service';
 import { InstrumentComponent } from 'src/app/pages/instrument/instrument.component';
 
 import { InstrumentNewFormComponent } from './instrument-new-form.component';
+import { Router } from '@angular/router';
 
 class  InstrumentTestingService {
   createInstrument( instrument: Object): Observable<Object> {
@@ -47,6 +48,12 @@ class  InstrumentTestingService {
 describe('InstrumentNewFormComponent', () => {
   let fixture: ComponentFixture<InstrumentNewFormComponent>;
   let component: InstrumentNewFormComponent;
+  let router: Router;
+  const myWindow = {
+    location: {
+      reload() { return 'something'}
+    }
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -94,6 +101,7 @@ describe('InstrumentNewFormComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(InstrumentNewFormComponent)
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -107,7 +115,10 @@ describe('InstrumentNewFormComponent', () => {
       status: 1,
       icon: "Instrument"}
     component.instrument = newInstrument;
+    spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
+    component.compWindow = myWindow;
     component.insertInstrument();
+    expect(router.navigate).toHaveBeenCalled();
     expect(component.evidencia).toEqual({
       idInstrument: 1,
       name: "Instrument",

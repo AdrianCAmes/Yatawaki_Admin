@@ -32,6 +32,7 @@ export class UserRankCardComponent implements OnInit {
 
   constructor(private userRankService: UserRankService, private router: Router, private userService: UserService, private rankService: RankService) { }
 
+  /* istanbul ignore next */
   ngOnInit(): void {
     this.userRankService.getUserRankStatus().subscribe(
       datos => {
@@ -41,6 +42,7 @@ export class UserRankCardComponent implements OnInit {
     );
   }
 
+  /* istanbul ignore next */
   nullInputStartDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -50,6 +52,8 @@ export class UserRankCardComponent implements OnInit {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+
+  /* istanbul ignore next */
   nullInputEndDate(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -59,6 +63,8 @@ export class UserRankCardComponent implements OnInit {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+
+  /* istanbul ignore next */
   nullInputCurrentExperience(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -68,6 +74,8 @@ export class UserRankCardComponent implements OnInit {
       (<HTMLInputElement>document.getElementById(elementId)).disabled = false;
     }
   }
+
+  /* istanbul ignore next */
   nullInputStatus(elementId: string, chbox: string) {
     if ((<HTMLInputElement>document.getElementById(chbox)).checked === true) {
       (<HTMLInputElement>document.getElementById(elementId)).value = "";
@@ -88,16 +96,19 @@ export class UserRankCardComponent implements OnInit {
   }
 
 
+  /* istanbul ignore next */
   showChangeForm(){
     this.showChange = true;
     this.show = false;
   }
 
+  /* istanbul ignore next */
   loadDataUserRanks() {
     this.router.navigate(['user-rank']);
   }
 
 
+  /* istanbul ignore next */
   changeUserRank(){
     this.userRankService.changeUserRank(this.userRank).subscribe(
       datos => {
@@ -107,6 +118,7 @@ export class UserRankCardComponent implements OnInit {
     this.userRank = new UserRankUpdate();
   }
 
+  /* istanbul ignore next */
   deleteUserRank(userRank: UserRankUpdate) {
     this.userRankService.deleteUserRank(userRank.idUserRank).subscribe((data) => {
       this.loadDataUserRanks();
