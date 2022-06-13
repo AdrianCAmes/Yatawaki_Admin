@@ -27,3 +27,9 @@ jobs:
         with:
           name: code-coverage-report
           path: yatawaki-web-admin/coverage/yatawaki-web-admin/*
+          
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: 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  # Needed to get PR information, if any
+          SONAR_TOKEN: 387188bb88889acbea291003197b17c7c3e5e049
